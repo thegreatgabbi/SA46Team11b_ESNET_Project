@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class WelcomeForm
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -36,7 +36,11 @@
             this.previousDayButton = new System.Windows.Forms.Button();
             this.nextDayButton = new System.Windows.Forms.Button();
             this.facilityTypeCombo = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.MainMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // MainMenuStrip
@@ -49,7 +53,7 @@
             this.MainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MainMenuStrip.Name = "MainMenuStrip";
             this.MainMenuStrip.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.MainMenuStrip.Size = new System.Drawing.Size(774, 39);
+            this.MainMenuStrip.Size = new System.Drawing.Size(1173, 39);
             this.MainMenuStrip.TabIndex = 0;
             this.MainMenuStrip.Text = "MainMenuStrip";
             // 
@@ -120,12 +124,43 @@
             this.facilityTypeCombo.TabIndex = 4;
             this.facilityTypeCombo.Text = "<-Select Facilities Type->";
             // 
-            // WelcomeForm
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(32, 112);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 33;
+            this.dataGridView1.Size = new System.Drawing.Size(1104, 720);
+            this.dataGridView1.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(512, 432);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 31);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Welcome!";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(320, 480);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(541, 31);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "To get started, select a Facility Type above.";
+            // 
+            // MainForm
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 529);
+            this.ClientSize = new System.Drawing.Size(1173, 864);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.facilityTypeCombo);
             this.Controls.Add(this.nextDayButton);
             this.Controls.Add(this.previousDayButton);
@@ -133,10 +168,11 @@
             this.Controls.Add(this.MainMenuStrip);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "WelcomeForm";
+            this.Name = "MainForm";
             this.Text = "Sembawang Sports Center";
             this.MainMenuStrip.ResumeLayout(false);
             this.MainMenuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,7 +180,7 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip MainMenuStrip;
+        new private System.Windows.Forms.MenuStrip MainMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem bookFacilityToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem memberInformationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem facilityInformationToolStripMenuItem;
@@ -152,6 +188,9 @@
         private System.Windows.Forms.Button previousDayButton;
         private System.Windows.Forms.Button nextDayButton;
         private System.Windows.Forms.ComboBox facilityTypeCombo;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
