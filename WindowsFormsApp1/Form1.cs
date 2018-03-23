@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class MakeaBookingForm : Form
+    public partial class WelcomeForm : Form
     {
-        public MakeaBookingForm()
+        public WelcomeForm()
         {
             InitializeComponent();
         }
