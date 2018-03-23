@@ -45,7 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainForm.cs">
+    <Compile Include="MakeBookingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MakeBookingForm.Designer.cs">
+      <DependentUpon>MakeBookingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
