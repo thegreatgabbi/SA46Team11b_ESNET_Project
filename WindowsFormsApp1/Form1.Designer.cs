@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Form1
+    partial class WelcomeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,33 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.bookFacilityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.memberInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.facilityInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // menuStrip1
             // 
-            this.button1.Location = new System.Drawing.Point(39, 60);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 71);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bookFacilityToolStripMenuItem,
+            this.memberInformationToolStripMenuItem,
+            this.facilityInformationToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(2001, 39);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // Form1
+            // bookFacilityToolStripMenuItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.bookFacilityToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bookFacilityToolStripMenuItem.Name = "bookFacilityToolStripMenuItem";
+            this.bookFacilityToolStripMenuItem.Size = new System.Drawing.Size(181, 35);
+            this.bookFacilityToolStripMenuItem.Text = "Book Facility";
+            // 
+            // memberInformationToolStripMenuItem
+            // 
+            this.memberInformationToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.memberInformationToolStripMenuItem.Name = "memberInformationToolStripMenuItem";
+            this.memberInformationToolStripMenuItem.Size = new System.Drawing.Size(267, 35);
+            this.memberInformationToolStripMenuItem.Text = "Member Information";
+            // 
+            // facilityInformationToolStripMenuItem
+            // 
+            this.facilityInformationToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.facilityInformationToolStripMenuItem.Name = "facilityInformationToolStripMenuItem";
+            this.facilityInformationToolStripMenuItem.Size = new System.Drawing.Size(255, 35);
+            this.facilityInformationToolStripMenuItem.Text = "Facility Information";
+            // 
+            // WelcomeForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(274, 229);
-            this.Controls.Add(this.button1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(2001, 1226);
+            this.Controls.Add(this.menuStrip1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "WelcomeForm";
+            this.Text = "Welcome";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem bookFacilityToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem memberInformationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem facilityInformationToolStripMenuItem;
     }
 }
 
