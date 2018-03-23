@@ -123,6 +123,7 @@
             this.facilityTypeCombo.Size = new System.Drawing.Size(190, 39);
             this.facilityTypeCombo.TabIndex = 4;
             this.facilityTypeCombo.Text = "<-Select Facilities Type->";
+            this.facilityTypeCombo.SelectionChangeCommitted += new System.EventHandler(this.facilityTypeCombo_SelectionChangeCommitted);
             // 
             // dataGridView1
             // 
@@ -142,6 +143,7 @@
             this.label1.Size = new System.Drawing.Size(142, 31);
             this.label1.TabIndex = 6;
             this.label1.Text = "Welcome!";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -151,6 +153,7 @@
             this.label2.Size = new System.Drawing.Size(541, 31);
             this.label2.TabIndex = 7;
             this.label2.Text = "To get started, select a Facility Type above.";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
