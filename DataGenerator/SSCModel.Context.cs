@@ -27,5 +27,7 @@ namespace DataGenerator
     
         public virtual DbSet<Booking> Bookings { get; set; }
         public virtual DbSet<Facility> Facilities { get; set; }
+        public virtual DbSet<Member> Members { get; set; }
+        public virtual DbSet<Availability> Availabilities { get; set; }
     }
 }
