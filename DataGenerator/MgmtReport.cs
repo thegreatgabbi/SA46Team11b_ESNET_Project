@@ -34,6 +34,7 @@ namespace DataGenerator
             CRMgmt cr = new CRMgmt();
             cr.SetDataSource(ds);
             CRMgmtView.ReportSource = cr;
+            
         }
     }
 }

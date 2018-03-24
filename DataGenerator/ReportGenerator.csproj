@@ -67,6 +67,12 @@
     <Compile Include="Booking.cs">
       <DependentUpon>SSCModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="BookingReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookingReceipt.Designer.cs">
+      <DependentUpon>BookingReceipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="CRMem.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -120,6 +126,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SSCModel.edmx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BookingReceipt.resx">
+      <DependentUpon>BookingReceipt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CRMem.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRMem.cs</LastGenOutput>

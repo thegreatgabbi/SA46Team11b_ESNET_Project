@@ -16,7 +16,7 @@ namespace DataGenerator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MgmtReport());
+            Application.Run(new BookingReceipt());
         }
     }
 }
