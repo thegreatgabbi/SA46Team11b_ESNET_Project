@@ -81,9 +81,6 @@ namespace WindowsFormsApp1
         /// <param name="e"></param>
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            // use DataGridView.CellPainting event
-            // use CellStyle.BackColor
-
             // if e.RowIndex != -1 && e.ColumnIndex != -1
             if (e.RowIndex != -1 && e.ColumnIndex != -1)
             {
@@ -92,6 +89,15 @@ namespace WindowsFormsApp1
                 {
                     e.CellStyle.BackColor = SystemColors.Highlight;
                 }
+            }
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // if e.RowIndex != -1 && e.ColumnIndex != -1
+            if (e.RowIndex != -1 && e.ColumnIndex != -1)
+            {
+                e.Value = "";
             }
         }
     }
