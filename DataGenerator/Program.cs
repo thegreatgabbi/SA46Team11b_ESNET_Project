@@ -16,7 +16,7 @@ namespace DataGenerator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new crMember());
+            Application.Run(new MgmtReport());
         }
     }
 }

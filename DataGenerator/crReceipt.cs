@@ -16,14 +16,14 @@ namespace DataGenerator {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CRMgmt : ReportClass {
+    public class crReceipt : ReportClass {
         
-        public CRMgmt() {
+        public crReceipt() {
         }
         
         public override string ResourceName {
             get {
-                return "CRMgmt.rpt";
+                return "crReceipt.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace DataGenerator {
         
         public override string FullResourceName {
             get {
-                return "DataGenerator.CRMgmt.rpt";
+                return "DataGenerator.crReceipt.rpt";
             }
             set {
                 // Do nothing
@@ -82,25 +82,17 @@ namespace DataGenerator {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section ReportFooterSection1 {
-            get {
-                return this.ReportDefinition.Sections[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
-                return this.ReportDefinition.Sections[5];
+                return this.ReportDefinition.Sections[4];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCRMgmt : Component, ICachedReport {
+    public class CachedcrReceipt : Component, ICachedReport {
         
-        public CachedCRMgmt() {
+        public CachedcrReceipt() {
         }
         
         [Browsable(false)]
@@ -137,7 +129,7 @@ namespace DataGenerator {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CRMgmt rpt = new CRMgmt();
+            crReceipt rpt = new crReceipt();
             rpt.Site = this.Site;
             return rpt;
         }

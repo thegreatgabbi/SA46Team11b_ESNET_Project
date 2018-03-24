@@ -85,11 +85,23 @@
       <DependentUpon>CRMgmt.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="crReceipt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crReceipt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Facility.cs">
       <DependentUpon>SSCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Member.cs">
       <DependentUpon>SSCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MgmtReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MgmtReport.Designer.cs">
+      <DependentUpon>MgmtReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -118,6 +130,13 @@
     <EmbeddedResource Include="CRMgmt.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRMgmt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crReceipt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crReceipt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MgmtReport.resx">
+      <DependentUpon>MgmtReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
