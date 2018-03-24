@@ -73,6 +73,27 @@ namespace WindowsFormsApp1
             dataGridView1.Columns[5].HeaderText = "11AM";
             // Add more columns as necessary
         }
+
+        /// <summary>
+        /// Turn true/false values into blue/blank boxes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            // use DataGridView.CellPainting event
+            // use CellStyle.BackColor
+
+            // if e.RowIndex != -1 && e.ColumnIndex != -1
+            if (e.RowIndex != -1 && e.ColumnIndex != -1)
+            {
+                // if cell value is “true”
+                if (e.Value.ToString() == "True")
+                {
+                    e.CellStyle.BackColor = SystemColors.Highlight;
+                }
+            }
+        }
     }
     // TODO: Create FacilitySchedule class
     public class FacilitySchedule
