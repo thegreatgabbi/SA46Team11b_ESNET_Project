@@ -102,6 +102,7 @@
             this.Searchbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Searchbtn.UseVisualStyleBackColor = true;
             this.Searchbtn.Click += new System.EventHandler(this.Searchbtn_Click);
+            this.Searchbtn.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Searchbtn_KeyUp);
             this.Searchbtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Searchbtn_MouseClick);
             // 
             // Okbtn
@@ -173,6 +174,7 @@
             // 
             this.txtICNumber.Location = new System.Drawing.Point(421, 13);
             this.txtICNumber.Name = "txtICNumber";
+            this.txtICNumber.ReadOnly = true;
             this.txtICNumber.Size = new System.Drawing.Size(87, 22);
             this.txtICNumber.TabIndex = 34;
             // 
@@ -190,6 +192,7 @@
             // 
             this.txtCountry.Location = new System.Drawing.Point(612, 228);
             this.txtCountry.Name = "txtCountry";
+            this.txtCountry.ReadOnly = true;
             this.txtCountry.Size = new System.Drawing.Size(87, 22);
             this.txtCountry.TabIndex = 32;
             this.txtCountry.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
@@ -209,6 +212,7 @@
             // 
             this.txtPostalCode.Location = new System.Drawing.Point(612, 181);
             this.txtPostalCode.Name = "txtPostalCode";
+            this.txtPostalCode.ReadOnly = true;
             this.txtPostalCode.Size = new System.Drawing.Size(87, 22);
             this.txtPostalCode.TabIndex = 30;
             this.txtPostalCode.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -228,6 +232,7 @@
             // 
             this.txtDOB.Location = new System.Drawing.Point(464, 97);
             this.txtDOB.Name = "txtDOB";
+            this.txtDOB.ReadOnly = true;
             this.txtDOB.Size = new System.Drawing.Size(122, 22);
             this.txtDOB.TabIndex = 28;
             // 
@@ -257,6 +262,7 @@
             this.txtAddress.Location = new System.Drawing.Point(165, 182);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
+            this.txtAddress.ReadOnly = true;
             this.txtAddress.Size = new System.Drawing.Size(309, 79);
             this.txtAddress.TabIndex = 25;
             // 
@@ -264,6 +270,7 @@
             // 
             this.txtEmail.Location = new System.Drawing.Point(165, 144);
             this.txtEmail.Name = "txtEmail";
+            this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(207, 22);
             this.txtEmail.TabIndex = 24;
             // 
@@ -271,6 +278,7 @@
             // 
             this.txtPhoneNumber.Location = new System.Drawing.Point(165, 97);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.ReadOnly = true;
             this.txtPhoneNumber.Size = new System.Drawing.Size(139, 22);
             this.txtPhoneNumber.TabIndex = 23;
             // 
@@ -288,7 +296,8 @@
             // 
             this.txtGender.Location = new System.Drawing.Point(589, 54);
             this.txtGender.Name = "txtGender";
-            this.txtGender.Size = new System.Drawing.Size(46, 22);
+            this.txtGender.ReadOnly = true;
+            this.txtGender.Size = new System.Drawing.Size(67, 22);
             this.txtGender.TabIndex = 14;
             // 
             // BookingTolbl
@@ -317,6 +326,7 @@
             // 
             this.txtMemberID.Location = new System.Drawing.Point(168, 16);
             this.txtMemberID.Name = "txtMemberID";
+            this.txtMemberID.ReadOnly = true;
             this.txtMemberID.Size = new System.Drawing.Size(87, 22);
             this.txtMemberID.TabIndex = 17;
             // 
@@ -334,6 +344,7 @@
             // 
             this.txtMemberName.Location = new System.Drawing.Point(165, 53);
             this.txtMemberName.Name = "txtMemberName";
+            this.txtMemberName.ReadOnly = true;
             this.txtMemberName.Size = new System.Drawing.Size(309, 22);
             this.txtMemberName.TabIndex = 15;
             this.txtMemberName.TextChanged += new System.EventHandler(this.txtLocation_TextChanged);
@@ -377,9 +388,11 @@
             this.MemberdataGridView.DataSource = this.membersBindingSource1;
             this.MemberdataGridView.Location = new System.Drawing.Point(12, 80);
             this.MemberdataGridView.Name = "MemberdataGridView";
+            this.MemberdataGridView.ReadOnly = true;
             this.MemberdataGridView.RowTemplate.Height = 24;
             this.MemberdataGridView.Size = new System.Drawing.Size(758, 132);
             this.MemberdataGridView.TabIndex = 18;
+            this.MemberdataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MemberdataGridView_CellClick_1);
             this.MemberdataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MemberdataGridView_CellContentClick_1);
             // 
             // memberIDDataGridViewTextBoxColumn
@@ -387,66 +400,77 @@
             this.memberIDDataGridViewTextBoxColumn.DataPropertyName = "MemberID";
             this.memberIDDataGridViewTextBoxColumn.HeaderText = "MemberID";
             this.memberIDDataGridViewTextBoxColumn.Name = "memberIDDataGridViewTextBoxColumn";
+            this.memberIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // memberNameDataGridViewTextBoxColumn
             // 
             this.memberNameDataGridViewTextBoxColumn.DataPropertyName = "MemberName";
             this.memberNameDataGridViewTextBoxColumn.HeaderText = "MemberName";
             this.memberNameDataGridViewTextBoxColumn.Name = "memberNameDataGridViewTextBoxColumn";
+            this.memberNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // iCNumberDataGridViewTextBoxColumn
             // 
             this.iCNumberDataGridViewTextBoxColumn.DataPropertyName = "ICNumber";
             this.iCNumberDataGridViewTextBoxColumn.HeaderText = "ICNumber";
             this.iCNumberDataGridViewTextBoxColumn.Name = "iCNumberDataGridViewTextBoxColumn";
+            this.iCNumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dateofBirthDataGridViewTextBoxColumn
             // 
             this.dateofBirthDataGridViewTextBoxColumn.DataPropertyName = "DateofBirth";
             this.dateofBirthDataGridViewTextBoxColumn.HeaderText = "DateofBirth";
             this.dateofBirthDataGridViewTextBoxColumn.Name = "dateofBirthDataGridViewTextBoxColumn";
+            this.dateofBirthDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // addressDataGridViewTextBoxColumn
             // 
             this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
             this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
             this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // countryDataGridViewTextBoxColumn
             // 
             this.countryDataGridViewTextBoxColumn.DataPropertyName = "Country";
             this.countryDataGridViewTextBoxColumn.HeaderText = "Country";
             this.countryDataGridViewTextBoxColumn.Name = "countryDataGridViewTextBoxColumn";
+            this.countryDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // postcodeDataGridViewTextBoxColumn
             // 
             this.postcodeDataGridViewTextBoxColumn.DataPropertyName = "Postcode";
             this.postcodeDataGridViewTextBoxColumn.HeaderText = "Postcode";
             this.postcodeDataGridViewTextBoxColumn.Name = "postcodeDataGridViewTextBoxColumn";
+            this.postcodeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // contactTitleDataGridViewTextBoxColumn
             // 
             this.contactTitleDataGridViewTextBoxColumn.DataPropertyName = "ContactTitle";
             this.contactTitleDataGridViewTextBoxColumn.HeaderText = "ContactTitle";
             this.contactTitleDataGridViewTextBoxColumn.Name = "contactTitleDataGridViewTextBoxColumn";
+            this.contactTitleDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // contactNumberDataGridViewTextBoxColumn
             // 
             this.contactNumberDataGridViewTextBoxColumn.DataPropertyName = "ContactNumber";
             this.contactNumberDataGridViewTextBoxColumn.HeaderText = "ContactNumber";
             this.contactNumberDataGridViewTextBoxColumn.Name = "contactNumberDataGridViewTextBoxColumn";
+            this.contactNumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // emailAddressDataGridViewTextBoxColumn
             // 
             this.emailAddressDataGridViewTextBoxColumn.DataPropertyName = "EmailAddress";
             this.emailAddressDataGridViewTextBoxColumn.HeaderText = "EmailAddress";
             this.emailAddressDataGridViewTextBoxColumn.Name = "emailAddressDataGridViewTextBoxColumn";
+            this.emailAddressDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // genderDataGridViewTextBoxColumn
             // 
             this.genderDataGridViewTextBoxColumn.DataPropertyName = "Gender";
             this.genderDataGridViewTextBoxColumn.HeaderText = "Gender";
             this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
+            this.genderDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // membersBindingSource1
             // 

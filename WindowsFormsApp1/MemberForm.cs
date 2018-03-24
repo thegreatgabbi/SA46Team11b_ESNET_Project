@@ -14,6 +14,24 @@ namespace WindowsFormsApp1
     {
         MakeBookingForm form;
         SembawangSportEntities ctx = new SembawangSportEntities();
+        //To populate member records in the gridbox
+        private void PopulateText()
+        {
+            int length = txtMemberSearch.TextLength;
+            string membertext = (txtMemberSearch.Text).Trim();
+            var q = from x in ctx.Members
+                    where ((x.MemberName.Substring(0, length) == membertext) ||
+                          (x.MemberID.ToString().Substring(0, length) == txtMemberSearch.Text) ||
+                          (x.ICNumber.Substring(0, length) == membertext) ||
+                          (x.EmailAddress.Substring(0, length) == membertext) ||
+                          (x.Postcode.Substring(0, length) == membertext) ||
+                          (x.ContactNumber.Substring(0, length) == membertext) ||
+                          (x.Country.Substring(0, length) == membertext))
+                    select x;
+            MemberdataGridView.DataSource = q.ToList();
+        }
+
+       
         public MemberForm(MakeBookingForm f)
         {
             InitializeComponent();
@@ -88,35 +106,37 @@ namespace WindowsFormsApp1
 
         private void MemberdataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //txtMemberID.Text = MemberdataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
-            //txtMemberName.Text = MemberdataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
-            //txtICNumber.Text = MemberdataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
-            //txtDOB.Text = MemberdataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
-            //txtAddress.Text = MemberdataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
-            //txtCountry.Text = MemberdataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
-            //txtPostalCode.Text = MemberdataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
-            //txtPhoneNumber.Text = MemberdataGridView.Rows[e.RowIndex].Cells[7].Value.ToString();
-            //txtEmail.Text = MemberdataGridView.Rows[e.RowIndex].Cells[8].Value.ToString();
-            //txtGender.Text = MemberdataGridView.Rows[e.RowIndex].Cells[9].Value.ToString();
-            MessageBox.Show("Hello");
+           
         }
 
         private void Searchbtn_MouseClick(object sender, MouseEventArgs e)
         {
-            int length = txtMemberSearch.TextLength;
-            var q = from x in ctx.Members where ((x.MemberName.Substring(0, length) == txtMemberSearch.Text) ||
-                                                (x.MemberID.ToString().Substring(0, length) == txtMemberSearch.Text) ||
-                                                (x.ICNumber.Substring(0, length) == txtMemberSearch.Text)||
-                                                (x.EmailAddress.Substring(0, length) == txtMemberSearch.Text)||
-                                                (x.Postcode.Substring(0, length) == txtMemberSearch.Text)||
-                                                (x.ContactNumber.Substring(0, length) == txtMemberSearch.Text)||
-                                                (x.Country.Substring(0, length) == txtMemberSearch.Text)) select x;
-            MemberdataGridView.DataSource = q.ToList();
+            PopulateText();
         }
 
         private void MemberdataGridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             
+        }
+
+        private void Searchbtn_KeyUp(object sender, KeyEventArgs e)
+        {
+            PopulateText();
+        }
+
+        private void MemberdataGridView_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            MemberdataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            txtMemberID.Text = MemberdataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtMemberName.Text = MemberdataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtICNumber.Text = MemberdataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtDOB.Text = MemberdataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txtAddress.Text = MemberdataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+            txtCountry.Text = MemberdataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
+            txtPostalCode.Text = MemberdataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
+            txtPhoneNumber.Text = MemberdataGridView.Rows[e.RowIndex].Cells[8].Value.ToString();
+            txtEmail.Text = MemberdataGridView.Rows[e.RowIndex].Cells[9].Value.ToString();
+            txtGender.Text = MemberdataGridView.Rows[e.RowIndex].Cells[10].Value.ToString();
         }
     }
 }

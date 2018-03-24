@@ -92,6 +92,7 @@
             // 
             this.txtMemberName.Location = new System.Drawing.Point(213, 149);
             this.txtMemberName.Name = "txtMemberName";
+            this.txtMemberName.ReadOnly = true;
             this.txtMemberName.Size = new System.Drawing.Size(208, 22);
             this.txtMemberName.TabIndex = 4;
             // 
@@ -168,6 +169,7 @@
             // 
             this.txtBookingDate.Location = new System.Drawing.Point(551, 71);
             this.txtBookingDate.Name = "txtBookingDate";
+            this.txtBookingDate.ReadOnly = true;
             this.txtBookingDate.Size = new System.Drawing.Size(100, 22);
             this.txtBookingDate.TabIndex = 7;
             // 
@@ -205,6 +207,7 @@
             // 
             this.txtRoomName.Location = new System.Drawing.Point(160, 66);
             this.txtRoomName.Name = "txtRoomName";
+            this.txtRoomName.ReadOnly = true;
             this.txtRoomName.Size = new System.Drawing.Size(185, 22);
             this.txtRoomName.TabIndex = 8;
             // 
@@ -222,6 +225,7 @@
             // 
             this.txtLocation.Location = new System.Drawing.Point(160, 128);
             this.txtLocation.Name = "txtLocation";
+            this.txtLocation.ReadOnly = true;
             this.txtLocation.Size = new System.Drawing.Size(100, 22);
             this.txtLocation.TabIndex = 7;
             // 

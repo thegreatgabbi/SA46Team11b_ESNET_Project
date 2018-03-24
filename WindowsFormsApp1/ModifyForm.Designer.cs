@@ -154,6 +154,7 @@
             // 
             this.txtBookingDate.Location = new System.Drawing.Point(580, 33);
             this.txtBookingDate.Name = "txtBookingDate";
+            this.txtBookingDate.ReadOnly = true;
             this.txtBookingDate.Size = new System.Drawing.Size(100, 22);
             this.txtBookingDate.TabIndex = 24;
             // 
@@ -191,6 +192,7 @@
             // 
             this.txtLocation.Location = new System.Drawing.Point(160, 110);
             this.txtLocation.Name = "txtLocation";
+            this.txtLocation.ReadOnly = true;
             this.txtLocation.Size = new System.Drawing.Size(100, 22);
             this.txtLocation.TabIndex = 25;
             // 
@@ -208,6 +210,7 @@
             // 
             this.txtRoomName.Location = new System.Drawing.Point(160, 33);
             this.txtRoomName.Name = "txtRoomName";
+            this.txtRoomName.ReadOnly = true;
             this.txtRoomName.Size = new System.Drawing.Size(185, 22);
             this.txtRoomName.TabIndex = 27;
             // 
@@ -238,6 +241,7 @@
             this.DeleteBookingbtn.TabIndex = 36;
             this.DeleteBookingbtn.Text = "Delete Booking";
             this.DeleteBookingbtn.UseVisualStyleBackColor = true;
+            this.DeleteBookingbtn.Click += new System.EventHandler(this.DeleteBookingbtn_Click);
             // 
             // Printbtn
             // 
