@@ -10,13 +10,18 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class MainForm : Form
+    public partial class BookFacility : Form
     {
-        public MainForm()
+        public BookFacility()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// When a Facility Type is selected. Assumes that bookDT picker is populated.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void facilityTypeCombo_SelectionChangeCommitted(object sender, EventArgs e)
         {
             // Make sure you hide the Welcome Message!
@@ -46,7 +51,8 @@ namespace WindowsFormsApp1
             // Generate the appropriate amount of FacilitySchedule objects
             // Get get unique facility types (e.g. "Badminton Court 1", "Badminton Court 2", "Badminton Court 3")
             var q2 = q.GroupBy(x => x.Facility.FacilityName).Select(y => new { y.Key });
-            dataGridView1.DataSource = q2.ToList();
+
+            // dataGridView1.DataSource = q2.ToList(); // to remove: for debugging
 
             List<FacilitySchedule> lstFac = new List<FacilitySchedule>();
 
@@ -58,6 +64,14 @@ namespace WindowsFormsApp1
 
             // display it in dataGridView
             dataGridView1.DataSource = lstFac.ToList();
+            //
+            dataGridView1.Columns["FacName"].HeaderText = "Facility Name";
+            dataGridView1.Columns[1].HeaderText = "7AM";
+            dataGridView1.Columns[2].HeaderText = "8AM";
+            dataGridView1.Columns[3].HeaderText = "9AM";
+            dataGridView1.Columns[4].HeaderText = "10AM";
+            dataGridView1.Columns[5].HeaderText = "11AM";
+            // Add more columns as necessary
         }
     }
     // TODO: Create FacilitySchedule class
