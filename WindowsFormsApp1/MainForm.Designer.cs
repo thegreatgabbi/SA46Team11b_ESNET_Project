@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class WelcomeForm
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -49,7 +49,7 @@
             this.MainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MainMenuStrip.Name = "MainMenuStrip";
             this.MainMenuStrip.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.MainMenuStrip.Size = new System.Drawing.Size(774, 39);
+            this.MainMenuStrip.Size = new System.Drawing.Size(774, 42);
             this.MainMenuStrip.TabIndex = 0;
             this.MainMenuStrip.Text = "MainMenuStrip";
             // 
@@ -57,21 +57,22 @@
             // 
             this.bookFacilityToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bookFacilityToolStripMenuItem.Name = "bookFacilityToolStripMenuItem";
-            this.bookFacilityToolStripMenuItem.Size = new System.Drawing.Size(181, 35);
+            this.bookFacilityToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
             this.bookFacilityToolStripMenuItem.Text = "Book Facility";
             // 
             // memberInformationToolStripMenuItem
             // 
             this.memberInformationToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.memberInformationToolStripMenuItem.Name = "memberInformationToolStripMenuItem";
-            this.memberInformationToolStripMenuItem.Size = new System.Drawing.Size(267, 35);
+            this.memberInformationToolStripMenuItem.Size = new System.Drawing.Size(267, 38);
             this.memberInformationToolStripMenuItem.Text = "Member Information";
+            this.memberInformationToolStripMenuItem.Click += new System.EventHandler(this.memberInformationToolStripMenuItem_Click);
             // 
             // facilityInformationToolStripMenuItem
             // 
             this.facilityInformationToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.facilityInformationToolStripMenuItem.Name = "facilityInformationToolStripMenuItem";
-            this.facilityInformationToolStripMenuItem.Size = new System.Drawing.Size(255, 35);
+            this.facilityInformationToolStripMenuItem.Size = new System.Drawing.Size(255, 38);
             this.facilityInformationToolStripMenuItem.Text = "Facility Information";
             // 
             // bookDTPicker
@@ -120,7 +121,7 @@
             this.facilityTypeCombo.TabIndex = 4;
             this.facilityTypeCombo.Text = "<-Select Facilities Type->";
             // 
-            // WelcomeForm
+            // MainForm
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -133,7 +134,7 @@
             this.Controls.Add(this.MainMenuStrip);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "WelcomeForm";
+            this.Name = "MainForm";
             this.Text = "Sembawang Sports Center";
             this.MainMenuStrip.ResumeLayout(false);
             this.MainMenuStrip.PerformLayout();

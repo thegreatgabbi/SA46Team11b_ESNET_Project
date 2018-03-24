@@ -10,11 +10,43 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class WelcomeForm : Form
+    public partial class MainForm : Form
     {
-        public WelcomeForm()
+        public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LookUpBtn_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Okbtn_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void memberInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MemberInformationForm mi = new MemberInformationForm();
+            mi.Show();
         }
     }
 }
