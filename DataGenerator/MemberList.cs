@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace DataGenerator
 {
-    public partial class crMember : Form
+    public partial class MemberList : Form
     {
-        public crMember()
+        public MemberList()
         {
             InitializeComponent();
         }
 
-        private void crMember_Load(object sender, EventArgs e)
+        private void MemberList_Load(object sender, EventArgs e)
         {
             SembawangSportEntities context = new SembawangSportEntities();
             string conS = "Data source = (local); Initial Catalog = SembawangSport; Integrated Security = SSPI";
@@ -32,9 +32,7 @@ namespace DataGenerator
 
             CRMem cr = new CRMem();
             cr.SetDataSource(ds);
-            crMem.ReportSource = cr;
-
-
+            MemListView.ReportSource = cr;
         }
     }
 }

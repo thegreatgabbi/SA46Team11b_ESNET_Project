@@ -79,12 +79,6 @@
       <DependentUpon>CRMem.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CRMemberList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CRMemberList.Designer.cs">
-      <DependentUpon>CRMemberList.cs</DependentUpon>
-    </Compile>
     <Compile Include="CRMgmt.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -102,6 +96,12 @@
     </Compile>
     <Compile Include="Member.cs">
       <DependentUpon>SSCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemberList.Designer.cs">
+      <DependentUpon>MemberList.cs</DependentUpon>
     </Compile>
     <Compile Include="MgmtReport.cs">
       <SubType>Form</SubType>
@@ -133,9 +133,6 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRMem.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="CRMemberList.resx">
-      <DependentUpon>CRMemberList.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CRMgmt.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRMgmt.cs</LastGenOutput>
@@ -143,6 +140,9 @@
     <EmbeddedResource Include="crReceipt.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReceipt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemberList.resx">
+      <DependentUpon>MemberList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MgmtReport.resx">
       <DependentUpon>MgmtReport.cs</DependentUpon>
