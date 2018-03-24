@@ -15,6 +15,7 @@ namespace ConsoleApp1
             firstdate = firstdate.Date + ts;
             Console.WriteLine(firstdate);
             Console.ReadLine();
+            
         }
     }
 }
