@@ -82,22 +82,18 @@ namespace WindowsFormsApp1
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             // if e.RowIndex != -1 && e.ColumnIndex != -1
-            if (e.RowIndex != -1 && e.ColumnIndex != -1)
+            if (e.RowIndex >= -1 && e.ColumnIndex > 0)
             {
                 // if cell value is “true”
                 if (e.Value.ToString() == "True")
                 {
                     e.CellStyle.BackColor = SystemColors.Highlight;
+                    e.CellStyle.ForeColor = SystemColors.Highlight;
                 }
-            }
-        }
-
-        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            // if e.RowIndex != -1 && e.ColumnIndex != -1
-            if (e.RowIndex != -1 && e.ColumnIndex != -1)
-            {
-                e.Value = "";
+                if (e.Value.ToString() == "False")
+                {
+                    e.CellStyle.ForeColor = dataGridView1.DefaultCellStyle.BackColor;
+                }
             }
         }
     }
