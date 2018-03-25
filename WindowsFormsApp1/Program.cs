@@ -16,7 +16,22 @@ namespace WindowsFormsApp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FacilityAvailabiltyForm());
+            Application.Run(new TestForm());
+        }
+        static public int GetBookingID(DateTime bookingDate, string facName, int bookingFrom)
+        {
+            TimeSpan ts = new TimeSpan(bookingFrom, 0, 0);
+            DateTime bookingDateFrom = bookingDate + ts;
+            int bookingID;
+
+            // When to cache and when not to cache?
+            SembawangSportEntities context = new SembawangSportEntities();
+
+            var q = context.Bookings.Where(x => x.BookingDateFrom == bookingDateFrom).Where(x => x.Facility.FacilityName == facName).Select(x => x.BookingID);
+
+            bookingID = q.First();
+            // MessageBox.Show(q.First().ToString()); // FOR DEBUG
+            return bookingID;
         }
     }
 }
