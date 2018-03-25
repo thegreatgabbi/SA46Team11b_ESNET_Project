@@ -103,44 +103,48 @@ namespace WindowsFormsApp1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int hour = 0;
             string bookingType;
-            if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "True")
-            {
-                bookingType = "Modify Booking";
-            } else
-            {
-                bookingType = "New Booking";
-            }
 
-            MessageBox.Show("Type of form triggerred: " + bookingType);
-            MessageBox.Show("Date: " + selectedDate.ToShortDateString());
-            MessageBox.Show("Facility Name:" + listFacilityAvailabiltyByDay[e.RowIndex].FacName.ToString());
-            // get the correct timing
-            // look at the column, and pass an Hour object
-            // can we create an Enum to help with the mapping?
-            switch (e.ColumnIndex)
+            if (e.RowIndex > -1 && e.ColumnIndex > 0)
             {
-                case 1:
-                    hour = 7;
-                    break;
-                case 2:
-                    hour = 8;
-                    break;
-                case 3:
-                    hour = 9;
-                    break;
-                case 4:
-                    hour = 10;
-                    break;
-                case 5:
-                    hour = 11;
-                    break;
-            }
-            MessageBox.Show("Time: " + hour.ToString());
+                if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "True")
+                {
+                    bookingType = "Modify Booking";
+                }
+                else
+                {
+                    bookingType = "New Booking";
+                }
 
+                MessageBox.Show("Type of form triggerred: " + bookingType);
+                MessageBox.Show("Date: " + selectedDate.ToShortDateString());
+                MessageBox.Show("Facility Name: " + listFacilityAvailabiltyByDay[e.RowIndex].FacName.ToString());
+                // get the correct timing
+                // look at the column, and pass an Hour object
+                // can we create an Enum to help with the mapping?
+                switch (e.ColumnIndex)
+                {
+                    case 1:
+                        hour = 7;
+                        break;
+                    case 2:
+                        hour = 8;
+                        break;
+                    case 3:
+                        hour = 9;
+                        break;
+                    case 4:
+                        hour = 10;
+                        break;
+                    case 5:
+                        hour = 11;
+                        break;
+                }
+                MessageBox.Show("Time: " + hour.ToString() + "AM");
+            }
         }
         // TODO: Create FacilitySchedule class
         public class FacilitySchedule
@@ -214,6 +218,16 @@ namespace WindowsFormsApp1
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Prevents highlighting from occuring. Doesn't disrupt the clicking of a cell.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
         }
     }
 }
