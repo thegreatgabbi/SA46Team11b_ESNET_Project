@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class BookFacility
+    partial class FacilityAvailabiltyForm
     {
         /// <summary>
         /// Required designer variable.

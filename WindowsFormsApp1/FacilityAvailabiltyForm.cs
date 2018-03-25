@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class BookFacility : Form
+    public partial class FacilityAvailabiltyForm : Form
     {
         // Test case: Badminton Court 4 on 7/1/2018
 
@@ -20,7 +20,7 @@ namespace WindowsFormsApp1
         List<Booking> listBookings;
         List<FacilitySchedule> listFacilityAvailabiltyByDay;
 
-        public BookFacility()
+        public FacilityAvailabiltyForm()
         {
             InitializeComponent();
 
