@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.newMemGBox = new System.Windows.Forms.GroupBox();
+            this.genderComboBox = new System.Windows.Forms.ComboBox();
             this.ContactNumberTextBox = new System.Windows.Forms.TextBox();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.PostalCodeTextBox = new System.Windows.Forms.TextBox();
             this.AddressTextBox = new System.Windows.Forms.TextBox();
             this.CountryTextBox = new System.Windows.Forms.TextBox();
             this.ContactTitleTextBox = new System.Windows.Forms.TextBox();
-            this.GenderTextBox = new System.Windows.Forms.TextBox();
             this.memberBDPicker = new System.Windows.Forms.DateTimePicker();
             this.ICNumberTextBox = new System.Windows.Forms.TextBox();
             this.MemberNameTextBox = new System.Windows.Forms.TextBox();
@@ -56,13 +56,13 @@
             // 
             // newMemGBox
             // 
+            this.newMemGBox.Controls.Add(this.genderComboBox);
             this.newMemGBox.Controls.Add(this.ContactNumberTextBox);
             this.newMemGBox.Controls.Add(this.EmailTextBox);
             this.newMemGBox.Controls.Add(this.PostalCodeTextBox);
             this.newMemGBox.Controls.Add(this.AddressTextBox);
             this.newMemGBox.Controls.Add(this.CountryTextBox);
             this.newMemGBox.Controls.Add(this.ContactTitleTextBox);
-            this.newMemGBox.Controls.Add(this.GenderTextBox);
             this.newMemGBox.Controls.Add(this.memberBDPicker);
             this.newMemGBox.Controls.Add(this.ICNumberTextBox);
             this.newMemGBox.Controls.Add(this.MemberNameTextBox);
@@ -82,6 +82,19 @@
             this.newMemGBox.TabIndex = 0;
             this.newMemGBox.TabStop = false;
             this.newMemGBox.Text = "New Member Information Query";
+            // 
+            // genderComboBox
+            // 
+            this.genderComboBox.FormattingEnabled = true;
+            this.genderComboBox.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.genderComboBox.Location = new System.Drawing.Point(169, 172);
+            this.genderComboBox.Name = "genderComboBox";
+            this.genderComboBox.Size = new System.Drawing.Size(131, 39);
+            this.genderComboBox.TabIndex = 44;
+            this.genderComboBox.Text = "Select Gender";
+            this.genderComboBox.SelectedValueChanged += new System.EventHandler(this.genderComboBox_SelectedValueChanged);
             // 
             // ContactNumberTextBox
             // 
@@ -121,19 +134,11 @@
             // 
             // ContactTitleTextBox
             // 
-            this.ContactTitleTextBox.Location = new System.Drawing.Point(375, 173);
+            this.ContactTitleTextBox.Location = new System.Drawing.Point(581, 172);
             this.ContactTitleTextBox.Name = "ContactTitleTextBox";
             this.ContactTitleTextBox.ReadOnly = true;
             this.ContactTitleTextBox.Size = new System.Drawing.Size(85, 38);
             this.ContactTitleTextBox.TabIndex = 38;
-            // 
-            // GenderTextBox
-            // 
-            this.GenderTextBox.Location = new System.Drawing.Point(168, 176);
-            this.GenderTextBox.Name = "GenderTextBox";
-            this.GenderTextBox.Size = new System.Drawing.Size(92, 38);
-            this.GenderTextBox.TabIndex = 37;
-            this.GenderTextBox.TextChanged += new System.EventHandler(this.GenderTextBox_TextChanged);
             // 
             // memberBDPicker
             // 
@@ -191,7 +196,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(278, 175);
+            this.label8.Location = new System.Drawing.Point(467, 172);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(168, 31);
@@ -307,7 +312,6 @@
         private System.Windows.Forms.TextBox AddressTextBox;
         private System.Windows.Forms.TextBox CountryTextBox;
         private System.Windows.Forms.TextBox ContactTitleTextBox;
-        private System.Windows.Forms.TextBox GenderTextBox;
         private System.Windows.Forms.DateTimePicker memberBDPicker;
         private System.Windows.Forms.TextBox ICNumberTextBox;
         private System.Windows.Forms.TextBox MemberNameTextBox;
@@ -323,5 +327,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button newMemberCancelButton;
         private System.Windows.Forms.Button NewMemberAddButton;
+        private System.Windows.Forms.ComboBox genderComboBox;
     }
 }

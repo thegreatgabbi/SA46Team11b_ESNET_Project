@@ -30,6 +30,7 @@
         {
             this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.bookFacilityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bookingInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.memberInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facilityInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookDTPicker = new System.Windows.Forms.DateTimePicker();
@@ -44,12 +45,13 @@
             this.MainMenuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.MainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bookFacilityToolStripMenuItem,
+            this.bookingInformationToolStripMenuItem,
             this.memberInformationToolStripMenuItem,
             this.facilityInformationToolStripMenuItem});
             this.MainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MainMenuStrip.Name = "MainMenuStrip";
             this.MainMenuStrip.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.MainMenuStrip.Size = new System.Drawing.Size(774, 42);
+            this.MainMenuStrip.Size = new System.Drawing.Size(1041, 42);
             this.MainMenuStrip.TabIndex = 0;
             this.MainMenuStrip.Text = "MainMenuStrip";
             // 
@@ -59,6 +61,14 @@
             this.bookFacilityToolStripMenuItem.Name = "bookFacilityToolStripMenuItem";
             this.bookFacilityToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
             this.bookFacilityToolStripMenuItem.Text = "Book Facility";
+            // 
+            // bookingInformationToolStripMenuItem
+            // 
+            this.bookingInformationToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bookingInformationToolStripMenuItem.Name = "bookingInformationToolStripMenuItem";
+            this.bookingInformationToolStripMenuItem.Size = new System.Drawing.Size(267, 38);
+            this.bookingInformationToolStripMenuItem.Text = "Booking Information";
+            this.bookingInformationToolStripMenuItem.Click += new System.EventHandler(this.bookingInformationToolStripMenuItem_Click);
             // 
             // memberInformationToolStripMenuItem
             // 
@@ -74,6 +84,7 @@
             this.facilityInformationToolStripMenuItem.Name = "facilityInformationToolStripMenuItem";
             this.facilityInformationToolStripMenuItem.Size = new System.Drawing.Size(255, 38);
             this.facilityInformationToolStripMenuItem.Text = "Facility Information";
+            this.facilityInformationToolStripMenuItem.Click += new System.EventHandler(this.facilityInformationToolStripMenuItem_Click);
             // 
             // bookDTPicker
             // 
@@ -126,7 +137,7 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 529);
+            this.ClientSize = new System.Drawing.Size(1041, 573);
             this.Controls.Add(this.facilityTypeCombo);
             this.Controls.Add(this.nextDayButton);
             this.Controls.Add(this.previousDayButton);
@@ -153,6 +164,7 @@
         private System.Windows.Forms.Button previousDayButton;
         private System.Windows.Forms.Button nextDayButton;
         private System.Windows.Forms.ComboBox facilityTypeCombo;
+        private System.Windows.Forms.ToolStripMenuItem bookingInformationToolStripMenuItem;
     }
 }
 

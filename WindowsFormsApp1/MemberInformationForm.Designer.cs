@@ -38,7 +38,7 @@
             this.searchMemberTextBox = new System.Windows.Forms.TextBox();
             this.searchPic = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.DeleteLink = new System.Windows.Forms.LinkLabel();
             this.updateLink = new System.Windows.Forms.LinkLabel();
             this.genderTextBox = new System.Windows.Forms.TextBox();
             this.contactNumTextbox = new System.Windows.Forms.TextBox();
@@ -60,6 +60,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.bookingInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MemberMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.memGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchPic)).BeginInit();
@@ -71,12 +72,13 @@
             this.MemberMenuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.MemberMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bookFacilityToolStripMenuItem,
+            this.bookingInformationToolStripMenuItem,
             this.memberInformationToolStripMenuItem,
             this.facilityInformationToolStripMenuItem});
             this.MemberMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MemberMenuStrip.Name = "MemberMenuStrip";
             this.MemberMenuStrip.Padding = new System.Windows.Forms.Padding(11, 2, 0, 2);
-            this.MemberMenuStrip.Size = new System.Drawing.Size(1005, 39);
+            this.MemberMenuStrip.Size = new System.Drawing.Size(1000, 39);
             this.MemberMenuStrip.TabIndex = 5;
             this.MemberMenuStrip.Text = "MainMenuStrip";
             // 
@@ -89,24 +91,27 @@
             // 
             // memberInformationToolStripMenuItem
             // 
+            this.memberInformationToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.memberInformationToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.memberInformationToolStripMenuItem.Name = "memberInformationToolStripMenuItem";
             this.memberInformationToolStripMenuItem.Size = new System.Drawing.Size(267, 35);
             this.memberInformationToolStripMenuItem.Text = "Member Information";
+            this.memberInformationToolStripMenuItem.Click += new System.EventHandler(this.memberInformationToolStripMenuItem_Click);
             // 
             // facilityInformationToolStripMenuItem
             // 
             this.facilityInformationToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.facilityInformationToolStripMenuItem.Name = "facilityInformationToolStripMenuItem";
-            this.facilityInformationToolStripMenuItem.Size = new System.Drawing.Size(255, 35);
+            this.facilityInformationToolStripMenuItem.Size = new System.Drawing.Size(255, 38);
             this.facilityInformationToolStripMenuItem.Text = "Facility Information";
+            this.facilityInformationToolStripMenuItem.Click += new System.EventHandler(this.facilityInformationToolStripMenuItem_Click);
             // 
             // memGridView
             // 
             this.memGridView.AllowUserToOrderColumns = true;
             this.memGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.memGridView.Location = new System.Drawing.Point(23, 103);
-            this.memGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.memGridView.Margin = new System.Windows.Forms.Padding(4);
             this.memGridView.Name = "memGridView";
             this.memGridView.ReadOnly = true;
             this.memGridView.RowTemplate.Height = 33;
@@ -118,7 +123,7 @@
             // addNewMemButton
             // 
             this.addNewMemButton.Location = new System.Drawing.Point(711, 46);
-            this.addNewMemButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addNewMemButton.Margin = new System.Windows.Forms.Padding(4);
             this.addNewMemButton.Name = "addNewMemButton";
             this.addNewMemButton.Size = new System.Drawing.Size(281, 46);
             this.addNewMemButton.TabIndex = 9;
@@ -130,7 +135,7 @@
             // 
             this.searchMemberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchMemberTextBox.Location = new System.Drawing.Point(23, 50);
-            this.searchMemberTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchMemberTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.searchMemberTextBox.Multiline = true;
             this.searchMemberTextBox.Name = "searchMemberTextBox";
             this.searchMemberTextBox.Size = new System.Drawing.Size(223, 45);
@@ -141,7 +146,7 @@
             this.searchPic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.searchPic.Image = ((System.Drawing.Image)(resources.GetObject("searchPic.Image")));
             this.searchPic.Location = new System.Drawing.Point(249, 48);
-            this.searchPic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchPic.Margin = new System.Windows.Forms.Padding(4);
             this.searchPic.Name = "searchPic";
             this.searchPic.Size = new System.Drawing.Size(43, 47);
             this.searchPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -151,7 +156,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.linkLabel1);
+            this.groupBox1.Controls.Add(this.DeleteLink);
             this.groupBox1.Controls.Add(this.updateLink);
             this.groupBox1.Controls.Add(this.genderTextBox);
             this.groupBox1.Controls.Add(this.contactNumTextbox);
@@ -174,26 +179,26 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(23, 357);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(964, 381);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Member Information Details";
             // 
-            // linkLabel1
+            // DeleteLink
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.LinkColor = System.Drawing.Color.Blue;
-            this.linkLabel1.Location = new System.Drawing.Point(852, 63);
-            this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(93, 31);
-            this.linkLabel1.TabIndex = 90;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Delete";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.DeleteLink.AutoSize = true;
+            this.DeleteLink.LinkColor = System.Drawing.Color.Blue;
+            this.DeleteLink.Location = new System.Drawing.Point(852, 63);
+            this.DeleteLink.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.DeleteLink.Name = "DeleteLink";
+            this.DeleteLink.Size = new System.Drawing.Size(93, 31);
+            this.DeleteLink.TabIndex = 90;
+            this.DeleteLink.TabStop = true;
+            this.DeleteLink.Text = "Delete";
+            this.DeleteLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Delete_LinkClicked);
             // 
             // updateLink
             // 
@@ -210,7 +215,7 @@
             // genderTextBox
             // 
             this.genderTextBox.Location = new System.Drawing.Point(583, 135);
-            this.genderTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.genderTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.genderTextBox.Name = "genderTextBox";
             this.genderTextBox.Size = new System.Drawing.Size(112, 38);
             this.genderTextBox.TabIndex = 88;
@@ -218,7 +223,7 @@
             // contactNumTextbox
             // 
             this.contactNumTextbox.Location = new System.Drawing.Point(217, 331);
-            this.contactNumTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.contactNumTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.contactNumTextbox.Name = "contactNumTextbox";
             this.contactNumTextbox.Size = new System.Drawing.Size(387, 38);
             this.contactNumTextbox.TabIndex = 87;
@@ -226,7 +231,7 @@
             // emailTextBox
             // 
             this.emailTextBox.Location = new System.Drawing.Point(216, 286);
-            this.emailTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.emailTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(388, 38);
             this.emailTextBox.TabIndex = 86;
@@ -234,7 +239,7 @@
             // countryTextBox
             // 
             this.countryTextBox.Location = new System.Drawing.Point(769, 186);
-            this.countryTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.countryTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.countryTextBox.Name = "countryTextBox";
             this.countryTextBox.Size = new System.Drawing.Size(193, 38);
             this.countryTextBox.TabIndex = 85;
@@ -242,7 +247,7 @@
             // addressTextBox
             // 
             this.addressTextBox.Location = new System.Drawing.Point(216, 185);
-            this.addressTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addressTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.addressTextBox.Multiline = true;
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(388, 90);
@@ -251,7 +256,7 @@
             // postalTextBox
             // 
             this.postalTextBox.Location = new System.Drawing.Point(771, 238);
-            this.postalTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.postalTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.postalTextBox.Name = "postalTextBox";
             this.postalTextBox.Size = new System.Drawing.Size(193, 38);
             this.postalTextBox.TabIndex = 83;
@@ -261,7 +266,7 @@
             this.memberBDPicker.CustomFormat = "dd-MM-yyyy";
             this.memberBDPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.memberBDPicker.Location = new System.Drawing.Point(216, 131);
-            this.memberBDPicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.memberBDPicker.Margin = new System.Windows.Forms.Padding(4);
             this.memberBDPicker.Name = "memberBDPicker";
             this.memberBDPicker.Size = new System.Drawing.Size(259, 38);
             this.memberBDPicker.TabIndex = 80;
@@ -269,7 +274,7 @@
             // ICnumberTextBox
             // 
             this.ICnumberTextBox.Location = new System.Drawing.Point(583, 38);
-            this.ICnumberTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ICnumberTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ICnumberTextBox.Name = "ICnumberTextBox";
             this.ICnumberTextBox.Size = new System.Drawing.Size(112, 38);
             this.ICnumberTextBox.TabIndex = 79;
@@ -277,7 +282,7 @@
             // memberIDTextBox
             // 
             this.memberIDTextBox.Location = new System.Drawing.Point(216, 41);
-            this.memberIDTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.memberIDTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.memberIDTextBox.Name = "memberIDTextBox";
             this.memberIDTextBox.ReadOnly = true;
             this.memberIDTextBox.Size = new System.Drawing.Size(136, 38);
@@ -286,7 +291,7 @@
             // memberNameTextBox
             // 
             this.memberNameTextBox.Location = new System.Drawing.Point(216, 88);
-            this.memberNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.memberNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.memberNameTextBox.Name = "memberNameTextBox";
             this.memberNameTextBox.Size = new System.Drawing.Size(387, 38);
             this.memberNameTextBox.TabIndex = 77;
@@ -391,11 +396,19 @@
             this.label1.TabIndex = 66;
             this.label1.Text = "Member ID";
             // 
+            // bookingInformationToolStripMenuItem
+            // 
+            this.bookingInformationToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bookingInformationToolStripMenuItem.Name = "bookingInformationToolStripMenuItem";
+            this.bookingInformationToolStripMenuItem.Size = new System.Drawing.Size(267, 38);
+            this.bookingInformationToolStripMenuItem.Text = "Booking Information";
+            this.bookingInformationToolStripMenuItem.Click += new System.EventHandler(this.bookingInformationToolStripMenuItem_Click);
+            // 
             // MemberInformationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1005, 746);
+            this.ClientSize = new System.Drawing.Size(1000, 751);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.memGridView);
             this.Controls.Add(this.addNewMemButton);
@@ -403,7 +416,7 @@
             this.Controls.Add(this.searchPic);
             this.Controls.Add(this.MemberMenuStrip);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MemberInformationForm";
             this.Text = "MemberInformationForm";
             this.Load += new System.EventHandler(this.MemberInformationForm_Load);
@@ -424,12 +437,12 @@
         private System.Windows.Forms.ToolStripMenuItem bookFacilityToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem memberInformationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem facilityInformationToolStripMenuItem;
-        private System.Windows.Forms.DataGridView memGridView;
+        public System.Windows.Forms.DataGridView memGridView;
         private System.Windows.Forms.Button addNewMemButton;
         private System.Windows.Forms.TextBox searchMemberTextBox;
         private System.Windows.Forms.PictureBox searchPic;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel DeleteLink;
         private System.Windows.Forms.LinkLabel updateLink;
         private System.Windows.Forms.TextBox genderTextBox;
         private System.Windows.Forms.TextBox contactNumTextbox;
@@ -451,5 +464,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem bookingInformationToolStripMenuItem;
     }
 }

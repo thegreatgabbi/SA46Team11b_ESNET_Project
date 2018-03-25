@@ -18,12 +18,15 @@ namespace WindowsFormsApp1
         public MemberInformationForm()
         {
             InitializeComponent();
+            
         }
 
         private void MemberInformationForm_Load(object sender, EventArgs e)
         {
+            //memberInformationToolStripMenuItem.BackColor = "ActiveCaption";
             mList = context.Members.ToList();
             memGridView.DataSource = mList;
+
         }
 
         private void searchPic_Click(object sender, EventArgs e)
@@ -34,7 +37,7 @@ namespace WindowsFormsApp1
         private void addNewMemButton_Click(object sender, EventArgs e)
         {
             NewMemberInformation nmf = new NewMemberInformation();
-            nmf.Show();
+            nmf.ShowDialog();
         }
 
         private void SearchMember()
@@ -96,6 +99,7 @@ namespace WindowsFormsApp1
             {
                 context.SaveChanges();
                 MessageBox.Show("Update Success!");
+                this.Refresh();
                 memGridView.DataSource = mList;
             }
             if (res == DialogResult.Cancel)
@@ -114,9 +118,10 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+
+        private void Delete_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show(posn.ToString());
+            //MessageBox.Show(posn.ToString());
             int currentRow = posn;
             Member m = mList[currentRow];
             context.Members.Remove(m);
@@ -125,7 +130,8 @@ namespace WindowsFormsApp1
             {
                 context.SaveChanges();
                 MessageBox.Show("Delete Success!");
-                  
+                this.Refresh();
+                memGridView.DataSource = mList;
             }
             if (res == DialogResult.Cancel)
             {
@@ -141,6 +147,23 @@ namespace WindowsFormsApp1
                 genderTextBox.Text = "";
                 posn = 0;
             }
+        }
+
+        private void bookingInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BookingInformationForm bi = new BookingInformationForm();
+            bi.Show();
+        }
+
+        private void facilityInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FacilityInformationForm fi = new FacilityInformationForm();
+            fi.Show();
+        }
+
+        private void memberInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.MemberInformationForm_Load(sender,e);
         }
     }
 }

@@ -47,6 +47,19 @@ namespace WindowsFormsApp1
         {
             MemberInformationForm mi = new MemberInformationForm();
             mi.Show();
+            //this.Close();
+        }
+
+        private void bookingInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BookingInformationForm bi = new BookingInformationForm();
+            bi.Show();
+        }
+
+        private void facilityInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FacilityInformationForm fi = new FacilityInformationForm();
+            fi.Show();
         }
     }
 }
