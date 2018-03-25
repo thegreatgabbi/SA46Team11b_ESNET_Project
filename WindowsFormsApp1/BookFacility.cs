@@ -27,7 +27,9 @@ namespace WindowsFormsApp1
             // Cache from DB all entries for that day where the Facilities ID matches
             context = new SembawangSportEntities();
 
-            // set dataGridView column to 100
+            // put focus on FacilityTypeCombo
+            facilityTypeCombo.Select();
+            facilityTypeCombo.Text = "- Select Facility Type -";
         }
 
         /// <summary>
@@ -43,48 +45,56 @@ namespace WindowsFormsApp1
                 label1.Visible = false;
                 label2.Visible = false;
 
-                // get selectedDate
-                // selectedDate = new DateTime(2018, 1, 4); // REMOVE: for testing
-                selectedDate = bookDTPicker.Value;
-
-                // LINQ doesn't support 'Date' type, so we have to use `int` types
-                var bookingsByDayQuery = context.Bookings
-                    .Where(x => x.BookingDateFrom.Day == selectedDate.Day)
-                    .Where(x => x.BookingDateFrom.Month == selectedDate.Month)
-                    .Where(x => x.BookingDateFrom.Year == selectedDate.Year)
-                    //.Where(x => x.Facility.FacilityType == "Badminton Court"); // REMOVE: for testing
-                    .Where(x => x.Facility.FacilityType == facilityTypeCombo.Text);
-
-                // - Convert it to a List<Booking>
-                listBookings = bookingsByDayQuery.ToList();
-
-                // Generate the appropriate amount of FacilitySchedule objects
-                // Get get unique facility types (e.g. "Badminton Court 1", "Badminton Court 2", "Badminton Court 3")
-                var facilityNames = context.Facilities.Where(x => x.FacilityType == facilityTypeCombo.Text);
-                listFacilityAvailabiltyByDay = new List<FacilitySchedule>();
-
-                // create 3 FacilitySchedule objects
-                foreach (var facility in facilityNames.ToList())
-                {
-                    listFacilityAvailabiltyByDay.Add(new FacilitySchedule(listBookings, facility.FacilityName));
-                }
-
-                // display it in dataGridView
-                dataGridView1.DataSource = listFacilityAvailabiltyByDay.ToList();
-                // resize columns as necessary
-                dataGridView1.Columns[0].Width = 200;
-                for (var i = 1; i < dataGridView1.Columns.Count; i++)
-                {
-                    dataGridView1.Columns[i].Width = 50;
-                }
-                // change column header names
-                dataGridView1.Columns["FacName"].HeaderText = "Facility Name";
-                dataGridView1.Columns[1].HeaderText = "7AM";
-                dataGridView1.Columns[2].HeaderText = "8AM";
-                dataGridView1.Columns[3].HeaderText = "9AM";
-                dataGridView1.Columns[4].HeaderText = "10AM";
-                dataGridView1.Columns[5].HeaderText = "11AM";
+                RenderDataGrid();
             }
+        }
+
+        /// <summary>
+        /// Renders Data Grid.
+        /// </summary>
+        private void RenderDataGrid()
+        {
+            // get selectedDate
+            // selectedDate = new DateTime(2018, 1, 4); // REMOVE: for testing
+            selectedDate = bookDTPicker.Value;
+
+            // LINQ doesn't support 'Date' type, so we have to use `int` types
+            var bookingsByDayQuery = context.Bookings
+                .Where(x => x.BookingDateFrom.Day == selectedDate.Day)
+                .Where(x => x.BookingDateFrom.Month == selectedDate.Month)
+                .Where(x => x.BookingDateFrom.Year == selectedDate.Year)
+                //.Where(x => x.Facility.FacilityType == "Badminton Court"); // REMOVE: for testing
+                .Where(x => x.Facility.FacilityType == facilityTypeCombo.Text);
+
+            // - Convert it to a List<Booking>
+            listBookings = bookingsByDayQuery.ToList();
+
+            // Generate the appropriate amount of FacilitySchedule objects
+            // Get get unique facility types (e.g. "Badminton Court 1", "Badminton Court 2", "Badminton Court 3")
+            var facilityNames = context.Facilities.Where(x => x.FacilityType == facilityTypeCombo.Text);
+            listFacilityAvailabiltyByDay = new List<FacilitySchedule>();
+
+            // create 3 FacilitySchedule objects
+            foreach (var facility in facilityNames.ToList())
+            {
+                listFacilityAvailabiltyByDay.Add(new FacilitySchedule(listBookings, facility.FacilityName));
+            }
+
+            // display it in dataGridView
+            dataGridView1.DataSource = listFacilityAvailabiltyByDay.ToList();
+            // resize columns as necessary
+            dataGridView1.Columns[0].Width = 200;
+            for (var i = 1; i < dataGridView1.Columns.Count; i++)
+            {
+                dataGridView1.Columns[i].Width = 50;
+            }
+            // change column header names
+            dataGridView1.Columns["FacName"].HeaderText = "Facility Name";
+            dataGridView1.Columns[1].HeaderText = "7AM";
+            dataGridView1.Columns[2].HeaderText = "8AM";
+            dataGridView1.Columns[3].HeaderText = "9AM";
+            dataGridView1.Columns[4].HeaderText = "10AM";
+            dataGridView1.Columns[5].HeaderText = "11AM";
         }
 
         /// <summary>
@@ -158,7 +168,7 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Time: " + hour.ToString() + "AM");
             }
         }
-        // TODO: Create FacilitySchedule class
+
         public class FacilitySchedule
         {
             string facName;
@@ -242,16 +252,46 @@ namespace WindowsFormsApp1
             dataGridView1.ClearSelection();
         }
 
+        /// <summary>
+        /// Refreshes data grid when ">" button next to BookingDTPicker is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nextDayButton_Click(object sender, EventArgs e)
         {
             bookDTPicker.Value = bookDTPicker.Value.AddDays(1);
-            // TODO: should update the dataGrid as well
+            if (facilityTypeCombo.SelectedIndex != -1)
+            {
+                RenderDataGrid();
+            }
         }
 
+        /// <summary>
+        /// Refreshes data grid when "<" button next to BookingDTPicker is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void previousDayButton_Click(object sender, EventArgs e)
         {
             bookDTPicker.Value = bookDTPicker.Value.AddDays(-1);
-            // TODO: should update the dataGrid as well
+            if (facilityTypeCombo.SelectedIndex != -1)
+            {
+                RenderDataGrid();
+            }
+        }
+
+        private void bookDTPicker_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (facilityTypeCombo.SelectedIndex != -1)
+                {
+                    RenderDataGrid();
+                }
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
         }
     }
 }
