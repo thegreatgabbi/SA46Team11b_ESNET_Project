@@ -27,7 +27,28 @@ namespace WindowsFormsApp1
             DateTime bookingDate = new DateTime(2018, 1, 14);
             string facName = "Azelea";
             int bookingFrom = 8;
-            Program.GetBookingID(bookingDate, facName, bookingFrom);
+
+            label1.Text = Program.GetBookingID(bookingDate, facName, bookingFrom).ToString();
+        }
+
+        /// <summary>
+        /// Test validating against existing booking of Badminton Court 4 on 2018-1-4 from 14:00 to 16:00. Should return false because it clashes with the booking.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DateTime bookingDate = new DateTime(2018, 1, 4);
+            string facName = "Badminton Court 4";
+            int bookingFrom = 12;
+            int bookingTo = 14;
+
+            label1.Text = Program.ValidateBooking(bookingDate, facName, bookingFrom, bookingTo).ToString();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            label1.Text = "label1";
         }
     }
 }
