@@ -12,6 +12,8 @@ namespace WindowsFormsApp1
 {
     public partial class BookFacility : Form
     {
+        // Test case: Badminton Court 4 on 7/1/2018
+
         DateTime selectedDate;
 
         SembawangSportEntities context;
@@ -22,34 +24,10 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
 
-            // initialize selectedDate
-            selectedDate = new DateTime(2018, 1, 4);
-
             // Cache from DB all entries for that day where the Facilities ID matches
             context = new SembawangSportEntities();
 
-            // LINQ doesn't support 'Date' type, so we have to use `int` types
-            var bookingsByDayQuery = context.Bookings
-                .Where(x => x.BookingDateFrom.Day == selectedDate.Day)
-                .Where(x => x.BookingDateFrom.Month == selectedDate.Month)
-                .Where(x => x.BookingDateFrom.Year == selectedDate.Year)
-                .Where(x => x.Facility.FacilityType == "Badminton Court");
-
-            // - Convert it to a List<Booking>
-            listBookings = bookingsByDayQuery.ToList();
-
-            // Generate the appropriate amount of FacilitySchedule objects
-            // Get get unique facility types (e.g. "Badminton Court 1", "Badminton Court 2", "Badminton Court 3")
-            var facilityScheduleQuery = bookingsByDayQuery.GroupBy(x => x.Facility.FacilityName).Select(y => new { y.Key });
-
-            listFacilityAvailabiltyByDay = new List<FacilitySchedule>();
-
-            // create 3 FacilitySchedule objects
-            foreach (var schedule in facilityScheduleQuery.ToList())
-            {
-                listFacilityAvailabiltyByDay.Add(new FacilitySchedule(listBookings, schedule.Key));
-            }
-
+            // set dataGridView column to 100
         }
 
         /// <summary>
@@ -57,22 +35,56 @@ namespace WindowsFormsApp1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void facilityTypeCombo_SelectionChangeCommitted(object sender, EventArgs e)
+        private void facilityTypeCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Make sure you hide the Welcome Message!
-            label1.Visible = false;
-            label2.Visible = false;
+            if (facilityTypeCombo.SelectedIndex != -1)
+            {
+                // Make sure you hide the Welcome Message!
+                label1.Visible = false;
+                label2.Visible = false;
 
-            // display it in dataGridView
-            dataGridView1.DataSource = listFacilityAvailabiltyByDay.ToList();
-            // change column header names
-            dataGridView1.Columns["FacName"].HeaderText = "Facility Name";
-            dataGridView1.Columns[1].HeaderText = "7AM";
-            dataGridView1.Columns[2].HeaderText = "8AM";
-            dataGridView1.Columns[3].HeaderText = "9AM";
-            dataGridView1.Columns[4].HeaderText = "10AM";
-            dataGridView1.Columns[5].HeaderText = "11AM";
-            // Add more columns as necessary
+                // get selectedDate
+                // selectedDate = new DateTime(2018, 1, 4); // REMOVE: for testing
+                selectedDate = bookDTPicker.Value;
+
+                // LINQ doesn't support 'Date' type, so we have to use `int` types
+                var bookingsByDayQuery = context.Bookings
+                    .Where(x => x.BookingDateFrom.Day == selectedDate.Day)
+                    .Where(x => x.BookingDateFrom.Month == selectedDate.Month)
+                    .Where(x => x.BookingDateFrom.Year == selectedDate.Year)
+                    //.Where(x => x.Facility.FacilityType == "Badminton Court"); // REMOVE: for testing
+                    .Where(x => x.Facility.FacilityType == facilityTypeCombo.Text);
+
+                // - Convert it to a List<Booking>
+                listBookings = bookingsByDayQuery.ToList();
+
+                // Generate the appropriate amount of FacilitySchedule objects
+                // Get get unique facility types (e.g. "Badminton Court 1", "Badminton Court 2", "Badminton Court 3")
+                var facilityNames = context.Facilities.Where(x => x.FacilityType == facilityTypeCombo.Text);
+                listFacilityAvailabiltyByDay = new List<FacilitySchedule>();
+
+                // create 3 FacilitySchedule objects
+                foreach (var facility in facilityNames.ToList())
+                {
+                    listFacilityAvailabiltyByDay.Add(new FacilitySchedule(listBookings, facility.FacilityName));
+                }
+
+                // display it in dataGridView
+                dataGridView1.DataSource = listFacilityAvailabiltyByDay.ToList();
+                // resize columns as necessary
+                dataGridView1.Columns[0].Width = 200;
+                for (var i = 1; i < dataGridView1.Columns.Count; i++)
+                {
+                    dataGridView1.Columns[i].Width = 50;
+                }
+                // change column header names
+                dataGridView1.Columns["FacName"].HeaderText = "Facility Name";
+                dataGridView1.Columns[1].HeaderText = "7AM";
+                dataGridView1.Columns[2].HeaderText = "8AM";
+                dataGridView1.Columns[3].HeaderText = "9AM";
+                dataGridView1.Columns[4].HeaderText = "10AM";
+                dataGridView1.Columns[5].HeaderText = "11AM";
+            }
         }
 
         /// <summary>
@@ -151,7 +163,7 @@ namespace WindowsFormsApp1
         {
             string facName;
             // Not the best class design I know...but it's to match the DataSource structure
-            bool time14_16 = false;
+            bool time7_8 = false;
             bool time8_9 = false;
             bool time9_10 = false;
             bool time10_11 = false;
@@ -163,7 +175,7 @@ namespace WindowsFormsApp1
             }
             public string Time14_16
             {
-                get { return time14_16.ToString(); }
+                get { return time7_8.ToString(); }
             }
             public string Time8_9
             {
@@ -195,9 +207,9 @@ namespace WindowsFormsApp1
                 {
                     if (bk.Facility.FacilityName == facName)
                     {
-                        if (bk.BookingDateFrom.Hour <= 14 && bk.BookingDateTo.Hour >= 16)
+                        if (bk.BookingDateFrom.Hour <= 7 && bk.BookingDateTo.Hour >= 8)
                         {
-                            time14_16 = true;
+                            time7_8 = true;
                         }
                         if (bk.BookingDateFrom.Hour <= 8 && bk.BookingDateTo.Hour >= 9)
                         {
@@ -228,6 +240,18 @@ namespace WindowsFormsApp1
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             dataGridView1.ClearSelection();
+        }
+
+        private void nextDayButton_Click(object sender, EventArgs e)
+        {
+            bookDTPicker.Value = bookDTPicker.Value.AddDays(1);
+            // TODO: should update the dataGrid as well
+        }
+
+        private void previousDayButton_Click(object sender, EventArgs e)
+        {
+            bookDTPicker.Value = bookDTPicker.Value.AddDays(-1);
+            // TODO: should update the dataGrid as well
         }
     }
 }

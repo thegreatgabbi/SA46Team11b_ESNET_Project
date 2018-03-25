@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.bookFacilityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.memberInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,6 +88,7 @@
             this.bookDTPicker.Name = "bookDTPicker";
             this.bookDTPicker.Size = new System.Drawing.Size(153, 38);
             this.bookDTPicker.TabIndex = 2;
+            this.bookDTPicker.Leave += new System.EventHandler(this.facilityTypeCombo_SelectedIndexChanged);
             // 
             // previousDayButton
             // 
@@ -97,6 +98,7 @@
             this.previousDayButton.TabIndex = 2;
             this.previousDayButton.Text = "<";
             this.previousDayButton.UseVisualStyleBackColor = true;
+            this.previousDayButton.Click += new System.EventHandler(this.previousDayButton_Click);
             // 
             // nextDayButton
             // 
@@ -106,6 +108,7 @@
             this.nextDayButton.TabIndex = 3;
             this.nextDayButton.Text = ">";
             this.nextDayButton.UseVisualStyleBackColor = true;
+            this.nextDayButton.Click += new System.EventHandler(this.nextDayButton_Click);
             // 
             // facilityTypeCombo
             // 
@@ -124,20 +127,19 @@
             this.facilityTypeCombo.Size = new System.Drawing.Size(190, 39);
             this.facilityTypeCombo.TabIndex = 4;
             this.facilityTypeCombo.Text = "<-Select Facilities Type->";
-            this.facilityTypeCombo.SelectionChangeCommitted += new System.EventHandler(this.facilityTypeCombo_SelectionChangeCommitted);
+            this.facilityTypeCombo.SelectedIndexChanged += new System.EventHandler(this.facilityTypeCombo_SelectedIndexChanged);
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Location = new System.Drawing.Point(32, 112);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
