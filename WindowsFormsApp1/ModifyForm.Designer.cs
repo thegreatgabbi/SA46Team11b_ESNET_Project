@@ -39,7 +39,6 @@
             this.MemberIDlbl = new System.Windows.Forms.Label();
             this.BookingToTime = new System.Windows.Forms.DateTimePicker();
             this.BookingFromTime = new System.Windows.Forms.DateTimePicker();
-            this.txtBookingDate = new System.Windows.Forms.TextBox();
             this.BookingTolbl = new System.Windows.Forms.Label();
             this.BookingFromlbl = new System.Windows.Forms.Label();
             this.BookingDatelbl = new System.Windows.Forms.Label();
@@ -47,8 +46,11 @@
             this.MemberNamelbl = new System.Windows.Forms.Label();
             this.txtRoomName = new System.Windows.Forms.TextBox();
             this.grpMemberDetails = new System.Windows.Forms.GroupBox();
+            this.BookingDateDtTimePckr = new System.Windows.Forms.DateTimePicker();
             this.DeleteBookingbtn = new System.Windows.Forms.Button();
             this.Printbtn = new System.Windows.Forms.Button();
+            this.txtNoOfPax = new System.Windows.Forms.TextBox();
+            this.NoOfPaxlbl = new System.Windows.Forms.Label();
             this.grpMemberDetails.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,8 +61,7 @@
             this.MakeBookinglbl.Name = "MakeBookinglbl";
             this.MakeBookinglbl.Size = new System.Drawing.Size(258, 46);
             this.MakeBookinglbl.TabIndex = 16;
-            this.MakeBookinglbl.Text = "Modify Booking";
-            this.MakeBookinglbl.Click += new System.EventHandler(this.MakeBookinglbl_Click);
+//            this.MakeBookinglbl.Click += new System.EventHandler(this.MakeBookinglbl_Click);
             // 
             // Cancelbtn
             // 
@@ -71,6 +72,7 @@
             this.Cancelbtn.TabIndex = 34;
             this.Cancelbtn.Text = "Cancel";
             this.Cancelbtn.UseVisualStyleBackColor = true;
+            this.Cancelbtn.Click += new System.EventHandler(this.Cancelbtn_Click);
             // 
             // LookUpBtn
             // 
@@ -80,11 +82,13 @@
             this.LookUpBtn.TabIndex = 22;
             this.LookUpBtn.Text = "...";
             this.LookUpBtn.UseVisualStyleBackColor = true;
+            this.LookUpBtn.Click += new System.EventHandler(this.LookUpBtn_Click);
             // 
             // txtMemberName
             // 
             this.txtMemberName.Location = new System.Drawing.Point(181, 131);
             this.txtMemberName.Name = "txtMemberName";
+            this.txtMemberName.ReadOnly = true;
             this.txtMemberName.Size = new System.Drawing.Size(208, 22);
             this.txtMemberName.TabIndex = 21;
             // 
@@ -97,6 +101,7 @@
             this.Modifybtn.TabIndex = 33;
             this.Modifybtn.Text = "Modify";
             this.Modifybtn.UseVisualStyleBackColor = true;
+            this.Modifybtn.Click += new System.EventHandler(this.Modifybtn_Click);
             // 
             // txtMemberID
             // 
@@ -137,6 +142,7 @@
             // 
             // BookingToTime
             // 
+            this.BookingToTime.CustomFormat = "HH:MM tt";
             this.BookingToTime.Location = new System.Drawing.Point(580, 146);
             this.BookingToTime.Name = "BookingToTime";
             this.BookingToTime.Size = new System.Drawing.Size(100, 22);
@@ -144,19 +150,13 @@
             // 
             // BookingFromTime
             // 
+            this.BookingFromTime.CustomFormat = "HH:MM tt";
             this.BookingFromTime.Location = new System.Drawing.Point(580, 82);
             this.BookingFromTime.Name = "BookingFromTime";
             this.BookingFromTime.Size = new System.Drawing.Size(100, 22);
             this.BookingFromTime.TabIndex = 31;
+            this.BookingFromTime.TabStop = false;
             this.BookingFromTime.Value = new System.DateTime(2018, 3, 23, 10, 48, 0, 0);
-            // 
-            // txtBookingDate
-            // 
-            this.txtBookingDate.Location = new System.Drawing.Point(580, 33);
-            this.txtBookingDate.Name = "txtBookingDate";
-            this.txtBookingDate.ReadOnly = true;
-            this.txtBookingDate.Size = new System.Drawing.Size(100, 22);
-            this.txtBookingDate.TabIndex = 24;
             // 
             // BookingTolbl
             // 
@@ -195,6 +195,7 @@
             this.txtLocation.ReadOnly = true;
             this.txtLocation.Size = new System.Drawing.Size(100, 22);
             this.txtLocation.TabIndex = 25;
+ //           this.txtLocation.TextChanged += new System.EventHandler(this.txtLocation_TextChanged);
             // 
             // MemberNamelbl
             // 
@@ -216,10 +217,10 @@
             // 
             // grpMemberDetails
             // 
+            this.grpMemberDetails.Controls.Add(this.BookingDateDtTimePckr);
             this.grpMemberDetails.Controls.Add(this.RoomNamelbl);
             this.grpMemberDetails.Controls.Add(this.txtRoomName);
             this.grpMemberDetails.Controls.Add(this.BookingDatelbl);
-            this.grpMemberDetails.Controls.Add(this.txtBookingDate);
             this.grpMemberDetails.Controls.Add(this.BookingFromlbl);
             this.grpMemberDetails.Controls.Add(this.BookingFromTime);
             this.grpMemberDetails.Controls.Add(this.BookingTolbl);
@@ -231,6 +232,13 @@
             this.grpMemberDetails.Size = new System.Drawing.Size(739, 204);
             this.grpMemberDetails.TabIndex = 35;
             this.grpMemberDetails.TabStop = false;
+            // 
+            // BookingDateDtTimePckr
+            // 
+            this.BookingDateDtTimePckr.Location = new System.Drawing.Point(580, 31);
+            this.BookingDateDtTimePckr.Name = "BookingDateDtTimePckr";
+            this.BookingDateDtTimePckr.Size = new System.Drawing.Size(153, 22);
+            this.BookingDateDtTimePckr.TabIndex = 33;
             // 
             // DeleteBookingbtn
             // 
@@ -253,11 +261,32 @@
             this.Printbtn.Text = "Re-Print Receipt";
             this.Printbtn.UseVisualStyleBackColor = true;
             // 
+            // txtNoOfPax
+            // 
+            this.txtNoOfPax.Location = new System.Drawing.Point(611, 136);
+            this.txtNoOfPax.Name = "txtNoOfPax";
+            this.txtNoOfPax.Size = new System.Drawing.Size(46, 22);
+            this.txtNoOfPax.TabIndex = 39;
+ //           this.txtNoOfPax.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // NoOfPaxlbl
+            // 
+            this.NoOfPaxlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NoOfPaxlbl.Location = new System.Drawing.Point(414, 131);
+            this.NoOfPaxlbl.Name = "NoOfPaxlbl";
+            this.NoOfPaxlbl.Size = new System.Drawing.Size(190, 28);
+            this.NoOfPaxlbl.TabIndex = 38;
+            this.NoOfPaxlbl.Text = "Number of Persons";
+            this.NoOfPaxlbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+ //           this.NoOfPaxlbl.Click += new System.EventHandler(this.label1_Click);
+            // 
             // ModifyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtNoOfPax);
+            this.Controls.Add(this.NoOfPaxlbl);
             this.Controls.Add(this.Printbtn);
             this.Controls.Add(this.DeleteBookingbtn);
             this.Controls.Add(this.grpMemberDetails);
@@ -284,23 +313,25 @@
         private System.Windows.Forms.Label MakeBookinglbl;
         private System.Windows.Forms.Button Cancelbtn;
         private System.Windows.Forms.Button LookUpBtn;
-        private System.Windows.Forms.TextBox txtMemberName;
         private System.Windows.Forms.Button Modifybtn;
-        private System.Windows.Forms.TextBox txtMemberID;
         private System.Windows.Forms.Label Locationlbl;
         private System.Windows.Forms.Label RoomNamelbl;
         private System.Windows.Forms.Label MemberIDlbl;
         private System.Windows.Forms.DateTimePicker BookingToTime;
         private System.Windows.Forms.DateTimePicker BookingFromTime;
-        private System.Windows.Forms.TextBox txtBookingDate;
         private System.Windows.Forms.Label BookingTolbl;
         private System.Windows.Forms.Label BookingFromlbl;
         private System.Windows.Forms.Label BookingDatelbl;
-        private System.Windows.Forms.TextBox txtLocation;
         private System.Windows.Forms.Label MemberNamelbl;
-        private System.Windows.Forms.TextBox txtRoomName;
         private System.Windows.Forms.GroupBox grpMemberDetails;
         private System.Windows.Forms.Button DeleteBookingbtn;
         private System.Windows.Forms.Button Printbtn;
+        public System.Windows.Forms.TextBox txtMemberName;
+        public System.Windows.Forms.TextBox txtMemberID;
+        private System.Windows.Forms.DateTimePicker BookingDateDtTimePckr;
+        public System.Windows.Forms.TextBox txtLocation;
+        public System.Windows.Forms.TextBox txtRoomName;
+        public System.Windows.Forms.TextBox txtNoOfPax;
+        private System.Windows.Forms.Label NoOfPaxlbl;
     }
 }

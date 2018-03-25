@@ -95,9 +95,9 @@
             // Searchbtn
             // 
             this.Searchbtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Searchbtn.BackgroundImage")));
-            this.Searchbtn.Location = new System.Drawing.Point(144, 28);
+            this.Searchbtn.Location = new System.Drawing.Point(140, 25);
             this.Searchbtn.Name = "Searchbtn";
-            this.Searchbtn.Size = new System.Drawing.Size(52, 35);
+            this.Searchbtn.Size = new System.Drawing.Size(53, 42);
             this.Searchbtn.TabIndex = 2;
             this.Searchbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Searchbtn.UseVisualStyleBackColor = true;
@@ -114,6 +114,7 @@
             this.Okbtn.TabIndex = 15;
             this.Okbtn.Text = "Ok";
             this.Okbtn.UseVisualStyleBackColor = true;
+            this.Okbtn.Click += new System.EventHandler(this.Okbtn_Click);
             // 
             // Cancelbtn
             // 
@@ -195,7 +196,6 @@
             this.txtCountry.ReadOnly = true;
             this.txtCountry.Size = new System.Drawing.Size(87, 22);
             this.txtCountry.TabIndex = 32;
-            this.txtCountry.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // Countrylbl
             // 
@@ -206,16 +206,14 @@
             this.Countrylbl.TabIndex = 31;
             this.Countrylbl.Text = "Country";
             this.Countrylbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Countrylbl.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // txtPostalCode
             // 
             this.txtPostalCode.Location = new System.Drawing.Point(612, 181);
             this.txtPostalCode.Name = "txtPostalCode";
             this.txtPostalCode.ReadOnly = true;
-            this.txtPostalCode.Size = new System.Drawing.Size(87, 22);
+            this.txtPostalCode.Size = new System.Drawing.Size(73, 22);
             this.txtPostalCode.TabIndex = 30;
-            this.txtPostalCode.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // PostalCodelbl
             // 
@@ -226,14 +224,13 @@
             this.PostalCodelbl.TabIndex = 29;
             this.PostalCodelbl.Text = "Postal Code";
             this.PostalCodelbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.PostalCodelbl.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtDOB
             // 
             this.txtDOB.Location = new System.Drawing.Point(464, 97);
             this.txtDOB.Name = "txtDOB";
             this.txtDOB.ReadOnly = true;
-            this.txtDOB.Size = new System.Drawing.Size(122, 22);
+            this.txtDOB.Size = new System.Drawing.Size(95, 22);
             this.txtDOB.TabIndex = 28;
             // 
             // DOBlbl
@@ -245,7 +242,6 @@
             this.DOBlbl.TabIndex = 27;
             this.DOBlbl.Text = "Date of Birth";
             this.DOBlbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.DOBlbl.Click += new System.EventHandler(this.DOBlbl_Click);
             // 
             // Genderlbl
             // 
@@ -309,7 +305,6 @@
             this.BookingTolbl.TabIndex = 21;
             this.BookingTolbl.Text = "Address";
             this.BookingTolbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BookingTolbl.Click += new System.EventHandler(this.BookingTolbl_Click);
             // 
             // Emaillbl
             // 
@@ -320,7 +315,6 @@
             this.Emaillbl.TabIndex = 20;
             this.Emaillbl.Text = "Email Address";
             this.Emaillbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Emaillbl.Click += new System.EventHandler(this.Emaillbl_Click);
             // 
             // txtMemberID
             // 
@@ -347,7 +341,6 @@
             this.txtMemberName.ReadOnly = true;
             this.txtMemberName.Size = new System.Drawing.Size(309, 22);
             this.txtMemberName.TabIndex = 15;
-            this.txtMemberName.TextChanged += new System.EventHandler(this.txtLocation_TextChanged);
             // 
             // MemberIDlbl
             // 
@@ -393,7 +386,6 @@
             this.MemberdataGridView.Size = new System.Drawing.Size(758, 132);
             this.MemberdataGridView.TabIndex = 18;
             this.MemberdataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MemberdataGridView_CellClick_1);
-            this.MemberdataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MemberdataGridView_CellContentClick_1);
             // 
             // memberIDDataGridViewTextBoxColumn
             // 
@@ -527,7 +519,6 @@
         private System.Windows.Forms.TextBox txtGender;
         private System.Windows.Forms.Label BookingTolbl;
         private System.Windows.Forms.Label Emaillbl;
-        private System.Windows.Forms.TextBox txtMemberID;
         private System.Windows.Forms.Label MemberNamelbl;
         private System.Windows.Forms.TextBox txtMemberName;
         private System.Windows.Forms.Label MemberIDlbl;
@@ -558,5 +549,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn contactNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailAddressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
+        public System.Windows.Forms.TextBox txtMemberID;
     }
 }

@@ -12,7 +12,10 @@ namespace WindowsFormsApp1
 {
     public partial class MemberForm : Form
     {
-        MakeBookingForm form;
+        MakeBookingForm bkgform;
+        ModifyForm mdyform;
+        Facility fac;
+        int i;
         SembawangSportEntities ctx = new SembawangSportEntities();
         //To populate member records in the gridbox
         private void PopulateText()
@@ -32,10 +35,19 @@ namespace WindowsFormsApp1
         }
 
        
-        public MemberForm(MakeBookingForm f)
+        public MemberForm(MakeBookingForm f,Facility fa)
         {
             InitializeComponent();
-            form = f;
+            bkgform = f;
+            fac = fa;
+            i = 0;
+        }
+
+        public MemberForm(ModifyForm f)
+        {
+            InitializeComponent();
+            mdyform = f;
+            i = 1;
         }
 
         private void MemberForm_Load(object sender, EventArgs e)
@@ -49,76 +61,19 @@ namespace WindowsFormsApp1
 
         }
 
-        private void BookingTolbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtLocation_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DOBlbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Emaillbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void Cancelbtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void Searchbtn_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void MemberdataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-        private void MemberdataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
-
+        
         private void Searchbtn_MouseClick(object sender, MouseEventArgs e)
         {
             PopulateText();
         }
 
-        private void MemberdataGridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
+       
         private void Searchbtn_KeyUp(object sender, KeyEventArgs e)
         {
             PopulateText();
@@ -126,17 +81,47 @@ namespace WindowsFormsApp1
 
         private void MemberdataGridView_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            string datetoint;
+            int spaceIndex;
+
             MemberdataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+
             txtMemberID.Text = MemberdataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
             txtMemberName.Text = MemberdataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
             txtICNumber.Text = MemberdataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txtDOB.Text = MemberdataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
+            datetoint = MemberdataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
+            spaceIndex = datetoint.IndexOf(" ", 0);
+            txtDOB.Text = datetoint.Substring(0, spaceIndex);
             txtAddress.Text = MemberdataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
             txtCountry.Text = MemberdataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
             txtPostalCode.Text = MemberdataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
             txtPhoneNumber.Text = MemberdataGridView.Rows[e.RowIndex].Cells[8].Value.ToString();
             txtEmail.Text = MemberdataGridView.Rows[e.RowIndex].Cells[9].Value.ToString();
             txtGender.Text = MemberdataGridView.Rows[e.RowIndex].Cells[10].Value.ToString();
+        }
+
+        private void Okbtn_Click(object sender, EventArgs e)
+        {   
+                 
+            
+            if (i == 0)
+            {
+                bkgform.txtMemberID.Text = txtMemberID.Text;
+                bkgform.txtMemberName.Text = txtMemberName.Text;
+            }
+            else
+            {
+                mdyform.txtMemberID.Text = txtMemberID.Text;
+                mdyform.txtMemberName.Text = txtMemberName.Text;
+            }
+
+            this.Close();
+        }
+
+        private void Searchbtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

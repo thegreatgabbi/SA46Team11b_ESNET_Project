@@ -35,11 +35,11 @@
             this.txtMemberName = new System.Windows.Forms.TextBox();
             this.LookUpBtn = new System.Windows.Forms.Button();
             this.Displaygrpbox = new System.Windows.Forms.GroupBox();
+            this.BookingDateDtTimePckr = new System.Windows.Forms.DateTimePicker();
             this.Cancelbtn = new System.Windows.Forms.Button();
             this.Okbtn = new System.Windows.Forms.Button();
             this.BookingToTime = new System.Windows.Forms.DateTimePicker();
             this.BookingFromTime = new System.Windows.Forms.DateTimePicker();
-            this.txtBookingDate = new System.Windows.Forms.TextBox();
             this.BookingTolbl = new System.Windows.Forms.Label();
             this.BookingFromlbl = new System.Windows.Forms.Label();
             this.BookingDatelbl = new System.Windows.Forms.Label();
@@ -48,6 +48,8 @@
             this.txtLocation = new System.Windows.Forms.TextBox();
             this.Displaylbl = new System.Windows.Forms.Label();
             this.RoomNamelbl = new System.Windows.Forms.Label();
+            this.txtNoOfpax = new System.Windows.Forms.TextBox();
+            this.Noofpaxlbl = new System.Windows.Forms.Label();
             this.Displaygrpbox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,11 +110,11 @@
             // 
             // Displaygrpbox
             // 
+            this.Displaygrpbox.Controls.Add(this.BookingDateDtTimePckr);
             this.Displaygrpbox.Controls.Add(this.Cancelbtn);
             this.Displaygrpbox.Controls.Add(this.Okbtn);
             this.Displaygrpbox.Controls.Add(this.BookingToTime);
             this.Displaygrpbox.Controls.Add(this.BookingFromTime);
-            this.Displaygrpbox.Controls.Add(this.txtBookingDate);
             this.Displaygrpbox.Controls.Add(this.BookingTolbl);
             this.Displaygrpbox.Controls.Add(this.BookingFromlbl);
             this.Displaygrpbox.Controls.Add(this.BookingDatelbl);
@@ -126,7 +128,14 @@
             this.Displaygrpbox.Size = new System.Drawing.Size(725, 317);
             this.Displaygrpbox.TabIndex = 6;
             this.Displaygrpbox.TabStop = false;
-            this.Displaygrpbox.Enter += new System.EventHandler(this.Displaygrpbox_Enter);
+//            this.Displaygrpbox.Enter += new System.EventHandler(this.Displaygrpbox_Enter);
+            // 
+            // BookingDateDtTimePckr
+            // 
+            this.BookingDateDtTimePckr.Location = new System.Drawing.Point(545, 73);
+            this.BookingDateDtTimePckr.Name = "BookingDateDtTimePckr";
+            this.BookingDateDtTimePckr.Size = new System.Drawing.Size(152, 22);
+            this.BookingDateDtTimePckr.TabIndex = 16;
             // 
             // Cancelbtn
             // 
@@ -152,26 +161,18 @@
             // 
             // BookingToTime
             // 
-            this.BookingToTime.Location = new System.Drawing.Point(551, 199);
+            this.BookingToTime.Location = new System.Drawing.Point(545, 199);
             this.BookingToTime.Name = "BookingToTime";
             this.BookingToTime.Size = new System.Drawing.Size(100, 22);
             this.BookingToTime.TabIndex = 13;
             // 
             // BookingFromTime
             // 
-            this.BookingFromTime.Location = new System.Drawing.Point(551, 132);
+            this.BookingFromTime.Location = new System.Drawing.Point(545, 132);
             this.BookingFromTime.Name = "BookingFromTime";
             this.BookingFromTime.Size = new System.Drawing.Size(100, 22);
             this.BookingFromTime.TabIndex = 12;
             this.BookingFromTime.Value = new System.DateTime(2018, 3, 23, 10, 48, 0, 0);
-            // 
-            // txtBookingDate
-            // 
-            this.txtBookingDate.Location = new System.Drawing.Point(551, 71);
-            this.txtBookingDate.Name = "txtBookingDate";
-            this.txtBookingDate.ReadOnly = true;
-            this.txtBookingDate.Size = new System.Drawing.Size(100, 22);
-            this.txtBookingDate.TabIndex = 7;
             // 
             // BookingTolbl
             // 
@@ -248,11 +249,32 @@
             this.RoomNamelbl.Text = "Room Name";
             this.RoomNamelbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // txtNoOfpax
+            // 
+            this.txtNoOfpax.Location = new System.Drawing.Point(555, 90);
+            this.txtNoOfpax.Name = "txtNoOfpax";
+            this.txtNoOfpax.Size = new System.Drawing.Size(35, 22);
+            this.txtNoOfpax.TabIndex = 8;
+  //          this.txtNoOfpax.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // Noofpaxlbl
+            // 
+            this.Noofpaxlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Noofpaxlbl.Location = new System.Drawing.Point(407, 83);
+            this.Noofpaxlbl.Name = "Noofpaxlbl";
+            this.Noofpaxlbl.Size = new System.Drawing.Size(142, 34);
+            this.Noofpaxlbl.TabIndex = 7;
+            this.Noofpaxlbl.Text = "No of Persons";
+            this.Noofpaxlbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+   //         this.Noofpaxlbl.Click += new System.EventHandler(this.label1_Click_1);
+            // 
             // MakeBookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.txtNoOfpax);
+            this.Controls.Add(this.Noofpaxlbl);
             this.Controls.Add(this.Displaygrpbox);
             this.Controls.Add(this.LookUpBtn);
             this.Controls.Add(this.txtMemberName);
@@ -262,7 +284,7 @@
             this.Controls.Add(this.MakeBookinglbl);
             this.Name = "MakeBookingForm";
             this.Text = "Make Booking ";
-            this.Load += new System.EventHandler(this.MakeBookingForm_Load_1);
+     //       this.Load += new System.EventHandler(this.MakeBookingForm_Load_1);
             this.Displaygrpbox.ResumeLayout(false);
             this.Displaygrpbox.PerformLayout();
             this.ResumeLayout(false);
@@ -275,8 +297,6 @@
         private System.Windows.Forms.Label MakeBookinglbl;
         private System.Windows.Forms.Label MemberIDlbl;
         private System.Windows.Forms.Label MemberNamelbl;
-        private System.Windows.Forms.TextBox txtMemberID;
-        private System.Windows.Forms.TextBox txtMemberName;
         private System.Windows.Forms.Button LookUpBtn;
         private System.Windows.Forms.GroupBox Displaygrpbox;
         private System.Windows.Forms.Label Locationlbl;
@@ -284,14 +304,18 @@
         private System.Windows.Forms.Label RoomNamelbl;
         private System.Windows.Forms.DateTimePicker BookingToTime;
         private System.Windows.Forms.DateTimePicker BookingFromTime;
-        private System.Windows.Forms.TextBox txtBookingDate;
         private System.Windows.Forms.Label BookingTolbl;
         private System.Windows.Forms.Label BookingFromlbl;
         private System.Windows.Forms.Label BookingDatelbl;
-        private System.Windows.Forms.TextBox txtRoomName;
-        private System.Windows.Forms.TextBox txtLocation;
         private System.Windows.Forms.Button Cancelbtn;
         private System.Windows.Forms.Button Okbtn;
+        public System.Windows.Forms.TextBox txtMemberID;
+        public System.Windows.Forms.TextBox txtMemberName;
+        private System.Windows.Forms.DateTimePicker BookingDateDtTimePckr;
+        public System.Windows.Forms.TextBox txtRoomName;
+        public System.Windows.Forms.TextBox txtLocation;
+        public System.Windows.Forms.TextBox txtNoOfpax;
+        private System.Windows.Forms.Label Noofpaxlbl;
     }
 }
 
