@@ -58,9 +58,10 @@ namespace WindowsFormsApp1
             SembawangSportEntities context = new SembawangSportEntities();
 
             var q = context.Bookings
-                .Where(x => (x.BookingDateFrom <= bookingDateFrom && x.BookingDateTo >= bookingDateTo) ||
-                            (x.BookingDateFrom <= bookingDateFrom && x.BookingDateTo > bookingDateFrom) ||
-                            (x.BookingDateFrom < bookingDateTo && x.BookingDateTo >= bookingDateTo)
+                .Where(x => (x.BookingDateFrom >= bookingDateFrom && x.BookingDateTo <= bookingDateTo) || // queried timeslot sits completely inside existing timeslot
+                            (x.BookingDateFrom <= bookingDateFrom && x.BookingDateTo >= bookingDateTo) || // exisiting timeslot sits completely inside queried timeslot
+                            (x.BookingDateFrom <= bookingDateFrom && x.BookingDateTo > bookingDateFrom) || // exisiting timeslot overlaps with queried timeslot
+                            (x.BookingDateFrom < bookingDateTo && x.BookingDateTo >= bookingDateTo) // exisiting timeslot overlaps with queried timeslot
                 )
                 .Where(x => x.Facility.FacilityName == facName);
 
