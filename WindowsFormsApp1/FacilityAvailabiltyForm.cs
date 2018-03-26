@@ -15,22 +15,26 @@ namespace WindowsFormsApp1
         // Test case: Badminton Court 4 on 7/1/2018
 
         DateTime selectedDate;
-        SembawangSportEntities context = new SembawangSportEntities();
 
+        SembawangSportEntities context;
         List<Booking> listBookings;
         List<FacilitySchedule> listFacilityAvailabiltyByDay;
-        //NewFacilityInformation nfForm = new NewFacilityInformation();
+
+        public DataGridView dataGrid1;
+
         public FacilityAvailabiltyForm()
         {
             InitializeComponent();
 
             // Cache from DB all entries for that day where the Facilities ID matches
-            
+            context = new SembawangSportEntities();
+
             // put focus on FacilityTypeCombo
             facilityTypeCombo.Select();
             facilityTypeCombo.Text = "- Select Facility Type -";
 
-
+            // leave a reference for other forms
+            dataGrid1 = dataGridView1;
         }
 
         /// <summary>
@@ -53,7 +57,7 @@ namespace WindowsFormsApp1
         /// <summary>
         /// Renders Data Grid.
         /// </summary>
-        private void RenderDataGrid()
+        public void RenderDataGrid()
         {
             // get selectedDate
             // selectedDate = new DateTime(2018, 1, 4); // REMOVE: for testing
@@ -167,14 +171,16 @@ namespace WindowsFormsApp1
                     // Trigger Modify Booking
                     //bookingType = "Modify Booking";
                     ModifyForm form1 = new ModifyForm(facName, date, hour);
-                    form1.Show();
+                    form1.refToAvailabiltyForm = this;
+                    form1.ShowDialog();
                 }
                 else
                 {
                     // Trigger New Booking
                     //bookingType = "New Booking";
                     MakeBookingForm form2 = new MakeBookingForm(facName, date, hour);
-                    form2.Show();
+                    form2.refToAvailabiltyForm = this;
+                    form2.ShowDialog();
                 }
 
                 //MessageBox.Show("Type of form triggerred: " + bookingType);
@@ -309,10 +315,8 @@ namespace WindowsFormsApp1
             }
         }
 
-      
-        public void renderFlist()
+        private void FacilityAvailabiltyForm_Load(object sender, EventArgs e)
         {
-
             List<Facility> flist = context.Facilities.ToList();
             var list = flist.Select(x => x.FacilityType).Distinct();
             foreach (var x in list)
@@ -320,12 +324,6 @@ namespace WindowsFormsApp1
                 facilityTypeCombo.Items.Add(x.ToString());
             }
 
-        }
-
-        private void FacilityAvailabiltyForm_Load_1(object sender, EventArgs e)
-        {
-            //nfForm.faForm = this;
-            renderFlist();
         }
     }
 }

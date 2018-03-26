@@ -7,20 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataGenerator;
 
 namespace WindowsFormsApp1
 {
     public partial class MakeBookingForm : Form
     {
+        public FacilityAvailabiltyForm refToAvailabiltyForm;
+
         Facility f;
         Booking b;
         Member m;
         string facilityname;
-        DateTime dateofbooking;
-        int time,flag=0;
+        DateTime dateofbooking,bookingDateFrom;
+        int time, flag = 0, fl = 0;
         List<Booking> bList;
 
-        
+
         TimeSpan fromts = new TimeSpan(7, 0, 0);
         TimeSpan tots = new TimeSpan(21, 0, 0);
 
@@ -28,6 +31,18 @@ namespace WindowsFormsApp1
         public MakeBookingForm()
         {
             InitializeComponent();
+            fl = 1;
+            dateofbooking = DateTime.Today;
+            bookingDateFrom = dateofbooking;
+
+
+            BookingFromTime.CustomFormat = "hh:00 tt";
+            BookingFromTime.Format = DateTimePickerFormat.Custom;
+            BookingFromTime.ShowUpDown = true;
+
+            BookingToTime.CustomFormat = "hh:00 tt";
+            BookingToTime.Format = DateTimePickerFormat.Custom;
+            BookingToTime.ShowUpDown = true;
         }
         public MakeBookingForm(string facname, DateTime date, int bookingfrom)
         {
@@ -42,10 +57,13 @@ namespace WindowsFormsApp1
             BookingFromTime.CustomFormat = "hh:00 tt";
             BookingFromTime.Format = DateTimePickerFormat.Custom;
             BookingFromTime.ShowUpDown = true;
- 
+
             BookingToTime.CustomFormat = "hh:00 tt";
             BookingToTime.Format = DateTimePickerFormat.Custom;
             BookingToTime.ShowUpDown = true;
+
+            TimeSpan ts = new TimeSpan(time, 0, 0);
+            bookingDateFrom = dateofbooking + ts;
 
             int result = DateTime.Compare(dateofbooking, DateTime.Today);
             if (result < 0)
@@ -62,20 +80,30 @@ namespace WindowsFormsApp1
             if (flag == 1)
                 this.Close();
             bList = ctx.Bookings.ToList();
-            //Displays facilities details
-            f = (from x in ctx.Facilities where (x.FacilityName == facilityname) select x).First();
-            txtRoomName.Text = f.FacilityName;
-            txtLocation.Text = f.Location;
+            if (fl == 1)
+            {
+                txtRoomName.ReadOnly = false;
+                txtLocation.ReadOnly = false;
+            }
+            else
+            {
+                //Displays facilities details
+                f = (from x in ctx.Facilities where (x.FacilityName == facilityname) select x).First();
+                txtRoomName.Text = f.FacilityName;
+                txtLocation.Text = f.Location;
+            }
 
-            TimeSpan ts = new TimeSpan(time, 0, 0);
-            DateTime bookingDateFrom = dateofbooking + ts;
-            
             //Displays Bookings details for that Particular booking id
+           
+            if (flag == 0)
+            {
+                BookingDateDtTimePckr.Value = dateofbooking;
+            }
+            MessageBox.Show(bookingDateFrom.ToString());
             BookingFromTime.Value = bookingDateFrom;
             BookingToTime.Value = bookingDateFrom.AddHours(1);
-            if(flag!=1)
-                BookingDateDtTimePckr.Value = dateofbooking;
-            BookingFromTime.MinDate = BookingDateDtTimePckr.Value.Date +fromts;
+            
+            BookingFromTime.MinDate = BookingDateDtTimePckr.Value.Date + fromts;
             BookingToTime.MaxDate = BookingDateDtTimePckr.Value.Date + tots;
         }
 
@@ -89,13 +117,22 @@ namespace WindowsFormsApp1
 
             b = new Booking();
             // table values
-            b.BookingID = bList[bList.Count-1].BookingID+1;
-            b.BookingDateFrom = BookingFromTime.Value;
-            b.BookingDateTo = BookingToTime.Value;
-            b.FacilitiesID = f.FacilityID;
-            b.MemberID = Int32.Parse(txtMemberID.Text);
-            b.IssueDate = DateTime.Today;
-            b.NumberofPax = Int32.Parse(txtNoOfPax.Text);
+
+            try
+            {
+                b.BookingID = bList[bList.Count - 1].BookingID + 1;
+                b.BookingDateFrom = BookingFromTime.Value;
+                b.BookingDateTo = BookingToTime.Value;
+                b.FacilitiesID = f.FacilityID;
+                b.MemberID = Int32.Parse(txtMemberID.Text);
+                b.IssueDate = DateTime.Today;
+                b.NumberofPax = Int32.Parse(txtNoOfPax.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please ensure all fields are filled.");
+                return;
+            }
 
             // convert booking date from 
             int BookingTimeFrom = BookingFromTime.Value.Hour;
@@ -103,25 +140,31 @@ namespace WindowsFormsApp1
             DateTime bkgdt = BookingFromTime.Value.Date;
             bool value;
 
-            value=Program.ValidateBooking(bkgdt, f.FacilityName, BookingTimeFrom, BookingTimeTo);
+            // check if 
+            value = Program.ValidateBooking(bkgdt, f.FacilityName, BookingTimeFrom, BookingTimeTo);
+
             if (value)
             {
                 ctx.Bookings.Add(b);
                 ctx.SaveChanges();
                 MessageBox.Show("Booking Successfully Saved");
+
                 DialogResult res = MessageBox.Show("Do you want to print a receipt?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 if (res == DialogResult.OK)
                 {
-                    MessageBox.Show("Printing Receipt");
+                    // BookingReceipt br = new BookingReceipt(); // TODO: to provide arguments
+                    // br.ShowDialog();
                 }
-                else
-                    this.Close();
+                Close();
+                refToAvailabiltyForm.RenderDataGrid();
             }
             else
+            {
                 MessageBox.Show("Slot is not available");
-         }
+            }
+        }
 
-       
+
 
         private void Cancelbtn_Click(object sender, EventArgs e)
         {
@@ -148,5 +191,5 @@ namespace WindowsFormsApp1
                 PopulateText();
             }
         }
-     }
+    }
 }

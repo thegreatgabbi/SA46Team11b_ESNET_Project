@@ -10,9 +10,10 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {   
-    
     public partial class ModifyForm : Form
     {
+        public FacilityAvailabiltyForm refToAvailabiltyForm;
+
         Facility f;
         Booking b;
         Member m;
@@ -82,15 +83,21 @@ namespace WindowsFormsApp1
         {
 
             BookingFromTime.Value= new DateTime(BookingDateDtTimePckr.Value.Year, BookingDateDtTimePckr.Value.Month, BookingDateDtTimePckr.Value.Day,
-             BookingFromTime.Value.Hour, 00, 00);
+            BookingFromTime.Value.Hour, 00, 00);
 
             BookingToTime.Value = new DateTime(BookingDateDtTimePckr.Value.Year, BookingDateDtTimePckr.Value.Month, BookingDateDtTimePckr.Value.Day,
             BookingToTime.Value.Hour, 00, 00);
 
+            try
+            {
             b.BookingDateFrom = BookingDateDtTimePckr.Value.Date + BookingFromTime.Value.TimeOfDay;
             b.BookingDateTo = BookingDateDtTimePckr.Value.Date + BookingToTime.Value.TimeOfDay;
             b.MemberID = Int32.Parse(txtMemberID.Text);
             b.NumberofPax= Int32.Parse(txtNoOfPax.Text);
+            } catch (Exception ex) {
+                MessageBox.Show("Please ensure that all fields are filled.");
+                return;
+            }
 
             // convert booking date from 
             int BookingTimeFrom = BookingFromTime.Value.Hour;
@@ -110,11 +117,12 @@ namespace WindowsFormsApp1
                 {
                     MessageBox.Show("Printing Receipt");
                 }
-                else
-                    this.Close();
-            }
-            else
+                Close();
+                refToAvailabiltyForm.RenderDataGrid();
+
+            } else {
                 MessageBox.Show("Slot is not available");
+            }
         }
 
         private void DeleteBookingbtn_Click(object sender, EventArgs e)
@@ -139,6 +147,11 @@ namespace WindowsFormsApp1
             m = (from x in ctx.Members where x.MemberID.ToString() == txtMemberID.Text select x).First();
             txtMemberID.Text = m.MemberID.ToString();
             txtMemberName.Text = m.MemberName;
+        }
+
+        private void printButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Printing Receipt");
         }
 
         private void txtMemberID_KeyUp(object sender, KeyEventArgs e)
