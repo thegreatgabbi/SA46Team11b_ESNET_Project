@@ -14,14 +14,12 @@ namespace WindowsFormsApp1
 
     public partial class MainForm : Form
     {
+        SembawangSportEntities context = new SembawangSportEntities();
+        List<Facility> fList;
+
         public MainForm()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void LookUpBtn_Click(object sender, EventArgs e)
@@ -62,6 +60,16 @@ namespace WindowsFormsApp1
         {
             FacilityInformationForm fi = new FacilityInformationForm();
             fi.Show();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            fList = context.Facilities.ToList();
+            var list = fList.Select(x => x.FacilityType).Distinct();
+            foreach(var x in list)
+            {
+                facilityTypeCombo.Items.Add(x.ToString());
+            }
         }
     }
 }

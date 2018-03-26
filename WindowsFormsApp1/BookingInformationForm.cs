@@ -154,5 +154,13 @@ namespace WindowsFormsApp1
         {
             this.BookingInformationForm_Load(sender,e);
         }
+
+        private void MakeNewBookingButton_Click(object sender, EventArgs e)
+        {
+            // this is valli parts
+            // 
+            NewBookingInformation nbi = new NewBookingInformation();
+            nbi.Show();
+        }
     }
 }

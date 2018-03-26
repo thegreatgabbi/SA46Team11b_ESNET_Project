@@ -224,6 +224,7 @@
             this.MakeNewBookingButton.TabIndex = 15;
             this.MakeNewBookingButton.Text = "+ Make New Booking";
             this.MakeNewBookingButton.UseVisualStyleBackColor = true;
+            this.MakeNewBookingButton.Click += new System.EventHandler(this.MakeNewBookingButton_Click);
             // 
             // searchBookingTextBox
             // 
@@ -386,7 +387,7 @@
             this.BookingMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.BookingMenuStrip.Name = "BookingMenuStrip";
             this.BookingMenuStrip.Padding = new System.Windows.Forms.Padding(11, 2, 0, 2);
-            this.BookingMenuStrip.Size = new System.Drawing.Size(891, 42);
+            this.BookingMenuStrip.Size = new System.Drawing.Size(891, 39);
             this.BookingMenuStrip.TabIndex = 11;
             this.BookingMenuStrip.Text = "MainMenuStrip";
             // 
