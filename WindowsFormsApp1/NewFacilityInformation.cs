@@ -18,6 +18,9 @@ namespace WindowsFormsApp1
         List<Facility> fList;
         int posn;
         Facility newfact = new Facility();
+
+      //  public FacilityAvailabiltyForm faForm = new FacilityAvailabiltyForm();
+
         public NewFacilityInformation()
         {
             InitializeComponent();
@@ -98,7 +101,7 @@ namespace WindowsFormsApp1
                 
                 FunctionRefresh();
             }
-            
+           // faForm.renderFlist();
         }
 
         private void nomaintananceDateCheckbox_CheckedChanged(object sender, EventArgs e)

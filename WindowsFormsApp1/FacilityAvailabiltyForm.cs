@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class FacilityAvailabiltyForm : Form
+    public partial class FacilityAvailabilityForm : Form
     {
         // Test case: Badminton Court 4 on 7/1/2018
 
@@ -22,7 +22,7 @@ namespace WindowsFormsApp1
 
         public DataGridView dataGrid1;
 
-        public FacilityAvailabiltyForm()
+        public FacilityAvailabilityForm()
         {
             InitializeComponent();
 
@@ -35,6 +35,13 @@ namespace WindowsFormsApp1
 
             // leave a reference for other forms
             dataGrid1 = dataGridView1;
+
+            List<Facility> flist = context.Facilities.ToList();
+            var list = flist.Select(x => x.FacilityType).Distinct();
+            foreach (var x in list)
+            {
+                facilityTypeCombo.Items.Add(x.ToString());
+            }
         }
 
         /// <summary>
@@ -46,10 +53,7 @@ namespace WindowsFormsApp1
         {
             if (facilityTypeCombo.SelectedIndex != -1)
             {
-                // Make sure you hide the Welcome Message!
-                label1.Visible = false;
-                label2.Visible = false;
-
+                
                 RenderDataGrid();
             }
         }
@@ -321,13 +325,13 @@ namespace WindowsFormsApp1
 
         private void FacilityAvailabiltyForm_Load(object sender, EventArgs e)
         {
-            List<Facility> flist = context.Facilities.ToList();
-            var list = flist.Select(x => x.FacilityType).Distinct();
-            foreach (var x in list)
-            {
-                facilityTypeCombo.Items.Add(x.ToString());
-            }
+         
 
+        }
+
+        private void facilityTypeCombo_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Hide();
         }
     }
 }

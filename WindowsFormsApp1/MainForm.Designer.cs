@@ -113,6 +113,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Sembawang Sports Center";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load_1);
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);

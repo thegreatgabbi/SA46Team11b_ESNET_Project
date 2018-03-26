@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
 {
     public partial class MakeBookingForm : Form
     {
-        public FacilityAvailabiltyForm refToAvailabiltyForm;
+        public FacilityAvailabilityForm refToAvailabiltyForm;
 
         Facility f;
         Booking b;

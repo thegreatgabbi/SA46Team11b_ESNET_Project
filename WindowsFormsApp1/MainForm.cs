@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
     public partial class MainForm : Form
     {
         SembawangSportEntities context = new SembawangSportEntities();
-
+        
 
         public MainForm()
         {
@@ -27,7 +27,7 @@ namespace WindowsFormsApp1
         private void MainForm_Load_1(object sender, EventArgs e)
         {
             //initalizing all forms to tabs
-            var f1 = new FacilityAvailabiltyForm();
+            var f1 = new FacilityAvailabilityForm();
             f1.TopLevel = false;
             f1.Location = new Point(0, 0);
             f1.FormBorderStyle = FormBorderStyle.None;
