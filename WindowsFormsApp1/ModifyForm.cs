@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataGenerator;
 
 namespace WindowsFormsApp1
 {   
@@ -94,7 +95,7 @@ namespace WindowsFormsApp1
             b.BookingDateTo = BookingDateDtTimePckr.Value.Date + BookingToTime.Value.TimeOfDay;
             b.MemberID = Int32.Parse(txtMemberID.Text);
             b.NumberofPax= Int32.Parse(txtNoOfPax.Text);
-            } catch (Exception ex) {
+            } catch {
                 MessageBox.Show("Please ensure that all fields are filled.");
                 return;
             }
@@ -151,7 +152,8 @@ namespace WindowsFormsApp1
 
         private void printButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Printing Receipt");
+            BookingReceipt br = new BookingReceipt(bookID); // TODO: to provide arguments
+            br.ShowDialog();
         }
 
         private void txtMemberID_KeyUp(object sender, KeyEventArgs e)

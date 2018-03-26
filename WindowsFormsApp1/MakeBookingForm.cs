@@ -128,7 +128,7 @@ namespace WindowsFormsApp1
                 b.IssueDate = DateTime.Today;
                 b.NumberofPax = Int32.Parse(txtNoOfPax.Text);
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Please ensure all fields are filled.");
                 return;
@@ -152,8 +152,8 @@ namespace WindowsFormsApp1
                 DialogResult res = MessageBox.Show("Do you want to print a receipt?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 if (res == DialogResult.OK)
                 {
-                    // BookingReceipt br = new BookingReceipt(); // TODO: to provide arguments
-                    // br.ShowDialog();
+                    BookingReceipt br = new BookingReceipt(b.BookingID); // TODO: to provide arguments
+                    br.ShowDialog();
                 }
                 Close();
                 refToAvailabiltyForm.RenderDataGrid();
