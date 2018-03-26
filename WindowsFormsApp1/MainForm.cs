@@ -61,7 +61,7 @@ namespace WindowsFormsApp1
             f5.FormBorderStyle = FormBorderStyle.None;
             f5.Visible = true;
             this.tabPage5.Controls.Add(f5);
-
         }
+
     }
 }

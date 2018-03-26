@@ -45,18 +45,18 @@
             this.bookDTPicker.AccessibleName = "Today";
             this.bookDTPicker.CustomFormat = "dd-MM-yyyy";
             this.bookDTPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bookDTPicker.Location = new System.Drawing.Point(149, 105);
+            this.bookDTPicker.Location = new System.Drawing.Point(48, 12);
             this.bookDTPicker.Name = "bookDTPicker";
-            this.bookDTPicker.Size = new System.Drawing.Size(153, 46);
+            this.bookDTPicker.Size = new System.Drawing.Size(144, 23);
             this.bookDTPicker.TabIndex = 2;
             this.bookDTPicker.KeyDown += new System.Windows.Forms.KeyEventHandler(this.bookDTPicker_KeyDown);
             this.bookDTPicker.Leave += new System.EventHandler(this.facilityTypeCombo_SelectedIndexChanged);
             // 
             // previousDayButton
             // 
-            this.previousDayButton.Location = new System.Drawing.Point(119, 103);
+            this.previousDayButton.Location = new System.Drawing.Point(12, 12);
             this.previousDayButton.Name = "previousDayButton";
-            this.previousDayButton.Size = new System.Drawing.Size(27, 28);
+            this.previousDayButton.Size = new System.Drawing.Size(24, 24);
             this.previousDayButton.TabIndex = 2;
             this.previousDayButton.Text = "<";
             this.previousDayButton.UseVisualStyleBackColor = true;
@@ -64,9 +64,9 @@
             // 
             // nextDayButton
             // 
-            this.nextDayButton.Location = new System.Drawing.Point(305, 103);
+            this.nextDayButton.Location = new System.Drawing.Point(204, 12);
             this.nextDayButton.Name = "nextDayButton";
-            this.nextDayButton.Size = new System.Drawing.Size(27, 28);
+            this.nextDayButton.Size = new System.Drawing.Size(24, 24);
             this.nextDayButton.TabIndex = 3;
             this.nextDayButton.Text = ">";
             this.nextDayButton.UseVisualStyleBackColor = true;
@@ -75,9 +75,9 @@
             // facilityTypeCombo
             // 
             this.facilityTypeCombo.FormattingEnabled = true;
-            this.facilityTypeCombo.Location = new System.Drawing.Point(349, 105);
+            this.facilityTypeCombo.Location = new System.Drawing.Point(252, 12);
             this.facilityTypeCombo.Name = "facilityTypeCombo";
-            this.facilityTypeCombo.Size = new System.Drawing.Size(352, 47);
+            this.facilityTypeCombo.Size = new System.Drawing.Size(288, 24);
             this.facilityTypeCombo.TabIndex = 4;
             this.facilityTypeCombo.Text = "- Select Facility Type -";
             this.facilityTypeCombo.SelectedIndexChanged += new System.EventHandler(this.facilityTypeCombo_SelectedIndexChanged);
@@ -94,14 +94,14 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.Location = new System.Drawing.Point(130, 191);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 48);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1104, 720);
+            this.dataGridView1.Size = new System.Drawing.Size(972, 624);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
@@ -110,29 +110,32 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(53, 191);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 48);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1338, 720);
+            this.pictureBox1.Size = new System.Drawing.Size(972, 624);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
             // FacilityAvailabilityForm
             // 
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 39F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1488, 1018);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.facilityTypeCombo);
             this.Controls.Add(this.nextDayButton);
             this.Controls.Add(this.previousDayButton);
             this.Controls.Add(this.bookDTPicker);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimizeBox = false;
             this.Name = "FacilityAvailabilityForm";
             this.Text = "Sembawang Sports Center";
+            this.Load += new System.EventHandler(this.FacilityAvailabilityForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
