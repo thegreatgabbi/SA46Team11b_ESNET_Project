@@ -73,6 +73,21 @@ namespace WindowsFormsApp1
             dateTimePickerTo.Value = (DateTime)bookingGridView.Rows[e.RowIndex].Cells[5].Value;
             numOfPaxTextBox.Text = bookingGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
         }
+
+        private void FunctionRefresh()
+        {
+            bookingGridView.DataSource = context.Bookings.ToList();
+            BookingIDTextBox.Text = "";
+            memberNameTextBox.Text = "";
+            memberIDTextBox.Text = "";
+            facilityNameTextBox.Text = "";
+            locationTextBox.Text = "";
+            numOfPaxTextBox.Text = "";
+            BookingDatePicker.Value = DateTime.Today;
+            dateTimePickerTo.Value = DateTime.Today;
+            dateTimePickerFrom.Value = DateTime.Today;
+            posn = 0;
+        }
         
 
         private bool GoValidation()
@@ -120,7 +135,7 @@ namespace WindowsFormsApp1
                     {
                         context.SaveChanges();
                         MessageBox.Show("Update Success!");
-                        this.Refresh();
+                        this.FunctionRefresh();
                         bookingGridView.DataSource = bList;
                     }
                     if (res == DialogResult.Cancel)
@@ -149,8 +164,7 @@ namespace WindowsFormsApp1
             {
                 context.SaveChanges();
                 MessageBox.Show("Delete Success!");
-                this.Refresh();
-                bookingGridView.DataSource = context.Bookings.ToList();
+                this.FunctionRefresh();
             }
             if (res == DialogResult.Cancel)
             {

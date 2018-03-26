@@ -191,6 +191,8 @@ namespace WindowsFormsApp1
                 context.SaveChanges();
                
                 MessageBox.Show("Delete Success!");
+                //this.FunctionRefresh();
+                //FactGridView.DataSource = context.Facilities.ToList();
                 this.Refresh();
                 memGridView.DataSource = context.Members.ToList();
             }
@@ -250,6 +252,11 @@ namespace WindowsFormsApp1
             {
                 comboBox1.Text = "Mr";
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

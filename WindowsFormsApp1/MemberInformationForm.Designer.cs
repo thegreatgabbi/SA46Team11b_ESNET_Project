@@ -34,6 +34,7 @@
             this.searchMemberTextBox = new System.Windows.Forms.TextBox();
             this.searchPic = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.DeleteLink = new System.Windows.Forms.LinkLabel();
             this.updateLink = new System.Windows.Forms.LinkLabel();
             this.genderTextBox = new System.Windows.Forms.TextBox();
@@ -56,7 +57,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.memGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchPic)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -145,6 +145,15 @@
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Member Information Details";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(640, 68);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(112, 39);
+            this.comboBox1.TabIndex = 92;
             // 
             // DeleteLink
             // 
@@ -353,14 +362,6 @@
             this.label1.Size = new System.Drawing.Size(147, 31);
             this.label1.TabIndex = 66;
             this.label1.Text = "Member ID";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(640, 68);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(112, 39);
-            this.comboBox1.TabIndex = 92;
             // 
             // MemberInformationForm
             // 
