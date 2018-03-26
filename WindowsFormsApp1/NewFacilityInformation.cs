@@ -41,24 +41,64 @@ namespace WindowsFormsApp1
             n.FactGridView.DataSource = fList;
             n.Refresh();
         }
+        private bool NameCheck(string name)
+        {
+            foreach (char n in name)
+            {
+                if (Char.IsDigit(n))
+                    return false;
+                else
+                    return true;
+            }
+            return false;
+        }
+
+        private bool GoValidation()
+        {
+            if (FacilityNameTextBox.Text == String.Empty || FacilityTypeTextBox.Text == String.Empty
+                || LocationTextBox.Text == String.Empty )
+            {
+                MessageBox.Show("Please Fill Completely", "Incomplete Form", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+              }
+            //else if (NameCheck(FacilityNameTextBox.Text) == false)
+            //{
+            //    MessageBox.Show("Digits are not allowed for name!", "Invalid Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return false;
+            //}
+            //else if (NameCheck(FacilityTypeTextBox.Text) == false)
+            //{
+            //    MessageBox.Show("Digits are not allowed for name!", "Invalid Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return false;
+            //}
+            else
+            {
+                return true;
+            }
+        }
 
         private void NewFacilityAddButton_Click(object sender, EventArgs e)
         {
-            newfact.FacilityID = fList[fList.Count - 1].FacilityID + 1;
-            newfact.FacilityName = FacilityNameTextBox.Text.ToString();
-            newfact.FacilityType = FacilityTypeTextBox.Text.ToString();
-            
-            newfact.Location = LocationTextBox.Text.ToString();
-            newfact.AllowedHours = int.Parse(AllowedHoursTextBox.Text);
-
-            if (FacilityNameTextBox.Text != "" & FacilityTypeTextBox.Text != "" & AllowedHoursTextBox.Text != ""
-                & LocationTextBox.Text != "")
+            if (GoValidation() == false)
             {
-                context.Facilities.Add(newfact);
-                context.SaveChanges();
-                MessageBox.Show("New Facility Insertion Success!");
+                return;
             }
-            FunctionRefresh();
+            else
+            {
+                newfact.FacilityID = fList[fList.Count - 1].FacilityID + 1;
+                newfact.FacilityName = FacilityNameTextBox.Text.ToString();
+                newfact.FacilityType = FacilityTypeTextBox.Text.ToString();
+
+                newfact.Location = LocationTextBox.Text.ToString();
+                newfact.AllowedHours = int.Parse(AllowedHoursTextBox.Text);
+ 
+                    context.Facilities.Add(newfact);
+                    context.SaveChanges();
+                    MessageBox.Show("New Facility Insertion Success!");
+                
+                FunctionRefresh();
+            }
+            
         }
 
         private void nomaintananceDateCheckbox_CheckedChanged(object sender, EventArgs e)

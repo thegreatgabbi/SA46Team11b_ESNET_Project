@@ -15,61 +15,39 @@ namespace WindowsFormsApp1
     public partial class MainForm : Form
     {
         SembawangSportEntities context = new SembawangSportEntities();
-        List<Facility> fList;
+
 
         public MainForm()
         {
             InitializeComponent();
         }
-
-        private void LookUpBtn_Click(object sender, EventArgs e)
+        
+     
+        private void MainForm_Load_1(object sender, EventArgs e)
         {
+            var f2 = new BookingInformationForm();
+            f2.TopLevel = false;
+            f2.Location = new Point(0, 0);
+            f2.FormBorderStyle = FormBorderStyle.None;
+            f2.Visible = true;
+            this.tabPage2.Controls.Add(f2);
+
+            var f3 = new MemberInformationForm();
+            f3.TopLevel = false;
+            f3.Location = new Point(0, 0);
+            f3.FormBorderStyle = FormBorderStyle.None;
+            f3.Visible = true;
+            this.tabPage3.Controls.Add(f3);
+
+            var f4 = new FacilityInformationForm();
+            f4.TopLevel = false;
+            f4.Location = new Point(0, 0);
+            f4.FormBorderStyle = FormBorderStyle.None;
+            f4.Visible = true;
+            this.tabPage4.Controls.Add(f4);
 
 
-        }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Okbtn_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void memberInformationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MemberInformationForm mi = new MemberInformationForm();
-            mi.Show();
-            //this.Close();
-        }
-
-        private void bookingInformationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            BookingInformationForm bi = new BookingInformationForm();
-            bi.Show();
-        }
-
-        private void facilityInformationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FacilityInformationForm fi = new FacilityInformationForm();
-            fi.Show();
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            fList = context.Facilities.ToList();
-            var list = fList.Select(x => x.FacilityType).Distinct();
-            foreach(var x in list)
-            {
-                facilityTypeCombo.Items.Add(x.ToString());
-            }
         }
     }
 }

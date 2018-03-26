@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MemberInformationForm));
-            this.MemberMenuStrip = new System.Windows.Forms.MenuStrip();
-            this.bookFacilityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.memberInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.facilityInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.memGridView = new System.Windows.Forms.DataGridView();
             this.addNewMemButton = new System.Windows.Forms.Button();
             this.searchMemberTextBox = new System.Windows.Forms.TextBox();
@@ -60,69 +56,28 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.bookingInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MemberMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.memGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchPic)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // MemberMenuStrip
-            // 
-            this.MemberMenuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.MemberMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bookFacilityToolStripMenuItem,
-            this.bookingInformationToolStripMenuItem,
-            this.memberInformationToolStripMenuItem,
-            this.facilityInformationToolStripMenuItem});
-            this.MemberMenuStrip.Location = new System.Drawing.Point(0, 0);
-            this.MemberMenuStrip.Name = "MemberMenuStrip";
-            this.MemberMenuStrip.Padding = new System.Windows.Forms.Padding(11, 2, 0, 2);
-            this.MemberMenuStrip.Size = new System.Drawing.Size(1000, 39);
-            this.MemberMenuStrip.TabIndex = 5;
-            this.MemberMenuStrip.Text = "MainMenuStrip";
-            // 
-            // bookFacilityToolStripMenuItem
-            // 
-            this.bookFacilityToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bookFacilityToolStripMenuItem.Name = "bookFacilityToolStripMenuItem";
-            this.bookFacilityToolStripMenuItem.Size = new System.Drawing.Size(181, 35);
-            this.bookFacilityToolStripMenuItem.Text = "Book Facility";
-            // 
-            // memberInformationToolStripMenuItem
-            // 
-            this.memberInformationToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.memberInformationToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.memberInformationToolStripMenuItem.Name = "memberInformationToolStripMenuItem";
-            this.memberInformationToolStripMenuItem.Size = new System.Drawing.Size(267, 35);
-            this.memberInformationToolStripMenuItem.Text = "Member Information";
-            this.memberInformationToolStripMenuItem.Click += new System.EventHandler(this.memberInformationToolStripMenuItem_Click);
-            // 
-            // facilityInformationToolStripMenuItem
-            // 
-            this.facilityInformationToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.facilityInformationToolStripMenuItem.Name = "facilityInformationToolStripMenuItem";
-            this.facilityInformationToolStripMenuItem.Size = new System.Drawing.Size(255, 38);
-            this.facilityInformationToolStripMenuItem.Text = "Facility Information";
-            this.facilityInformationToolStripMenuItem.Click += new System.EventHandler(this.facilityInformationToolStripMenuItem_Click);
-            // 
             // memGridView
             // 
             this.memGridView.AllowUserToOrderColumns = true;
             this.memGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.memGridView.Location = new System.Drawing.Point(23, 103);
+            this.memGridView.Location = new System.Drawing.Point(70, 78);
             this.memGridView.Margin = new System.Windows.Forms.Padding(4);
             this.memGridView.Name = "memGridView";
             this.memGridView.ReadOnly = true;
             this.memGridView.RowTemplate.Height = 33;
             this.memGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.memGridView.Size = new System.Drawing.Size(964, 247);
+            this.memGridView.Size = new System.Drawing.Size(964, 259);
             this.memGridView.TabIndex = 8;
             this.memGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.memGridView_CellClick);
             // 
             // addNewMemButton
             // 
-            this.addNewMemButton.Location = new System.Drawing.Point(711, 46);
+            this.addNewMemButton.Location = new System.Drawing.Point(758, 21);
             this.addNewMemButton.Margin = new System.Windows.Forms.Padding(4);
             this.addNewMemButton.Name = "addNewMemButton";
             this.addNewMemButton.Size = new System.Drawing.Size(281, 46);
@@ -134,7 +89,7 @@
             // searchMemberTextBox
             // 
             this.searchMemberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchMemberTextBox.Location = new System.Drawing.Point(23, 50);
+            this.searchMemberTextBox.Location = new System.Drawing.Point(70, 25);
             this.searchMemberTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.searchMemberTextBox.Multiline = true;
             this.searchMemberTextBox.Name = "searchMemberTextBox";
@@ -145,10 +100,10 @@
             // 
             this.searchPic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.searchPic.Image = ((System.Drawing.Image)(resources.GetObject("searchPic.Image")));
-            this.searchPic.Location = new System.Drawing.Point(249, 48);
+            this.searchPic.Location = new System.Drawing.Point(301, 25);
             this.searchPic.Margin = new System.Windows.Forms.Padding(4);
             this.searchPic.Name = "searchPic";
-            this.searchPic.Size = new System.Drawing.Size(43, 47);
+            this.searchPic.Size = new System.Drawing.Size(38, 45);
             this.searchPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.searchPic.TabIndex = 6;
             this.searchPic.TabStop = false;
@@ -156,6 +111,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Window;
             this.groupBox1.Controls.Add(this.DeleteLink);
             this.groupBox1.Controls.Add(this.updateLink);
             this.groupBox1.Controls.Add(this.genderTextBox);
@@ -178,11 +134,11 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(23, 357);
+            this.groupBox1.Location = new System.Drawing.Point(70, 345);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(964, 381);
+            this.groupBox1.Size = new System.Drawing.Size(1136, 381);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Member Information Details";
@@ -191,10 +147,10 @@
             // 
             this.DeleteLink.AutoSize = true;
             this.DeleteLink.LinkColor = System.Drawing.Color.Blue;
-            this.DeleteLink.Location = new System.Drawing.Point(852, 63);
+            this.DeleteLink.Location = new System.Drawing.Point(846, 59);
             this.DeleteLink.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DeleteLink.Name = "DeleteLink";
-            this.DeleteLink.Size = new System.Drawing.Size(93, 31);
+            this.DeleteLink.Size = new System.Drawing.Size(116, 39);
             this.DeleteLink.TabIndex = 90;
             this.DeleteLink.TabStop = true;
             this.DeleteLink.Text = "Delete";
@@ -203,10 +159,10 @@
             // updateLink
             // 
             this.updateLink.AutoSize = true;
-            this.updateLink.Location = new System.Drawing.Point(852, 25);
+            this.updateLink.Location = new System.Drawing.Point(846, 21);
             this.updateLink.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.updateLink.Name = "updateLink";
-            this.updateLink.Size = new System.Drawing.Size(102, 31);
+            this.updateLink.Size = new System.Drawing.Size(127, 39);
             this.updateLink.TabIndex = 89;
             this.updateLink.TabStop = true;
             this.updateLink.Text = "Update";
@@ -214,39 +170,39 @@
             // 
             // genderTextBox
             // 
-            this.genderTextBox.Location = new System.Drawing.Point(583, 135);
+            this.genderTextBox.Location = new System.Drawing.Point(577, 131);
             this.genderTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.genderTextBox.Name = "genderTextBox";
-            this.genderTextBox.Size = new System.Drawing.Size(112, 38);
+            this.genderTextBox.Size = new System.Drawing.Size(112, 46);
             this.genderTextBox.TabIndex = 88;
             // 
             // contactNumTextbox
             // 
-            this.contactNumTextbox.Location = new System.Drawing.Point(217, 331);
+            this.contactNumTextbox.Location = new System.Drawing.Point(211, 327);
             this.contactNumTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.contactNumTextbox.Name = "contactNumTextbox";
-            this.contactNumTextbox.Size = new System.Drawing.Size(387, 38);
+            this.contactNumTextbox.Size = new System.Drawing.Size(387, 46);
             this.contactNumTextbox.TabIndex = 87;
             // 
             // emailTextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(216, 286);
+            this.emailTextBox.Location = new System.Drawing.Point(210, 282);
             this.emailTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(388, 38);
+            this.emailTextBox.Size = new System.Drawing.Size(388, 46);
             this.emailTextBox.TabIndex = 86;
             // 
             // countryTextBox
             // 
-            this.countryTextBox.Location = new System.Drawing.Point(769, 186);
+            this.countryTextBox.Location = new System.Drawing.Point(763, 182);
             this.countryTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.countryTextBox.Name = "countryTextBox";
-            this.countryTextBox.Size = new System.Drawing.Size(193, 38);
+            this.countryTextBox.Size = new System.Drawing.Size(193, 46);
             this.countryTextBox.TabIndex = 85;
             // 
             // addressTextBox
             // 
-            this.addressTextBox.Location = new System.Drawing.Point(216, 185);
+            this.addressTextBox.Location = new System.Drawing.Point(210, 181);
             this.addressTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.addressTextBox.Multiline = true;
             this.addressTextBox.Name = "addressTextBox";
@@ -255,173 +211,166 @@
             // 
             // postalTextBox
             // 
-            this.postalTextBox.Location = new System.Drawing.Point(771, 238);
+            this.postalTextBox.Location = new System.Drawing.Point(765, 234);
             this.postalTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.postalTextBox.Name = "postalTextBox";
-            this.postalTextBox.Size = new System.Drawing.Size(193, 38);
+            this.postalTextBox.Size = new System.Drawing.Size(193, 46);
             this.postalTextBox.TabIndex = 83;
             // 
             // memberBDPicker
             // 
             this.memberBDPicker.CustomFormat = "dd-MM-yyyy";
             this.memberBDPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.memberBDPicker.Location = new System.Drawing.Point(216, 131);
+            this.memberBDPicker.Location = new System.Drawing.Point(210, 127);
             this.memberBDPicker.Margin = new System.Windows.Forms.Padding(4);
             this.memberBDPicker.Name = "memberBDPicker";
-            this.memberBDPicker.Size = new System.Drawing.Size(259, 38);
+            this.memberBDPicker.Size = new System.Drawing.Size(259, 46);
             this.memberBDPicker.TabIndex = 80;
             // 
             // ICnumberTextBox
             // 
-            this.ICnumberTextBox.Location = new System.Drawing.Point(583, 38);
+            this.ICnumberTextBox.Location = new System.Drawing.Point(577, 34);
             this.ICnumberTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ICnumberTextBox.Name = "ICnumberTextBox";
-            this.ICnumberTextBox.Size = new System.Drawing.Size(112, 38);
+            this.ICnumberTextBox.Size = new System.Drawing.Size(112, 46);
             this.ICnumberTextBox.TabIndex = 79;
             // 
             // memberIDTextBox
             // 
-            this.memberIDTextBox.Location = new System.Drawing.Point(216, 41);
+            this.memberIDTextBox.Location = new System.Drawing.Point(210, 37);
             this.memberIDTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.memberIDTextBox.Name = "memberIDTextBox";
             this.memberIDTextBox.ReadOnly = true;
-            this.memberIDTextBox.Size = new System.Drawing.Size(136, 38);
+            this.memberIDTextBox.Size = new System.Drawing.Size(136, 46);
             this.memberIDTextBox.TabIndex = 78;
             // 
             // memberNameTextBox
             // 
-            this.memberNameTextBox.Location = new System.Drawing.Point(216, 88);
+            this.memberNameTextBox.Location = new System.Drawing.Point(210, 84);
             this.memberNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.memberNameTextBox.Name = "memberNameTextBox";
-            this.memberNameTextBox.Size = new System.Drawing.Size(387, 38);
+            this.memberNameTextBox.Size = new System.Drawing.Size(387, 46);
             this.memberNameTextBox.TabIndex = 77;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(485, 135);
+            this.label11.Location = new System.Drawing.Point(479, 131);
             this.label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(104, 31);
+            this.label11.Size = new System.Drawing.Size(130, 39);
             this.label11.TabIndex = 76;
             this.label11.Text = "Gender";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(13, 285);
+            this.label10.Location = new System.Drawing.Point(7, 281);
             this.label10.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(188, 31);
+            this.label10.Size = new System.Drawing.Size(237, 39);
             this.label10.TabIndex = 75;
             this.label10.Text = "Email Address";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(11, 325);
+            this.label9.Location = new System.Drawing.Point(5, 321);
             this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(212, 31);
+            this.label9.Size = new System.Drawing.Size(264, 39);
             this.label9.TabIndex = 74;
             this.label9.Text = "Contact Number";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(611, 237);
+            this.label7.Location = new System.Drawing.Point(605, 233);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(162, 31);
+            this.label7.Size = new System.Drawing.Size(203, 39);
             this.label7.TabIndex = 72;
             this.label7.Text = "Postal Code";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(611, 190);
+            this.label6.Location = new System.Drawing.Point(605, 186);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 31);
+            this.label6.Size = new System.Drawing.Size(136, 39);
             this.label6.TabIndex = 71;
             this.label6.Text = "Country";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 188);
+            this.label5.Location = new System.Drawing.Point(7, 184);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(114, 31);
+            this.label5.Size = new System.Drawing.Size(142, 39);
             this.label5.TabIndex = 70;
             this.label5.Text = "Address";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 139);
+            this.label4.Location = new System.Drawing.Point(7, 135);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(165, 31);
+            this.label4.Size = new System.Drawing.Size(205, 39);
             this.label4.TabIndex = 69;
             this.label4.Text = "Date of Birth";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(485, 42);
+            this.label3.Location = new System.Drawing.Point(479, 38);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(145, 31);
+            this.label3.Size = new System.Drawing.Size(182, 39);
             this.label3.TabIndex = 68;
             this.label3.Text = "IC Number";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 89);
+            this.label2.Location = new System.Drawing.Point(7, 85);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(191, 31);
+            this.label2.Size = new System.Drawing.Size(241, 39);
             this.label2.TabIndex = 67;
             this.label2.Text = "Member Name";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 45);
+            this.label1.Location = new System.Drawing.Point(7, 41);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 31);
+            this.label1.Size = new System.Drawing.Size(185, 39);
             this.label1.TabIndex = 66;
             this.label1.Text = "Member ID";
             // 
-            // bookingInformationToolStripMenuItem
-            // 
-            this.bookingInformationToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bookingInformationToolStripMenuItem.Name = "bookingInformationToolStripMenuItem";
-            this.bookingInformationToolStripMenuItem.Size = new System.Drawing.Size(267, 38);
-            this.bookingInformationToolStripMenuItem.Text = "Booking Information";
-            this.bookingInformationToolStripMenuItem.Click += new System.EventHandler(this.bookingInformationToolStripMenuItem_Click);
-            // 
             // MemberInformationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 39F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 751);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(1258, 787);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.memGridView);
             this.Controls.Add(this.addNewMemButton);
             this.Controls.Add(this.searchMemberTextBox);
             this.Controls.Add(this.searchPic);
-            this.Controls.Add(this.MemberMenuStrip);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MemberInformationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MemberInformationForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MemberInformationForm_Load);
-            this.MemberMenuStrip.ResumeLayout(false);
-            this.MemberMenuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.memGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchPic)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -432,11 +381,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip MemberMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem bookFacilityToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem memberInformationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem facilityInformationToolStripMenuItem;
         public System.Windows.Forms.DataGridView memGridView;
         private System.Windows.Forms.Button addNewMemButton;
         private System.Windows.Forms.TextBox searchMemberTextBox;
@@ -464,6 +408,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ToolStripMenuItem bookingInformationToolStripMenuItem;
     }
 }

@@ -29,8 +29,8 @@ namespace WindowsFormsApp1
             bookingGridView.DataSource = bList;
             dateTimePickerFrom.Format = DateTimePickerFormat.Custom;
             dateTimePickerTo.Format = DateTimePickerFormat.Custom;
-            dateTimePickerFrom.CustomFormat = "HH:mm";
-            dateTimePickerTo.CustomFormat = "HH:mm";
+            dateTimePickerFrom.CustomFormat = "HH:00";
+            dateTimePickerTo.CustomFormat = "HH:00";
             //bookingGridView.Columns["Members"].Visible = false;
             //bookingGridView.Columns["Facilities"].Visible = false;
         }

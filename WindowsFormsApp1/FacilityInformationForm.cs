@@ -48,8 +48,8 @@ namespace WindowsFormsApp1
             fList = context.Facilities.ToList();
             FactGridView.DataSource = fList;
             MaintenanceDateDPicker.CustomFormat = " ";
-            FactGridView.Columns["Bookings"].Visible = false;
-            FactGridView.Columns["Availabilities"].Visible = false;
+            //FactGridView.Columns["Bookings"].Visible = false;
+            //FactGridView.Columns["Availabilities"].Visible = false;
         }
 
         private void FactGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -73,39 +73,60 @@ namespace WindowsFormsApp1
             }
             AllowedHoursTextBox.Text = FactGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
         }
+       
 
+        private bool GoValidation()
+        {
+            if (FacilityNameTextBox.Text == String.Empty || FacilityTypeTextBox.Text == String.Empty
+                || LocationTextBox.Text == String.Empty)
+            {
+                MessageBox.Show("Please Fill Completely", "Incomplete Form", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         private void updateLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (FacilityIDTextBox.Text != "" & FacilityNameTextBox.Text != "" & FacilityTypeTextBox.Text != "" & LocationTextBox.Text != ""
-               & AllowedHoursTextBox.Text != "")
+            if (GoValidation() == false)
             {
-                MessageBox.Show(posn.ToString());
-                int i = Convert.ToInt16(FacilityIDTextBox.Text);
-                int j = Convert.ToInt16(AllowedHoursTextBox.Text);
-                fList[posn].FacilityID = i;
-                fList[posn].FacilityName = FacilityNameTextBox.Text;
-                fList[posn].FacilityType = FacilityTypeTextBox.Text;
-                fList[posn].Location = LocationTextBox.Text;
-                fList[posn].AllowedHours = j;
-                fList[posn].MaintenanceDate = MaintenanceDateDPicker.Value;
+                return;
             }
-            DialogResult res = MessageBox.Show("Are you sure you want to Update?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            if (res == DialogResult.OK)
+            else
             {
-                context.SaveChanges();
-                MessageBox.Show("Update Success!");
-                this.Refresh();
-                FactGridView.DataSource = fList;
-            }
-            if (res == DialogResult.Cancel)
-            {
-                FacilityIDTextBox.Text = "";
-                FacilityNameTextBox.Text = "";
-                FacilityTypeTextBox.Text = "";
-                LocationTextBox.Text = "";
-                AllowedHoursTextBox.Text = "";
-                MaintenanceDateDPicker.Value = DateTimePicker.MinimumDateTime;
-                posn = 0;
+                if (FacilityIDTextBox.Text != "" & FacilityNameTextBox.Text != "" & FacilityTypeTextBox.Text != "" & LocationTextBox.Text != ""
+                   & AllowedHoursTextBox.Text != "")
+                {
+                    MessageBox.Show(posn.ToString());
+                    int i = Convert.ToInt16(FacilityIDTextBox.Text);
+                    int j = Convert.ToInt16(AllowedHoursTextBox.Text);
+                    fList[posn].FacilityID = i;
+                    fList[posn].FacilityName = FacilityNameTextBox.Text;
+                    fList[posn].FacilityType = FacilityTypeTextBox.Text;
+                    fList[posn].Location = LocationTextBox.Text;
+                    fList[posn].AllowedHours = j;
+                    fList[posn].MaintenanceDate = MaintenanceDateDPicker.Value;
+                }
+                DialogResult res = MessageBox.Show("Are you sure you want to Update?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (res == DialogResult.OK)
+                {
+                    context.SaveChanges();
+                    MessageBox.Show("Update Success!");
+                    this.Refresh();
+                    FactGridView.DataSource = fList;
+                }
+                if (res == DialogResult.Cancel)
+                {
+                    FacilityIDTextBox.Text = "";
+                    FacilityNameTextBox.Text = "";
+                    FacilityTypeTextBox.Text = "";
+                    LocationTextBox.Text = "";
+                    AllowedHoursTextBox.Text = "";
+                    MaintenanceDateDPicker.Value = DateTimePicker.MinimumDateTime;
+                    posn = 0;
+                }
             }
 
         }
