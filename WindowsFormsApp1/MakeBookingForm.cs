@@ -13,13 +13,13 @@ namespace WindowsFormsApp1
 {
     public partial class MakeBookingForm : Form
     {
-        public FacilityAvailabiltyForm refToAvailabiltyForm;
+        public FacilityAvailabilityForm refToAvailabiltyForm;
 
         Facility f;
         Booking b;
         Member m;
         string facilityname;
-        DateTime dateofbooking;
+        DateTime dateofbooking,bookingDateFrom;
         int time, flag = 0, fl = 0;
         List<Booking> bList;
 
@@ -32,6 +32,16 @@ namespace WindowsFormsApp1
             InitializeComponent();
             fl = 1;
             dateofbooking = DateTime.Today;
+            bookingDateFrom = dateofbooking;
+
+
+            BookingFromTime.CustomFormat = "hh:00 tt";
+            BookingFromTime.Format = DateTimePickerFormat.Custom;
+            BookingFromTime.ShowUpDown = true;
+
+            BookingToTime.CustomFormat = "hh:00 tt";
+            BookingToTime.Format = DateTimePickerFormat.Custom;
+            BookingToTime.ShowUpDown = true;
         }
         public MakeBookingForm(string facname, DateTime date, int bookingfrom)
         {
@@ -50,6 +60,9 @@ namespace WindowsFormsApp1
             BookingToTime.CustomFormat = "hh:00 tt";
             BookingToTime.Format = DateTimePickerFormat.Custom;
             BookingToTime.ShowUpDown = true;
+
+            TimeSpan ts = new TimeSpan(time, 0, 0);
+            bookingDateFrom = dateofbooking + ts;
 
             int result = DateTime.Compare(dateofbooking, DateTime.Today);
             if (result < 0)
@@ -79,18 +92,15 @@ namespace WindowsFormsApp1
                 txtLocation.Text = f.Location;
             }
 
-            TimeSpan ts = new TimeSpan(time, 0, 0);
-            DateTime bookingDateFrom = dateofbooking + ts;
-            
-
             //Displays Bookings details for that Particular booking id
            
             if (flag == 0)
             {
                 BookingDateDtTimePckr.Value = dateofbooking;
             }
-                BookingFromTime.Value = bookingDateFrom;
-                BookingToTime.Value = bookingDateFrom.AddHours(1);
+            // MessageBox.Show(bookingDateFrom.ToString()); // For testing
+            BookingFromTime.Value = bookingDateFrom;
+            BookingToTime.Value = bookingDateFrom.AddHours(1);
             
             BookingFromTime.MinDate = BookingDateDtTimePckr.Value.Date + fromts;
             BookingToTime.MaxDate = BookingDateDtTimePckr.Value.Date + tots;
@@ -123,7 +133,7 @@ namespace WindowsFormsApp1
                 b.IssueDate = DateTime.Today;
                 b.NumberofPax = Int32.Parse(txtNoOfPax.Text);
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Please ensure all fields are filled.");
                 return;
@@ -147,8 +157,8 @@ namespace WindowsFormsApp1
                 DialogResult res = MessageBox.Show("Do you want to print a receipt?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 if (res == DialogResult.OK)
                 {
-                    // BookingReceipt br = new BookingReceipt(); // TODO: to provide arguments
-                    // br.ShowDialog();
+                    BookingReceipt br = new BookingReceipt(b.BookingID); // TODO: to provide arguments
+                    br.ShowDialog();
                 }
                 Close();
                 refToAvailabiltyForm.RenderDataGrid();
