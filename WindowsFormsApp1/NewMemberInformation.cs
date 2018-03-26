@@ -91,28 +91,44 @@ namespace WindowsFormsApp1
             }
             else
             {
-                Member newmember = new Member();
-                newmember.MemberID = mList[mList.Count - 1].MemberID + 1;
-                newmember.MemberName = MemberNameTextBox.Text.ToString();
-                newmember.ICNumber = ICNumberTextBox.Text.ToString();
-                newmember.DateofBirth = memberBDPicker.Value;
-                newmember.Address = AddressTextBox.Text.ToString();
-                newmember.Country = CountryTextBox.Text.ToString();
-                newmember.Postcode = PostalCodeTextBox.Text.ToString();
-                newmember.ContactTitle = ContactTitleTextBox.Text.ToString();
-                newmember.ContactNumber = ContactNumberTextBox.Text.ToString();
-                newmember.EmailAddress = EmailTextBox.Text.ToString();
-                newmember.Gender = genderComboBox.Text.ToString();
-
                 if (ICNumberTextBox.Text != "" & MemberNameTextBox.Text != "" & AddressTextBox.Text != ""
                     & CountryTextBox.Text != "" & PostalCodeTextBox.Text != "" & ContactNumberTextBox.Text != "" & EmailTextBox.Text != "" & ContactTitleTextBox.Text != "")
                 {
+                    Member newmember = new Member();
+                    newmember.MemberID = mList[mList.Count - 1].MemberID + 1;
+                    newmember.MemberName = MemberNameTextBox.Text.ToString();
+                    newmember.ICNumber = ICNumberTextBox.Text.ToString();
+                    newmember.DateofBirth = memberBDPicker.Value;
+                    newmember.Address = AddressTextBox.Text.ToString();
+                    newmember.Country = CountryTextBox.Text.ToString();
+                    newmember.Postcode = PostalCodeTextBox.Text.ToString();
+                    newmember.ContactTitle = ContactTitleTextBox.Text.ToString();
+                    newmember.ContactNumber = ContactNumberTextBox.Text.ToString();
+                    newmember.EmailAddress = EmailTextBox.Text.ToString();
+                    newmember.Gender = genderComboBox.Text.ToString();
                     context.Members.Add(newmember);
-                    context.SaveChanges();
-                    MessageBox.Show("New Member Insertion Success!");
-                    FunctionRefresh();
-                    this.Close();
+
                 }
+                    DialogResult res = MessageBox.Show("Are you sure you want to Insert?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    if (res == DialogResult.OK)
+                    {
+                        context.SaveChanges();
+                        MessageBox.Show("New Member Insertion Success!");
+                        FunctionRefresh();
+                        this.Close();
+                    }
+                    if (res == DialogResult.Cancel)
+                    {
+                        ICNumberTextBox.Text = "";
+                        MemberNameTextBox.Text = "";
+                        AddressTextBox.Text = "";
+                        CountryTextBox.Text = "";
+                        PostalCodeTextBox.Text = "";
+                        ContactNumberTextBox.Text = "";
+                        EmailTextBox.Text = "";
+                        ContactTitleTextBox.Text = "";
+                        FunctionRefresh();
+                    }
             }
         }
 
