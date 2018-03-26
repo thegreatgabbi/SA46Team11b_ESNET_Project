@@ -20,7 +20,7 @@ namespace DataGenerator
 
         private void MgmtReport_Load(object sender, EventArgs e)
         {
-            SembawangSportEntities context = new SembawangSportEntities();
+            SembawangSportEntities1 context = new SembawangSportEntities1();
             string conS = "Data source = (local); Initial Catalog = SembawangSport; Integrated Security = SSPI";
             SqlConnection cn = new SqlConnection(conS);
             SqlCommand cm = new SqlCommand();

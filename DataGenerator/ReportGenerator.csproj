@@ -61,10 +61,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Availability.cs">
+    <Compile Include="Availability1.cs">
       <DependentUpon>SSCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Booking.cs">
+    <Compile Include="Booking1.cs">
       <DependentUpon>SSCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="BookingReceipt.cs">
@@ -91,10 +91,10 @@
       <DependentUpon>crReceipt.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Facility.cs">
+    <Compile Include="Facility1.cs">
       <DependentUpon>SSCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Member.cs">
+    <Compile Include="Member1.cs">
       <DependentUpon>SSCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MemberList.cs">

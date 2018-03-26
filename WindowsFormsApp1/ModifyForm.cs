@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataGenerator;
 
 namespace WindowsFormsApp1
 {   
@@ -24,7 +25,7 @@ namespace WindowsFormsApp1
         {
             MakeBookinglbl.Text = "Booking #" + "";
 
-            Booking b = (from x in ctx.Bookings where (x.BookingID == 41) select x).First();
+            Booking b = (from x in ctx.Bookings where (x.BookingID == 40) select x).First();
 
             //Displays Bookings details for that Particular booking id
             BookingFromTime.Value = b.BookingDateFrom;
@@ -91,6 +92,10 @@ namespace WindowsFormsApp1
             this.Close();
         }
 
-        
+        private void Printbtn_Click(object sender, EventArgs e)
+        {
+            BookingReceipt br = new BookingReceipt();
+            br.Show();
+        }
     }
 }

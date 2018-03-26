@@ -19,8 +19,8 @@ namespace DataGenerator
 
         private void TestForm_Load(object sender, EventArgs e)
         {
-            SembawangSportEntities context = new SembawangSportEntities();
-            var q = from x in context.Facilities group x by x.FacilityType into g select new { FacilityType = g.Key};
+            SembawangSportEntities1 context = new SembawangSportEntities1();
+            var q = from x in context.Facility1 group x by x.FacilityType into g select new { FacilityType = g.Key};
             
 
         }

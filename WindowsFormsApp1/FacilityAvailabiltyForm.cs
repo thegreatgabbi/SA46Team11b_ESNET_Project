@@ -165,14 +165,14 @@ namespace WindowsFormsApp1
                 {
                     // Trigger Modify Booking
                     //bookingType = "Modify Booking";
-                    ModifyForm form1 = new ModifyForm(facName, date, hour);
+                    ModifyForm form1 = new ModifyForm();
                     form1.Show();
                 }
                 else
                 {
                     // Trigger New Booking
                     //bookingType = "New Booking";
-                    MakeBookingForm form2 = new MakeBookingForm(facName, date, hour);
+                    MakeBookingForm form2 = new MakeBookingForm();
                     form2.Show();
                 }
 
