@@ -48,7 +48,7 @@
             this.txtLocation = new System.Windows.Forms.TextBox();
             this.Displaylbl = new System.Windows.Forms.Label();
             this.RoomNamelbl = new System.Windows.Forms.Label();
-            this.txtNoOfpax = new System.Windows.Forms.TextBox();
+            this.txtNoOfPax = new System.Windows.Forms.TextBox();
             this.Noofpaxlbl = new System.Windows.Forms.Label();
             this.Displaygrpbox.SuspendLayout();
             this.SuspendLayout();
@@ -128,7 +128,6 @@
             this.Displaygrpbox.Size = new System.Drawing.Size(725, 317);
             this.Displaygrpbox.TabIndex = 6;
             this.Displaygrpbox.TabStop = false;
-//            this.Displaygrpbox.Enter += new System.EventHandler(this.Displaygrpbox_Enter);
             // 
             // BookingDateDtTimePckr
             // 
@@ -249,31 +248,29 @@
             this.RoomNamelbl.Text = "Room Name";
             this.RoomNamelbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtNoOfpax
+            // txtNoOfPax
             // 
-            this.txtNoOfpax.Location = new System.Drawing.Point(555, 90);
-            this.txtNoOfpax.Name = "txtNoOfpax";
-            this.txtNoOfpax.Size = new System.Drawing.Size(35, 22);
-            this.txtNoOfpax.TabIndex = 8;
-  //          this.txtNoOfpax.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtNoOfPax.Location = new System.Drawing.Point(588, 148);
+            this.txtNoOfPax.Name = "txtNoOfPax";
+            this.txtNoOfPax.Size = new System.Drawing.Size(35, 22);
+            this.txtNoOfPax.TabIndex = 8;
             // 
             // Noofpaxlbl
             // 
             this.Noofpaxlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Noofpaxlbl.Location = new System.Drawing.Point(407, 83);
+            this.Noofpaxlbl.Location = new System.Drawing.Point(475, 141);
             this.Noofpaxlbl.Name = "Noofpaxlbl";
-            this.Noofpaxlbl.Size = new System.Drawing.Size(142, 34);
+            this.Noofpaxlbl.Size = new System.Drawing.Size(107, 34);
             this.Noofpaxlbl.TabIndex = 7;
-            this.Noofpaxlbl.Text = "No of Persons";
+            this.Noofpaxlbl.Text = "# Persons";
             this.Noofpaxlbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-   //         this.Noofpaxlbl.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // MakeBookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 553);
-            this.Controls.Add(this.txtNoOfpax);
+            this.Controls.Add(this.txtNoOfPax);
             this.Controls.Add(this.Noofpaxlbl);
             this.Controls.Add(this.Displaygrpbox);
             this.Controls.Add(this.LookUpBtn);
@@ -284,7 +281,7 @@
             this.Controls.Add(this.MakeBookinglbl);
             this.Name = "MakeBookingForm";
             this.Text = "Make Booking ";
-     //       this.Load += new System.EventHandler(this.MakeBookingForm_Load_1);
+            this.Load += new System.EventHandler(this.MakeBookingForm_Load);
             this.Displaygrpbox.ResumeLayout(false);
             this.Displaygrpbox.PerformLayout();
             this.ResumeLayout(false);
@@ -314,7 +311,7 @@
         private System.Windows.Forms.DateTimePicker BookingDateDtTimePckr;
         public System.Windows.Forms.TextBox txtRoomName;
         public System.Windows.Forms.TextBox txtLocation;
-        public System.Windows.Forms.TextBox txtNoOfpax;
+        public System.Windows.Forms.TextBox txtNoOfPax;
         private System.Windows.Forms.Label Noofpaxlbl;
     }
 }

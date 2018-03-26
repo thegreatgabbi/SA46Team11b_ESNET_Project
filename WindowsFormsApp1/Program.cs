@@ -9,6 +9,9 @@ namespace WindowsFormsApp1
 {
     static class Program
     {
+        // Global Variables
+        static string SQL_NAME = "NAGAPPAN\\VALLISQL";
+        
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -59,7 +62,7 @@ namespace WindowsFormsApp1
         /// <param name="bookingFrom"></param>
         /// <param name="bookingTo"></param>
         /// <returns></returns>
-        static public bool ValidateBooking(DateTime bookingDate, string facName, int bookingFrom, int bookingTo)
+        public static bool ValidateBooking(DateTime bookingDate, string facName, int bookingFrom, int bookingTo)
         {
             // get full timestamps
             DateTime bookingDateFrom = bookingDate + new TimeSpan(bookingFrom, 0, 0);

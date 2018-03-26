@@ -13,14 +13,9 @@ namespace WindowsFormsApp1
     
     public partial class ModifyForm : Form
     {
-        Facility f;
-        Booking b;
-        Member m;
         string facilityname;
         DateTime dateofbooking;
         int time,bookID;
-
-        SembawangSportEntities ctx = new SembawangSportEntities();
 
         public ModifyForm(string facname,DateTime date,int bookingfrom)
         {
@@ -37,6 +32,7 @@ namespace WindowsFormsApp1
             BookingToTime.CustomFormat = "hh:00 tt";
             BookingToTime.Format = DateTimePickerFormat.Custom;
             BookingToTime.ShowUpDown = true;
+
         }
 
         private void ModifyForm_Load(object sender, EventArgs e)
@@ -51,72 +47,12 @@ namespace WindowsFormsApp1
             b = (from x in ctx.Bookings where (x.BookingID == bookID) select x).First();
             MakeBookinglbl.Text = "Booking #" + b.BookingID;
 
-            m = (from x in ctx.Members where (x.MemberID == b.MemberID) select x).First();
-            txtMemberID.Text = m.MemberID.ToString();
-            txtMemberName.Text = m.MemberName;
-
             //Displays Bookings details for that Particular booking id
             BookingFromTime.Value = b.BookingDateFrom;
             BookingToTime.Value = b.BookingDateTo;
             BookingDateDtTimePckr.Value = dateofbooking;
             txtNoOfPax.Text = b.NumberofPax.ToString();
         }
-        
-        private void Modifybtn_Click(object sender, EventArgs e)
-        {
-
-            BookingFromTime.Value= new DateTime(BookingDateDtTimePckr.Value.Year, BookingDateDtTimePckr.Value.Month, BookingDateDtTimePckr.Value.Day,
-             BookingFromTime.Value.Hour, 00, 00);
-
-            BookingToTime.Value = new DateTime(BookingDateDtTimePckr.Value.Year, BookingDateDtTimePckr.Value.Month, BookingDateDtTimePckr.Value.Day,
-            BookingToTime.Value.Hour, 00, 00);
-
-            b.BookingDateFrom = BookingDateDtTimePckr.Value.Date + BookingFromTime.Value.TimeOfDay;
-            b.BookingDateTo = BookingDateDtTimePckr.Value.Date + BookingToTime.Value.TimeOfDay;
-            b.MemberID = Int32.Parse(txtMemberID.Text);
-            b.NumberofPax= Int32.Parse(txtNoOfPax.Text);
-
-            // convert booking date from 
-            int BookingTimeFrom = BookingFromTime.Value.Hour;
-            int BookingTimeTo = BookingToTime.Value.Hour;
-            DateTime bkgdt = BookingFromTime.Value.Date;
-            bool value;
-
-            //Checking whether slots are available
-            value = Program.ValidateBooking(bkgdt, f.FacilityName, BookingTimeFrom, BookingTimeTo);
-            if (value)
-            {
-                ctx.SaveChanges();
-                MessageBox.Show("Booking Successfully Modified");
-
-                DialogResult res = MessageBox.Show("Do you want to print a receipt?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                if (res == DialogResult.OK)
-                {
-                    MessageBox.Show("Printing Receipt");
-                }
-                else
-                    this.Close();
-            }
-            else
-                MessageBox.Show("Slot is not available");
-        }
-
-        private void DeleteBookingbtn_Click(object sender, EventArgs e)
-        {
-            Booking b = (from x in ctx.Bookings where (x.BookingID == bookID) select x).First();
-
-            ctx.Bookings.Remove(b);
-
-            ctx.SaveChanges();
-            MessageBox.Show("Deleted Booking #" + bookID);
-            this.Close();
-        }
-
-        private void Cancelbtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
 
         private void PopulateText()
         {
@@ -140,5 +76,46 @@ namespace WindowsFormsApp1
         }
 
 
+        private void Modifybtn_Click(object sender, EventArgs e)
+        {
+
+            BookingFromTime.Value= new DateTime(BookingDateDtTimePckr.Value.Year, BookingDateDtTimePckr.Value.Month, BookingDateDtTimePckr.Value.Day,
+             BookingFromTime.Value.Hour, 00, 00);
+
+            BookingToTime.Value = new DateTime(BookingDateDtTimePckr.Value.Year, BookingDateDtTimePckr.Value.Month, BookingDateDtTimePckr.Value.Day,
+            BookingToTime.Value.Hour, 00, 00);
+
+            b.BookingDateFrom = BookingDateDtTimePckr.Value.Date + BookingFromTime.Value.TimeOfDay;
+            b.BookingDateTo = BookingDateDtTimePckr.Value.Date + BookingToTime.Value.TimeOfDay;
+            b.MemberID = Int32.Parse(txtMemberID.Text);
+            b.NumberofPax= Int32.Parse(txtNoOfPax.Text);
+
+            ctx.SaveChanges();
+            MessageBox.Show("Booking Timing Modified");
+            DialogResult res = MessageBox.Show("Do you want to print a receipt?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (res == DialogResult.OK)
+            {
+                MessageBox.Show("Printing Receipt");
+            }
+            else
+                this.Close();
+        }
+
+        private void DeleteBookingbtn_Click(object sender, EventArgs e)
+        {
+            Booking b = (from x in ctx.Bookings where (x.BookingID == bookID) select x).First();
+
+            ctx.Bookings.Remove(b);
+
+            ctx.SaveChanges();
+            MessageBox.Show("Deleted Booking #" + bookID);
+            this.Close();
+        }
+
+        private void Cancelbtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+      
     }
 }

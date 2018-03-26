@@ -79,6 +79,10 @@ namespace WindowsFormsApp1
             PopulateText();
         }
 
+        private void Searchbtn_Click(object sender, EventArgs e)
+        {
+            PopulateText();
+        }
         private void MemberdataGridView_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             string datetoint;
@@ -103,8 +107,6 @@ namespace WindowsFormsApp1
 
         private void Okbtn_Click(object sender, EventArgs e)
         {   
-                 
-            
             if (i == 0)
             {
                 bkgform.txtMemberID.Text = txtMemberID.Text;
@@ -117,11 +119,6 @@ namespace WindowsFormsApp1
             }
 
             this.Close();
-        }
-
-        private void Searchbtn_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -56,7 +56,7 @@ namespace WindowsFormsApp1
         {
             // get selectedDate
             // selectedDate = new DateTime(2018, 1, 4); // REMOVE: for testing
-            selectedDate = bookDTPicker.Value;
+            selectedDate = bookDTPicker.Value.Date;
 
             // LINQ doesn't support 'Date' type, so we have to use `int` types
             var bookingsByDayQuery = context.Bookings

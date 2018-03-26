@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MemberForm));
             this.txtMemberSearch = new System.Windows.Forms.TextBox();
             this.Searchbtn = new System.Windows.Forms.Button();
             this.Okbtn = new System.Windows.Forms.Button();
@@ -94,7 +93,6 @@
             // 
             // Searchbtn
             // 
-            this.Searchbtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Searchbtn.BackgroundImage")));
             this.Searchbtn.Location = new System.Drawing.Point(140, 25);
             this.Searchbtn.Name = "Searchbtn";
             this.Searchbtn.Size = new System.Drawing.Size(53, 42);
