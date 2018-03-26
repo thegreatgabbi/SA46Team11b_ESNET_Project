@@ -86,16 +86,18 @@
             // 
             // txtMemberSearch
             // 
-            this.txtMemberSearch.Location = new System.Drawing.Point(29, 34);
+            this.txtMemberSearch.Location = new System.Drawing.Point(58, 66);
+            this.txtMemberSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtMemberSearch.Name = "txtMemberSearch";
-            this.txtMemberSearch.Size = new System.Drawing.Size(100, 22);
+            this.txtMemberSearch.Size = new System.Drawing.Size(196, 38);
             this.txtMemberSearch.TabIndex = 1;
             // 
             // Searchbtn
             // 
-            this.Searchbtn.Location = new System.Drawing.Point(140, 25);
+            this.Searchbtn.Location = new System.Drawing.Point(280, 48);
+            this.Searchbtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Searchbtn.Name = "Searchbtn";
-            this.Searchbtn.Size = new System.Drawing.Size(53, 42);
+            this.Searchbtn.Size = new System.Drawing.Size(106, 81);
             this.Searchbtn.TabIndex = 2;
             this.Searchbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Searchbtn.UseVisualStyleBackColor = true;
@@ -106,9 +108,10 @@
             // Okbtn
             // 
             this.Okbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Okbtn.Location = new System.Drawing.Point(207, 269);
+            this.Okbtn.Location = new System.Drawing.Point(414, 521);
+            this.Okbtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Okbtn.Name = "Okbtn";
-            this.Okbtn.Size = new System.Drawing.Size(89, 44);
+            this.Okbtn.Size = new System.Drawing.Size(178, 85);
             this.Okbtn.TabIndex = 15;
             this.Okbtn.Text = "Ok";
             this.Okbtn.UseVisualStyleBackColor = true;
@@ -117,9 +120,10 @@
             // Cancelbtn
             // 
             this.Cancelbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cancelbtn.Location = new System.Drawing.Point(371, 269);
+            this.Cancelbtn.Location = new System.Drawing.Point(742, 521);
+            this.Cancelbtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Cancelbtn.Name = "Cancelbtn";
-            this.Cancelbtn.Size = new System.Drawing.Size(91, 44);
+            this.Cancelbtn.Size = new System.Drawing.Size(182, 85);
             this.Cancelbtn.TabIndex = 16;
             this.Cancelbtn.Text = "Cancel";
             this.Cancelbtn.UseVisualStyleBackColor = true;
@@ -163,80 +167,90 @@
             this.grpMember.Controls.Add(this.MemberNamelbl);
             this.grpMember.Controls.Add(this.txtMemberName);
             this.grpMember.Controls.Add(this.MemberIDlbl);
-            this.grpMember.Location = new System.Drawing.Point(12, 215);
+            this.grpMember.Location = new System.Drawing.Point(24, 417);
+            this.grpMember.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.grpMember.Name = "grpMember";
-            this.grpMember.Size = new System.Drawing.Size(758, 326);
+            this.grpMember.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.grpMember.Size = new System.Drawing.Size(1516, 632);
             this.grpMember.TabIndex = 17;
             this.grpMember.TabStop = false;
             // 
             // txtICNumber
             // 
-            this.txtICNumber.Location = new System.Drawing.Point(421, 13);
+            this.txtICNumber.Location = new System.Drawing.Point(842, 25);
+            this.txtICNumber.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtICNumber.Name = "txtICNumber";
             this.txtICNumber.ReadOnly = true;
-            this.txtICNumber.Size = new System.Drawing.Size(87, 22);
+            this.txtICNumber.Size = new System.Drawing.Size(170, 38);
             this.txtICNumber.TabIndex = 34;
             // 
             // ICNumberlbl
             // 
             this.ICNumberlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ICNumberlbl.Location = new System.Drawing.Point(285, 6);
+            this.ICNumberlbl.Location = new System.Drawing.Point(570, 12);
+            this.ICNumberlbl.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.ICNumberlbl.Name = "ICNumberlbl";
-            this.ICNumberlbl.Size = new System.Drawing.Size(121, 39);
+            this.ICNumberlbl.Size = new System.Drawing.Size(242, 76);
             this.ICNumberlbl.TabIndex = 33;
             this.ICNumberlbl.Text = "IC Number";
             this.ICNumberlbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtCountry
             // 
-            this.txtCountry.Location = new System.Drawing.Point(612, 228);
+            this.txtCountry.Location = new System.Drawing.Point(1224, 442);
+            this.txtCountry.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.ReadOnly = true;
-            this.txtCountry.Size = new System.Drawing.Size(87, 22);
+            this.txtCountry.Size = new System.Drawing.Size(170, 38);
             this.txtCountry.TabIndex = 32;
             // 
             // Countrylbl
             // 
             this.Countrylbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Countrylbl.Location = new System.Drawing.Point(511, 222);
+            this.Countrylbl.Location = new System.Drawing.Point(1022, 430);
+            this.Countrylbl.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Countrylbl.Name = "Countrylbl";
-            this.Countrylbl.Size = new System.Drawing.Size(86, 39);
+            this.Countrylbl.Size = new System.Drawing.Size(172, 76);
             this.Countrylbl.TabIndex = 31;
             this.Countrylbl.Text = "Country";
             this.Countrylbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtPostalCode
             // 
-            this.txtPostalCode.Location = new System.Drawing.Point(612, 181);
+            this.txtPostalCode.Location = new System.Drawing.Point(1224, 351);
+            this.txtPostalCode.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtPostalCode.Name = "txtPostalCode";
             this.txtPostalCode.ReadOnly = true;
-            this.txtPostalCode.Size = new System.Drawing.Size(73, 22);
+            this.txtPostalCode.Size = new System.Drawing.Size(142, 38);
             this.txtPostalCode.TabIndex = 30;
             // 
             // PostalCodelbl
             // 
             this.PostalCodelbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PostalCodelbl.Location = new System.Drawing.Point(479, 173);
+            this.PostalCodelbl.Location = new System.Drawing.Point(958, 335);
+            this.PostalCodelbl.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.PostalCodelbl.Name = "PostalCodelbl";
-            this.PostalCodelbl.Size = new System.Drawing.Size(130, 39);
+            this.PostalCodelbl.Size = new System.Drawing.Size(260, 76);
             this.PostalCodelbl.TabIndex = 29;
             this.PostalCodelbl.Text = "Postal Code";
             this.PostalCodelbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtDOB
             // 
-            this.txtDOB.Location = new System.Drawing.Point(464, 97);
+            this.txtDOB.Location = new System.Drawing.Point(928, 188);
+            this.txtDOB.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtDOB.Name = "txtDOB";
             this.txtDOB.ReadOnly = true;
-            this.txtDOB.Size = new System.Drawing.Size(95, 22);
+            this.txtDOB.Size = new System.Drawing.Size(186, 38);
             this.txtDOB.TabIndex = 28;
             // 
             // DOBlbl
             // 
             this.DOBlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DOBlbl.Location = new System.Drawing.Point(310, 88);
+            this.DOBlbl.Location = new System.Drawing.Point(620, 170);
+            this.DOBlbl.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.DOBlbl.Name = "DOBlbl";
-            this.DOBlbl.Size = new System.Drawing.Size(148, 35);
+            this.DOBlbl.Size = new System.Drawing.Size(296, 68);
             this.DOBlbl.TabIndex = 27;
             this.DOBlbl.Text = "Date of Birth";
             this.DOBlbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -244,62 +258,69 @@
             // Genderlbl
             // 
             this.Genderlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Genderlbl.Location = new System.Drawing.Point(491, 39);
+            this.Genderlbl.Location = new System.Drawing.Point(982, 76);
+            this.Genderlbl.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Genderlbl.Name = "Genderlbl";
-            this.Genderlbl.Size = new System.Drawing.Size(92, 48);
+            this.Genderlbl.Size = new System.Drawing.Size(184, 93);
             this.Genderlbl.TabIndex = 26;
             this.Genderlbl.Text = "Gender";
             this.Genderlbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(165, 182);
+            this.txtAddress.Location = new System.Drawing.Point(330, 353);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.ReadOnly = true;
-            this.txtAddress.Size = new System.Drawing.Size(309, 79);
+            this.txtAddress.Size = new System.Drawing.Size(614, 149);
             this.txtAddress.TabIndex = 25;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(165, 144);
+            this.txtEmail.Location = new System.Drawing.Point(330, 279);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
-            this.txtEmail.Size = new System.Drawing.Size(207, 22);
+            this.txtEmail.Size = new System.Drawing.Size(410, 38);
             this.txtEmail.TabIndex = 24;
             // 
             // txtPhoneNumber
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(165, 97);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(330, 188);
+            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.ReadOnly = true;
-            this.txtPhoneNumber.Size = new System.Drawing.Size(139, 22);
+            this.txtPhoneNumber.Size = new System.Drawing.Size(274, 38);
             this.txtPhoneNumber.TabIndex = 23;
             // 
             // PhoneNumberlbl
             // 
             this.PhoneNumberlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PhoneNumberlbl.Location = new System.Drawing.Point(6, 82);
+            this.PhoneNumberlbl.Location = new System.Drawing.Point(12, 159);
+            this.PhoneNumberlbl.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.PhoneNumberlbl.Name = "PhoneNumberlbl";
-            this.PhoneNumberlbl.Size = new System.Drawing.Size(153, 54);
+            this.PhoneNumberlbl.Size = new System.Drawing.Size(306, 105);
             this.PhoneNumberlbl.TabIndex = 22;
             this.PhoneNumberlbl.Text = "Phone Number";
             this.PhoneNumberlbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtGender
             // 
-            this.txtGender.Location = new System.Drawing.Point(589, 54);
+            this.txtGender.Location = new System.Drawing.Point(1178, 105);
+            this.txtGender.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtGender.Name = "txtGender";
             this.txtGender.ReadOnly = true;
-            this.txtGender.Size = new System.Drawing.Size(67, 22);
+            this.txtGender.Size = new System.Drawing.Size(130, 38);
             this.txtGender.TabIndex = 14;
             // 
             // BookingTolbl
             // 
             this.BookingTolbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BookingTolbl.Location = new System.Drawing.Point(45, 175);
+            this.BookingTolbl.Location = new System.Drawing.Point(90, 339);
+            this.BookingTolbl.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.BookingTolbl.Name = "BookingTolbl";
-            this.BookingTolbl.Size = new System.Drawing.Size(94, 35);
+            this.BookingTolbl.Size = new System.Drawing.Size(188, 68);
             this.BookingTolbl.TabIndex = 21;
             this.BookingTolbl.Text = "Address";
             this.BookingTolbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -307,45 +328,50 @@
             // Emaillbl
             // 
             this.Emaillbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Emaillbl.Location = new System.Drawing.Point(4, 136);
+            this.Emaillbl.Location = new System.Drawing.Point(8, 264);
+            this.Emaillbl.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Emaillbl.Name = "Emaillbl";
-            this.Emaillbl.Size = new System.Drawing.Size(150, 46);
+            this.Emaillbl.Size = new System.Drawing.Size(300, 89);
             this.Emaillbl.TabIndex = 20;
             this.Emaillbl.Text = "Email Address";
             this.Emaillbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtMemberID
             // 
-            this.txtMemberID.Location = new System.Drawing.Point(168, 16);
+            this.txtMemberID.Location = new System.Drawing.Point(336, 31);
+            this.txtMemberID.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtMemberID.Name = "txtMemberID";
             this.txtMemberID.ReadOnly = true;
-            this.txtMemberID.Size = new System.Drawing.Size(87, 22);
+            this.txtMemberID.Size = new System.Drawing.Size(170, 38);
             this.txtMemberID.TabIndex = 17;
             // 
             // MemberNamelbl
             // 
             this.MemberNamelbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MemberNamelbl.Location = new System.Drawing.Point(4, 44);
+            this.MemberNamelbl.Location = new System.Drawing.Point(8, 85);
+            this.MemberNamelbl.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.MemberNamelbl.Name = "MemberNamelbl";
-            this.MemberNamelbl.Size = new System.Drawing.Size(155, 45);
+            this.MemberNamelbl.Size = new System.Drawing.Size(310, 87);
             this.MemberNamelbl.TabIndex = 18;
             this.MemberNamelbl.Text = "Member Name";
             this.MemberNamelbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtMemberName
             // 
-            this.txtMemberName.Location = new System.Drawing.Point(165, 53);
+            this.txtMemberName.Location = new System.Drawing.Point(330, 103);
+            this.txtMemberName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtMemberName.Name = "txtMemberName";
             this.txtMemberName.ReadOnly = true;
-            this.txtMemberName.Size = new System.Drawing.Size(309, 22);
+            this.txtMemberName.Size = new System.Drawing.Size(614, 38);
             this.txtMemberName.TabIndex = 15;
             // 
             // MemberIDlbl
             // 
             this.MemberIDlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MemberIDlbl.Location = new System.Drawing.Point(32, 9);
+            this.MemberIDlbl.Location = new System.Drawing.Point(64, 17);
+            this.MemberIDlbl.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.MemberIDlbl.Name = "MemberIDlbl";
-            this.MemberIDlbl.Size = new System.Drawing.Size(121, 39);
+            this.MemberIDlbl.Size = new System.Drawing.Size(242, 76);
             this.MemberIDlbl.TabIndex = 16;
             this.MemberIDlbl.Text = "MemberID";
             this.MemberIDlbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -377,11 +403,12 @@
             this.emailAddressDataGridViewTextBoxColumn,
             this.genderDataGridViewTextBoxColumn});
             this.MemberdataGridView.DataSource = this.membersBindingSource1;
-            this.MemberdataGridView.Location = new System.Drawing.Point(12, 80);
+            this.MemberdataGridView.Location = new System.Drawing.Point(24, 155);
+            this.MemberdataGridView.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.MemberdataGridView.Name = "MemberdataGridView";
             this.MemberdataGridView.ReadOnly = true;
             this.MemberdataGridView.RowTemplate.Height = 24;
-            this.MemberdataGridView.Size = new System.Drawing.Size(758, 132);
+            this.MemberdataGridView.Size = new System.Drawing.Size(1516, 256);
             this.MemberdataGridView.TabIndex = 18;
             this.MemberdataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MemberdataGridView_CellClick_1);
             // 
@@ -478,13 +505,15 @@
             // 
             // MemberForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 553);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(1564, 1071);
             this.Controls.Add(this.MemberdataGridView);
             this.Controls.Add(this.grpMember);
             this.Controls.Add(this.Searchbtn);
             this.Controls.Add(this.txtMemberSearch);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "MemberForm";
             this.Text = "Select Member";
             this.Load += new System.EventHandler(this.MemberForm_Load);

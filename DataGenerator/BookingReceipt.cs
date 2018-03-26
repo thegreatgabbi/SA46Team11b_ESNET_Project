@@ -13,26 +13,19 @@ namespace DataGenerator
 {
     public partial class BookingReceipt : Form
     {
-        public BookingReceipt()
+        public int bookingID =16; //dummy initial value for bookingID
+        public BookingReceipt(int x)
         {
             InitializeComponent();
+            bookingID = x;
         }
+    
 
         private void BookingReceipt_Load(object sender, EventArgs e)
         {
             SembawangSportEntities1 context = new SembawangSportEntities1();
-            //if making datasets
-            //string conS = "Data Source = (local); Initial Catalog = SembawangSport; Integrated Security = SSPI";
-            //SqlConnection cn = new SqlConnection(conS);
-            //SqlCommand cm = new SqlCommand();
-            //cm.Connection = cn;
-            //DataSet ds = new DataSet();
-            //cn.Open();
-            //SqlDataAdapter da = new SqlDataAdapter(cm);
-
-            int bookingID=15; //dummy value that is to be retrieved from other form
+            //retrieve the booking in question from database
             List<Booking1> list = context.Booking1.Where(x => x.BookingID == bookingID).ToList();
-            //Facility facility = context.Facilities.Where(y => y.FacilityID == booking.FacilitiesID).First();
             crReceipt cr = new crReceipt();
             cr.SetDataSource(list);
             crReceiptViewer.ReportSource = cr;

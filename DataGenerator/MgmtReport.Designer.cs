@@ -39,17 +39,19 @@
             this.CRMgmtView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CRMgmtView.Location = new System.Drawing.Point(0, 0);
             this.CRMgmtView.Name = "CRMgmtView";
-            this.CRMgmtView.Size = new System.Drawing.Size(1122, 965);
+            this.CRMgmtView.Size = new System.Drawing.Size(1867, 1211);
             this.CRMgmtView.TabIndex = 0;
             // 
             // MgmtReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1122, 965);
+            this.ClientSize = new System.Drawing.Size(1867, 1211);
             this.Controls.Add(this.CRMgmtView);
             this.Name = "MgmtReport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "MgmtReport";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MgmtReport_Load);
             this.ResumeLayout(false);
 
