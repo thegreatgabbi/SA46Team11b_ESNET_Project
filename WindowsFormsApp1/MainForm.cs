@@ -63,5 +63,29 @@ namespace WindowsFormsApp1
             this.tabPage5.Controls.Add(f5);
         }
 
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (tabControl1.SelectedIndex)
+            {
+                case 0:
+                    stripe.BackColor = System.Drawing.ColorTranslator.FromHtml("#A40A3C");
+                    break;
+                case 1:
+                    stripe.BackColor = System.Drawing.ColorTranslator.FromHtml("#6B0848");
+                    break;
+                case 2:
+                    stripe.BackColor = System.Drawing.ColorTranslator.FromHtml("#EC610A");
+                    break;
+                case 3:
+                    stripe.BackColor = System.Drawing.ColorTranslator.FromHtml("#FFC300");
+                    break;
+                case 4:
+                    stripe.BackColor = System.Drawing.ColorTranslator.FromHtml("#2C3B46");
+                    break;
+                default:
+                    stripe.BackColor = System.Drawing.ColorTranslator.FromHtml("#6B0848");
+                    break;
+            }
+        }
     }
 }

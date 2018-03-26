@@ -54,6 +54,8 @@ namespace WindowsFormsApp1
             BookingDateDtTimePckr.MinDate = DateTime.Today; // FOR TESTING: uncomment this later
             BookingDateDtTimePckr.MaxDate = DateTime.Today.AddDays(30);
 
+            facilityList.SelectedIndex = facilityList.FindStringExact(facname);
+
             BookingFromTime.CustomFormat = "hh:00 tt";
             BookingFromTime.Format = DateTimePickerFormat.Custom;
             BookingFromTime.ShowUpDown = true;
@@ -137,10 +139,9 @@ namespace WindowsFormsApp1
             BookingToTime.Value = BookingDateDtTimePckr.Value.Date + s;
             BookingFromTime.Value = BookingDateDtTimePckr.Value.Date + t;
 
-           
-
+            MessageBox.Show(facilityList.Text);
             //assign f according to facility booked.
-            f = ctx.Facilities.Where(x => x.FacilityName == facilityList.SelectedItem.ToString()).First();
+            f = ctx.Facilities.Where(x => x.FacilityName == facilityList.Text).First();
 
             b = new Booking();
             // table values
@@ -177,6 +178,7 @@ namespace WindowsFormsApp1
                 {
                     BookingReceipt br = new BookingReceipt(b.BookingID); // TODO: to provide arguments
                     br.ShowDialog();
+                    Close();
                 }
                 else
                 {
