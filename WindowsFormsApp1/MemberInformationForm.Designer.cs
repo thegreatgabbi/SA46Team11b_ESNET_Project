@@ -37,7 +37,6 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.DeleteLink = new System.Windows.Forms.LinkLabel();
             this.updateLink = new System.Windows.Forms.LinkLabel();
-            this.genderTextBox = new System.Windows.Forms.TextBox();
             this.contactNumTextbox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.countryTextBox = new System.Windows.Forms.TextBox();
@@ -57,6 +56,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.PrintMembers = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.memGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchPic)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -117,7 +117,6 @@
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.DeleteLink);
             this.groupBox1.Controls.Add(this.updateLink);
-            this.groupBox1.Controls.Add(this.genderTextBox);
             this.groupBox1.Controls.Add(this.contactNumTextbox);
             this.groupBox1.Controls.Add(this.emailTextBox);
             this.groupBox1.Controls.Add(this.countryTextBox);
@@ -179,13 +178,6 @@
             this.updateLink.TabStop = true;
             this.updateLink.Text = "Update";
             this.updateLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.updateLink_LinkClicked);
-            // 
-            // genderTextBox
-            // 
-            this.genderTextBox.Location = new System.Drawing.Point(0, 0);
-            this.genderTextBox.Name = "genderTextBox";
-            this.genderTextBox.Size = new System.Drawing.Size(100, 38);
-            this.genderTextBox.TabIndex = 91;
             // 
             // contactNumTextbox
             // 
@@ -363,12 +355,24 @@
             this.label1.TabIndex = 66;
             this.label1.Text = "Member ID";
             // 
+            // PrintMembers
+            // 
+            this.PrintMembers.Location = new System.Drawing.Point(584, 16);
+            this.PrintMembers.Margin = new System.Windows.Forms.Padding(4);
+            this.PrintMembers.Name = "PrintMembers";
+            this.PrintMembers.Size = new System.Drawing.Size(192, 32);
+            this.PrintMembers.TabIndex = 11;
+            this.PrintMembers.Text = "Print Members List";
+            this.PrintMembers.UseVisualStyleBackColor = true;
+            this.PrintMembers.Click += new System.EventHandler(this.PrintMembers_Click);
+            // 
             // MemberInformationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1000, 679);
+            this.Controls.Add(this.PrintMembers);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.memGridView);
             this.Controls.Add(this.addNewMemButton);
@@ -399,7 +403,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.LinkLabel DeleteLink;
         private System.Windows.Forms.LinkLabel updateLink;
-        private System.Windows.Forms.TextBox genderTextBox;
         private System.Windows.Forms.TextBox contactNumTextbox;
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.TextBox countryTextBox;
@@ -420,5 +423,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button PrintMembers;
     }
 }

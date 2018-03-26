@@ -157,8 +157,8 @@ namespace WindowsFormsApp1
                 {
                     context.SaveChanges();
                     MessageBox.Show("Update Success!");
-                    this.Refresh();
-                    memGridView.DataSource = context.Members.ToList();
+                    FunctionRefresh();
+                    memGridView.DataSource = mList;
                 }
                 if (res == DialogResult.Cancel)
                 {
@@ -177,6 +177,23 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void FunctionRefresh()
+        {
+            mList= context.Members.ToList();
+            memGridView.DataSource = mList;
+            memberIDTextBox.Text = "";
+            memberNameTextBox.Text = "";
+            ICnumberTextBox.Text = "";
+            memberBDPicker.Value = DateTime.Today;
+            addressTextBox.Text = "";
+            countryTextBox.Text = "";
+            postalTextBox.Text = "";
+            contactNumTextbox.Text = "";
+            emailTextBox.Text = "";
+            comboBox1.Text = "";
+            posn = 0;
+        }
+
 
         private void Delete_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -191,10 +208,7 @@ namespace WindowsFormsApp1
                 context.SaveChanges();
                
                 MessageBox.Show("Delete Success!");
-                //this.FunctionRefresh();
-                //FactGridView.DataSource = context.Facilities.ToList();
-                this.Refresh();
-                memGridView.DataSource = context.Members.ToList();
+                this.FunctionRefresh();
             }
             if (res == DialogResult.Cancel)
             {
@@ -257,6 +271,12 @@ namespace WindowsFormsApp1
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void PrintMembers_Click(object sender, EventArgs e)
+        {
+            MemberList m = new MemberList();
+            m.Show();
         }
     }
 }
