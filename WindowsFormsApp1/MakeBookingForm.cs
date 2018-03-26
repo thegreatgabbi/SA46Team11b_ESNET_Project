@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
         Booking b;
         Member m;
         string facilityname;
-        DateTime dateofbooking,bookingDateFrom;
+        DateTime bookingDateFrom;
         int time, flag = 0, fl = 0;
         List<Booking> bList;
 
@@ -185,7 +185,7 @@ namespace WindowsFormsApp1
                 DialogResult res = MessageBox.Show("Do you want to print a receipt?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 if (res == DialogResult.OK)
                 {
-                    BookingReceipt br = new BookingReceipt(b.BookingID); // TODO: to provide arguments
+                    BookingReceipt br = new BookingReceipt(b.BookingID); 
                     br.ShowDialog();
                     Close();
                 }
