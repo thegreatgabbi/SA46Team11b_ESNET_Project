@@ -25,6 +25,10 @@ namespace WindowsFormsApp1
         TimeSpan tots = new TimeSpan(21, 0, 0);
 
         SembawangSportEntities ctx = new SembawangSportEntities();
+        public MakeBookingForm()
+        {
+            InitializeComponent();
+        }
         public MakeBookingForm(string facname, DateTime date, int bookingfrom)
         {
             InitializeComponent();

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bookDTPicker = new System.Windows.Forms.DateTimePicker();
             this.previousDayButton = new System.Windows.Forms.Button();
             this.nextDayButton = new System.Windows.Forms.Button();
@@ -46,7 +46,7 @@
             this.bookDTPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.bookDTPicker.Location = new System.Drawing.Point(57, 59);
             this.bookDTPicker.Name = "bookDTPicker";
-            this.bookDTPicker.Size = new System.Drawing.Size(153, 46);
+            this.bookDTPicker.Size = new System.Drawing.Size(153, 38);
             this.bookDTPicker.TabIndex = 2;
             this.bookDTPicker.KeyDown += new System.Windows.Forms.KeyEventHandler(this.bookDTPicker_KeyDown);
             this.bookDTPicker.Leave += new System.EventHandler(this.facilityTypeCombo_SelectedIndexChanged);
@@ -74,9 +74,18 @@
             // facilityTypeCombo
             // 
             this.facilityTypeCombo.FormattingEnabled = true;
-            this.facilityTypeCombo.Location = new System.Drawing.Point(267, 59);
+            this.facilityTypeCombo.Items.AddRange(new object[] {
+            "Badminton Court",
+            "Basketball Court",
+            "Squash Court",
+            "Tennis Court",
+            "Table Tennis Court",
+            "Seminar Rooms",
+            "Dance Studio",
+            "Multipurpose Hall"});
+            this.facilityTypeCombo.Location = new System.Drawing.Point(256, 64);
             this.facilityTypeCombo.Name = "facilityTypeCombo";
-            this.facilityTypeCombo.Size = new System.Drawing.Size(190, 47);
+            this.facilityTypeCombo.Size = new System.Drawing.Size(190, 39);
             this.facilityTypeCombo.TabIndex = 4;
             this.facilityTypeCombo.Text = "- Select Facility Type -";
             this.facilityTypeCombo.SelectedIndexChanged += new System.EventHandler(this.facilityTypeCombo_SelectedIndexChanged);
@@ -84,14 +93,14 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Location = new System.Drawing.Point(32, 112);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -111,7 +120,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(512, 432);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 39);
+            this.label1.Size = new System.Drawing.Size(142, 31);
             this.label1.TabIndex = 6;
             this.label1.Text = "Welcome!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -121,7 +130,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(320, 480);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(672, 39);
+            this.label2.Size = new System.Drawing.Size(541, 31);
             this.label2.TabIndex = 7;
             this.label2.Text = "To get started, select a Facility Type above.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -129,7 +138,7 @@
             // FacilityAvailabiltyForm
             // 
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 39F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1173, 864);
             this.Controls.Add(this.label2);
@@ -143,7 +152,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FacilityAvailabiltyForm";
             this.Text = "Sembawang Sports Center";
-            this.Load += new System.EventHandler(this.FacilityAvailabiltyForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
