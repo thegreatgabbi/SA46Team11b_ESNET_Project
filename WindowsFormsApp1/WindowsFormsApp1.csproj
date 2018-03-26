@@ -60,6 +60,12 @@
     <Compile Include="Availability.cs">
       <DependentUpon>SembawangSportsModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="BookingInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookingInformationForm.Designer.cs">
+      <DependentUpon>BookingInformationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FacilityAvailabiltyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,18 @@
     </Compile>
     <Compile Include="Facility.cs">
       <DependentUpon>SembawangSportsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FacilityInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FacilityInformationForm.Designer.cs">
+      <DependentUpon>FacilityInformationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MakeBookingForm.cs">
       <SubType>Form</SubType>
@@ -87,11 +105,35 @@
     <Compile Include="MemberForm.Designer.cs">
       <DependentUpon>MemberForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MemberInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemberInformationForm.Designer.cs">
+      <DependentUpon>MemberInformationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModifyForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ModifyForm.designer.cs">
       <DependentUpon>ModifyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewBookingInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewBookingInformation.Designer.cs">
+      <DependentUpon>NewBookingInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewFacilityInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewFacilityInformation.Designer.cs">
+      <DependentUpon>NewFacilityInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewMemberInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewMemberInformation.Designer.cs">
+      <DependentUpon>NewMemberInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="SembawangSportDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -126,8 +168,17 @@
     <Compile Include="TestForm.Designer.cs">
       <DependentUpon>TestForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BookingInformationForm.resx">
+      <DependentUpon>BookingInformationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FacilityAvailabiltyForm.resx">
       <DependentUpon>FacilityAvailabiltyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FacilityInformationForm.resx">
+      <DependentUpon>FacilityInformationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MakeBookingForm.resx">
       <DependentUpon>MakeBookingForm.cs</DependentUpon>
@@ -135,8 +186,20 @@
     <EmbeddedResource Include="MemberForm.resx">
       <DependentUpon>MemberForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MemberInformationForm.resx">
+      <DependentUpon>MemberInformationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModifyForm.resx">
       <DependentUpon>ModifyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewBookingInformation.resx">
+      <DependentUpon>NewBookingInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewFacilityInformation.resx">
+      <DependentUpon>NewFacilityInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewMemberInformation.resx">
+      <DependentUpon>NewMemberInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

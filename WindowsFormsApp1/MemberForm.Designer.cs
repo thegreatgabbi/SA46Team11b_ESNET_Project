@@ -33,9 +33,9 @@
             this.Searchbtn = new System.Windows.Forms.Button();
             this.Okbtn = new System.Windows.Forms.Button();
             this.Cancelbtn = new System.Windows.Forms.Button();
-            this.sembawangSportDataSet = new WindowsFormsApp1.SembawangSportDataSet();
+            this.sembawangSportDataSet = new WindowsFormsApp1.SembawangSportDataSet1();
             this.membersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.membersTableAdapter = new WindowsFormsApp1.SembawangSportDataSetTableAdapters.MembersTableAdapter();
+            this.membersTableAdapter = new WindowsFormsApp1.SembawangSportDataSet1TableAdapters.MembersTableAdapter();
             this.grpMember = new System.Windows.Forms.GroupBox();
             this.txtICNumber = new System.Windows.Forms.TextBox();
             this.ICNumberlbl = new System.Windows.Forms.Label();
@@ -507,9 +507,9 @@
         private System.Windows.Forms.Button Searchbtn;
         private System.Windows.Forms.Button Okbtn;
         private System.Windows.Forms.Button Cancelbtn;
-        private SembawangSportDataSet sembawangSportDataSet;
+        private SembawangSportDataSet1 sembawangSportDataSet;
         private System.Windows.Forms.BindingSource membersBindingSource;
-        private SembawangSportDataSetTableAdapters.MembersTableAdapter membersTableAdapter;
+        private SembawangSportDataSet1TableAdapters.MembersTableAdapter membersTableAdapter;
         private System.Windows.Forms.GroupBox grpMember;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtPhoneNumber;

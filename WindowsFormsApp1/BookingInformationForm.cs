@@ -159,8 +159,8 @@ namespace WindowsFormsApp1
         {
             // this is valli parts
             // 
-            NewBookingInformation nbi = new NewBookingInformation();
-            nbi.Show();
+            //MakeBookingForm nbi = new MakeBookingForm();
+            //nbi.Show();
         }
     }
 }

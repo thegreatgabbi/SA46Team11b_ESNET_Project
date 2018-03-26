@@ -28,11 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
-            this.bookFacilityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.memberInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.facilityInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bookDTPicker = new System.Windows.Forms.DateTimePicker();
             this.previousDayButton = new System.Windows.Forms.Button();
             this.nextDayButton = new System.Windows.Forms.Button();
@@ -40,44 +36,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.MainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // MainMenuStrip
-            // 
-            this.MainMenuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.MainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bookFacilityToolStripMenuItem,
-            this.memberInformationToolStripMenuItem,
-            this.facilityInformationToolStripMenuItem});
-            this.MainMenuStrip.Location = new System.Drawing.Point(0, 0);
-            this.MainMenuStrip.Name = "MainMenuStrip";
-            this.MainMenuStrip.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.MainMenuStrip.Size = new System.Drawing.Size(1173, 39);
-            this.MainMenuStrip.TabIndex = 0;
-            this.MainMenuStrip.Text = "MainMenuStrip";
-            // 
-            // bookFacilityToolStripMenuItem
-            // 
-            this.bookFacilityToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bookFacilityToolStripMenuItem.Name = "bookFacilityToolStripMenuItem";
-            this.bookFacilityToolStripMenuItem.Size = new System.Drawing.Size(181, 35);
-            this.bookFacilityToolStripMenuItem.Text = "Book Facility";
-            // 
-            // memberInformationToolStripMenuItem
-            // 
-            this.memberInformationToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.memberInformationToolStripMenuItem.Name = "memberInformationToolStripMenuItem";
-            this.memberInformationToolStripMenuItem.Size = new System.Drawing.Size(267, 35);
-            this.memberInformationToolStripMenuItem.Text = "Member Information";
-            // 
-            // facilityInformationToolStripMenuItem
-            // 
-            this.facilityInformationToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.facilityInformationToolStripMenuItem.Name = "facilityInformationToolStripMenuItem";
-            this.facilityInformationToolStripMenuItem.Size = new System.Drawing.Size(255, 35);
-            this.facilityInformationToolStripMenuItem.Text = "Facility Information";
             // 
             // bookDTPicker
             // 
@@ -133,14 +93,14 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Location = new System.Drawing.Point(32, 112);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -175,7 +135,7 @@
             this.label2.Text = "To get started, select a Facility Type above.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // BookFacility
+            // FacilityAvailabiltyForm
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -188,13 +148,10 @@
             this.Controls.Add(this.nextDayButton);
             this.Controls.Add(this.previousDayButton);
             this.Controls.Add(this.bookDTPicker);
-            this.Controls.Add(this.MainMenuStrip);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "BookFacility";
+            this.Name = "FacilityAvailabiltyForm";
             this.Text = "Sembawang Sports Center";
-            this.MainMenuStrip.ResumeLayout(false);
-            this.MainMenuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -202,11 +159,6 @@
         }
 
         #endregion
-
-        new private System.Windows.Forms.MenuStrip MainMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem bookFacilityToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem memberInformationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem facilityInformationToolStripMenuItem;
         private System.Windows.Forms.DateTimePicker bookDTPicker;
         private System.Windows.Forms.Button previousDayButton;
         private System.Windows.Forms.Button nextDayButton;
