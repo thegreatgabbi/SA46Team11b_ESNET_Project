@@ -23,19 +23,20 @@ namespace WindowsFormsApp1
         int time, flag = 0, fl = 0;
         List<Booking> bList;
 
+        // opening hours of gym
         TimeSpan fromts = new TimeSpan(7, 0, 0);
         TimeSpan tots = new TimeSpan(21, 0, 0);
 
         SembawangSportEntities ctx = new SembawangSportEntities();
-        public MakeBookingForm()
+        public MakeBookingForm() // called from Booking Information Form
         {
             InitializeComponent();
+
             fl = 1;
             time = 0;
             dateofbooking = DateTime.Today;
             bookingDateFrom = dateofbooking;
 
-
             BookingFromTime.CustomFormat = "hh:00 tt";
             BookingFromTime.Format = DateTimePickerFormat.Custom;
             BookingFromTime.ShowUpDown = true;
@@ -44,51 +45,56 @@ namespace WindowsFormsApp1
             BookingToTime.Format = DateTimePickerFormat.Custom;
             BookingToTime.ShowUpDown = true;
         }
-        public MakeBookingForm(string facname, DateTime date, int bookingfrom)
+        public MakeBookingForm(string facname, DateTime date, int bookingfrom) // Called from Booking Availability Form
         {
             InitializeComponent();
             facilityname = facname;
-            dateofbooking = date;
-            time = bookingfrom;
+            // BookingDateDtTimePckr.MinDate = DateTime.Today; // FOR TESTING: uncomment this later
+            // BookingDateDtTimePckr.MaxDate = DateTime.Today.AddDays(30);
 
-            BookingDateDtTimePckr.MinDate = DateTime.Today; // FOR TESTING: uncomment this later
-            BookingDateDtTimePckr.MaxDate = DateTime.Today.AddDays(30);
-
+            // choose the correct item in the facility List
             facilityList.SelectedIndex = facilityList.FindStringExact(facname);
 
+            // prep Booking From Time
             BookingFromTime.CustomFormat = "hh:00 tt";
             BookingFromTime.Format = DateTimePickerFormat.Custom;
             BookingFromTime.ShowUpDown = true;
-
+            // prep Booking To Time
             BookingToTime.CustomFormat = "hh:00 tt";
             BookingToTime.Format = DateTimePickerFormat.Custom;
             BookingToTime.ShowUpDown = true;
 
-            int result = DateTime.Compare(dateofbooking, DateTime.Today);
-            if (result < 0)
+            // is date of booking earlier than today?
+            int result = DateTime.Compare(date, DateTime.Today);
+
+            if (result == -1)
             {
                 MessageBox.Show("Booking date cannot be earlier than Today");
-                flag = 1;
+                flag = 1; // what does this flag do?
             }
 
         }
 
-
         private void MakeBookingForm_Load(object sender, EventArgs e)
         {
-            if (flag == 1)
+            if (flag == 1) // if booking date is earlier than today
+            {
                 this.Close();
+                return;
+            }
+
             bList = ctx.Bookings.ToList();
+
             TimeSpan ts = new TimeSpan(time, 0, 0);
             bookingDateFrom = dateofbooking + ts;
-            if (fl == 1)
+
+            if (fl == 1) // if called from Booking Information Form
             {
-                
                 txtLocation.ReadOnly = false;
-             }
+            }
             else
             {
-                //Displays facilities details
+                // if called from Facility Availabilty form, populate fields
                 f = (from x in ctx.Facilities where (x.FacilityName == facilityname) select x).First();
                 facilityList.Text = f.FacilityName;
                 txtLocation.Text = f.Location;
@@ -96,17 +102,15 @@ namespace WindowsFormsApp1
 
             //Displays Bookings details for that Particular booking id
 
-            if (flag == 0)
+            if (flag == 0) // if called from facility availability form
             {
                 BookingDateDtTimePckr.Value = DateTime.Today.Date;
             }
             BookingFromTime.Value = bookingDateFrom;
+            BookingToTime.Value = BookingFromTime.Value.AddHours(1);
 
             BookingFromTime.MinDate = BookingDateDtTimePckr.Value.Date + fromts;
             BookingToTime.MaxDate = BookingDateDtTimePckr.Value.Date + tots;
-
-
-            BookingToTime.Value = BookingFromTime.Value.AddHours(1);
 
             //load combobox items
             List<Facility> flist = ctx.Facilities.ToList();
