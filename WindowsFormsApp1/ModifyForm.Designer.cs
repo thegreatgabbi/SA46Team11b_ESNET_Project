@@ -268,16 +268,6 @@
             this.DeleteBookingbtn.UseVisualStyleBackColor = true;
             this.DeleteBookingbtn.Click += new System.EventHandler(this.DeleteBookingbtn_Click);
             // 
-            // Printbtn
-            // 
-            this.Printbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Printbtn.Location = new System.Drawing.Point(526, 24);
-            this.Printbtn.Name = "Printbtn";
-            this.Printbtn.Size = new System.Drawing.Size(175, 40);
-            this.Printbtn.TabIndex = 37;
-            this.Printbtn.Text = "Re-Print Receipt";
-            this.Printbtn.UseVisualStyleBackColor = true;
-            // 
             // txtNoOfPax
             // 
             this.txtNoOfPax.Location = new System.Drawing.Point(916, 212);

@@ -20,7 +20,7 @@ namespace WindowsFormsApp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MgmtReport());
+            Application.Run(new FacilityAvailabiltyForm());
         }
         /// <summary>
         /// Get the Booking ID.
