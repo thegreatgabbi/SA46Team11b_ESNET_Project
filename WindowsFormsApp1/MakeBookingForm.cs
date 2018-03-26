@@ -139,7 +139,7 @@ namespace WindowsFormsApp1
             BookingToTime.Value = BookingDateDtTimePckr.Value.Date + s;
             BookingFromTime.Value = BookingDateDtTimePckr.Value.Date + t;
 
-            MessageBox.Show(facilityList.Text);
+            
             //assign f according to facility booked.
             f = ctx.Facilities.Where(x => x.FacilityName == facilityList.Text).First();
 
