@@ -57,12 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Booking.cs">
-      <DependentUpon>SembawangSportsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Facility.cs">
-      <DependentUpon>SembawangSportsModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Availability.cs" />
     <Compile Include="FacilityAvailabiltyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,11 +76,22 @@
     <Compile Include="FacilityAvailabiltyForm.Designer.cs">
       <DependentUpon>FacilityAvailabiltyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Member.cs" />
     <Compile Include="MemberForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MemberForm.Designer.cs">
       <DependentUpon>MemberForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SembawangSportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SembawangSportDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SembawangSportDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SembawangSportDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="SembawangSportsModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -110,21 +116,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SembawangSportsModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SembawangSportsModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SembawangSportsModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SembawangSportsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SembawangSportsModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SembawangSportsModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="TestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +151,28 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SembawangSportsModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="SembawangSportDataSet.xsc">
+      <DependentUpon>SembawangSportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SembawangSportDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SembawangSportDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SembawangSportDataSet.xss">
+      <DependentUpon>SembawangSportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SembawangSportDataSet1.xsc">
+      <DependentUpon>SembawangSportDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SembawangSportDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SembawangSportDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SembawangSportDataSet1.xss">
+      <DependentUpon>SembawangSportDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="SembawangSportsModel.edmx.diagram">
       <DependentUpon>SembawangSportsModel.edmx</DependentUpon>
     </None>
