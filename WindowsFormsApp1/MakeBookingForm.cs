@@ -32,6 +32,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             fl = 1;
+            dateofbooking = DateTime.Today;
         }
         public MakeBookingForm(string facname, DateTime date, int bookingfrom)
         {
@@ -81,12 +82,17 @@ namespace WindowsFormsApp1
 
             TimeSpan ts = new TimeSpan(time, 0, 0);
             DateTime bookingDateFrom = dateofbooking + ts;
+            
 
             //Displays Bookings details for that Particular booking id
-            BookingFromTime.Value = bookingDateFrom;
-            BookingToTime.Value = bookingDateFrom.AddHours(1);
-            if (flag != 1)
+           
+            if (flag == 0)
+            {
                 BookingDateDtTimePckr.Value = dateofbooking;
+            }
+                BookingFromTime.Value = bookingDateFrom;
+                BookingToTime.Value = bookingDateFrom.AddHours(1);
+            
             BookingFromTime.MinDate = BookingDateDtTimePckr.Value.Date + fromts;
             BookingToTime.MaxDate = BookingDateDtTimePckr.Value.Date + tots;
         }
@@ -136,8 +142,8 @@ namespace WindowsFormsApp1
                 DialogResult res = MessageBox.Show("Do you want to print a receipt?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 if (res == DialogResult.OK)
                 {
-                    BookingReceipt br = new BookingReceipt(); // TODO: to provide arguments
-                    br.ShowDialog();
+                    // BookingReceipt br = new BookingReceipt(); // TODO: to provide arguments
+                    // br.ShowDialog();
                 }
                 Close();
                 refToAvailabiltyForm.RenderDataGrid();
