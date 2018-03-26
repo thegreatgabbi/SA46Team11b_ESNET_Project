@@ -12,17 +12,12 @@ namespace DataGenerator
     using System;
     using System.Collections.Generic;
     
-    public partial class Booking
+    public partial class Availability1
     {
-        public int BookingID { get; set; }
-        public System.DateTime IssueDate { get; set; }
-        public int MemberID { get; set; }
-        public int FacilitiesID { get; set; }
+        public int FacilityID { get; set; }
         public System.DateTime BookingDateFrom { get; set; }
         public System.DateTime BookingDateTo { get; set; }
-        public int NumberofPax { get; set; }
     
-        public virtual Facility Facility { get; set; }
-        public virtual Member Member { get; set; }
+        public virtual Facility1 Facility { get; set; }
     }
 }

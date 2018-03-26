@@ -19,6 +19,7 @@ namespace WindowsFormsApp1
         {
             this.Bookings = new HashSet<Booking>();
         }
+    
         public int MemberID { get; set; }
         public string MemberName { get; set; }
         public string ICNumber { get; set; }

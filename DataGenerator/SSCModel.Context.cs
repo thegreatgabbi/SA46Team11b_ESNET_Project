@@ -13,10 +13,10 @@ namespace DataGenerator
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SembawangSportEntities : DbContext
+    public partial class SembawangSportEntities1 : DbContext
     {
-        public SembawangSportEntities()
-            : base("name=SembawangSportEntities")
+        public SembawangSportEntities1()
+            : base("name=SembawangSportEntities1")
         {
         }
     
@@ -25,9 +25,9 @@ namespace DataGenerator
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Booking> Bookings { get; set; }
-        public virtual DbSet<Facility> Facilities { get; set; }
-        public virtual DbSet<Member> Members { get; set; }
-        public virtual DbSet<Availability> Availabilities { get; set; }
+        public virtual DbSet<Booking1> Booking1 { get; set; }
+        public virtual DbSet<Facility1> Facility1 { get; set; }
+        public virtual DbSet<Member1> Member1 { get; set; }
+        public virtual DbSet<Availability1> Availability1 { get; set; }
     }
 }

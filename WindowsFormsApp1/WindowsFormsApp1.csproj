@@ -57,7 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Availability.cs" />
+    <Compile Include="Availability.cs">
+      <DependentUpon>SembawangSportsModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="FacilityAvailabiltyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,7 +78,9 @@
     <Compile Include="FacilityAvailabiltyForm.Designer.cs">
       <DependentUpon>FacilityAvailabiltyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Member.cs" />
+    <Compile Include="Member.cs">
+      <DependentUpon>SembawangSportsModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="MemberForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +207,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataGenerator\ReportGenerator.csproj">
+      <Project>{6f6a1f40-f880-41ec-a64d-2056e940a3f9}</Project>
+      <Name>ReportGenerator</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

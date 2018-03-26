@@ -5,10 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a6643bfde2e840acaf7d3ceeb4d3d7db" Name="Diagram1">
-        <EntityTypeShape EntityType="SembawangSportModel.Booking" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SembawangSportModel.Facility" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SembawangSportModel.Member" Width="1.5" PointX="0.625" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SembawangSportModel.Availability" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SembawangSportModel.Booking1" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SembawangSportModel.Facility1" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SembawangSportModel.Member1" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SembawangSportModel.Availability1" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
         <AssociationConnector Association="SembawangSportModel.FK_Bookings_Facilities" ManuallyRouted="false" />
         <AssociationConnector Association="SembawangSportModel.FK_Bookings_Members" ManuallyRouted="false" />
         <AssociationConnector Association="SembawangSportModel.FK_Availability_Facilities" ManuallyRouted="false" />

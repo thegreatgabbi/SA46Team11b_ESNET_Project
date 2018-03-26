@@ -20,7 +20,7 @@ namespace DataGenerator
 
         private void BookingReceipt_Load(object sender, EventArgs e)
         {
-            SembawangSportEntities context = new SembawangSportEntities();
+            SembawangSportEntities1 context = new SembawangSportEntities1();
             //if making datasets
             //string conS = "Data Source = (local); Initial Catalog = SembawangSport; Integrated Security = SSPI";
             //SqlConnection cn = new SqlConnection(conS);
@@ -31,7 +31,7 @@ namespace DataGenerator
             //SqlDataAdapter da = new SqlDataAdapter(cm);
 
             int bookingID=15; //dummy value that is to be retrieved from other form
-            List<Booking> list = context.Bookings.Where(x => x.BookingID == bookingID).ToList();
+            List<Booking1> list = context.Booking1.Where(x => x.BookingID == bookingID).ToList();
             //Facility facility = context.Facilities.Where(y => y.FacilityID == booking.FacilitiesID).First();
             crReceipt cr = new crReceipt();
             cr.SetDataSource(list);
