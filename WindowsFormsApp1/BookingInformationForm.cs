@@ -158,9 +158,9 @@ namespace WindowsFormsApp1
         private void MakeNewBookingButton_Click(object sender, EventArgs e)
         {
             // this is valli parts
-            // 
-            //MakeBookingForm nbi = new MakeBookingForm();
-            //nbi.Show();
+
+            MakeBookingForm nbi = new MakeBookingForm();
+            nbi.Show();
         }
     }
 }
