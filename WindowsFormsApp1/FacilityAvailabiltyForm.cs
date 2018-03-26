@@ -63,8 +63,9 @@ namespace WindowsFormsApp1
         /// </summary>
         public void RenderDataGrid()
         {
+            pictureBox1.Hide();
+            
             // get selectedDate
-            // selectedDate = new DateTime(2018, 1, 4); // REMOVE: for testing
             selectedDate = bookDTPicker.Value.Date;
 
             // LINQ doesn't support 'Date' type, so we have to use `int` types
@@ -240,7 +241,7 @@ namespace WindowsFormsApp1
 
 
             /// <summary>
-            /// With a list of Bookings by day and
+            /// With a list of Bookings by day
             /// </summary>
             /// <param name="dailyBookings"></param>
             /// <param name="facName"></param>
@@ -331,7 +332,12 @@ namespace WindowsFormsApp1
 
         private void facilityTypeCombo_Click(object sender, EventArgs e)
         {
-            pictureBox1.Hide();
+            
+        }
+
+        private void FacilityAvailabilityForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

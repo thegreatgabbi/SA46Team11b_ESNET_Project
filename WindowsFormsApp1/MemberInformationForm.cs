@@ -223,5 +223,15 @@ namespace WindowsFormsApp1
         {
             this.MemberInformationForm_Load(sender,e);
         }
+
+        private void ICnumberTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void genderTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
