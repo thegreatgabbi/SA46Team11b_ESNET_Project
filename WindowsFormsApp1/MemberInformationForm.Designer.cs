@@ -176,7 +176,7 @@
             this.genderTextBox.Name = "genderTextBox";
             this.genderTextBox.Size = new System.Drawing.Size(112, 23);
             this.genderTextBox.TabIndex = 88;
-            this.genderTextBox.TextChanged += new System.EventHandler(this.genderTextBox_TextChanged);
+            
             // 
             // contactNumTextbox
             // 
@@ -236,7 +236,7 @@
             this.ICnumberTextBox.Name = "ICnumberTextBox";
             this.ICnumberTextBox.Size = new System.Drawing.Size(112, 23);
             this.ICnumberTextBox.TabIndex = 79;
-            this.ICnumberTextBox.TextChanged += new System.EventHandler(this.ICnumberTextBox_TextChanged);
+            
             // 
             // memberIDTextBox
             // 
