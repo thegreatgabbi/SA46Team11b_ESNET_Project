@@ -14,11 +14,23 @@ namespace WindowsFormsApp1
     
     public partial class Facility
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Facility()
+        {
+            this.Bookings = new HashSet<Booking>();
+            this.Availabilities = new HashSet<Availability>();
+        }
+    
         public int FacilityID { get; set; }
         public string FacilityType { get; set; }
         public string FacilityName { get; set; }
         public string Location { get; set; }
         public Nullable<System.DateTime> MaintenanceDate { get; set; }
         public int AllowedHours { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Booking> Bookings { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Availability> Availabilities { get; set; }
     }
 }

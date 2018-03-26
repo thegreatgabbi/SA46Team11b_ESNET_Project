@@ -21,5 +21,8 @@ namespace WindowsFormsApp1
         public System.DateTime BookingDateFrom { get; set; }
         public System.DateTime BookingDateTo { get; set; }
         public int NumberofPax { get; set; }
+    
+        public virtual Facility Facility { get; set; }
+        public virtual Member Member { get; set; }
     }
 }

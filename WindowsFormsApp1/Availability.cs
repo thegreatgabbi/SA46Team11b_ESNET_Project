@@ -17,5 +17,7 @@ namespace WindowsFormsApp1
         public int FacilityID { get; set; }
         public System.DateTime BookingDateFrom { get; set; }
         public System.DateTime BookingDateTo { get; set; }
+    
+        public virtual Facility Facility { get; set; }
     }
 }
