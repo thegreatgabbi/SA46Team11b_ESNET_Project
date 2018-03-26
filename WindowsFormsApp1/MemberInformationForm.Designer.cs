@@ -34,9 +34,9 @@
             this.searchMemberTextBox = new System.Windows.Forms.TextBox();
             this.searchPic = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.DeleteLink = new System.Windows.Forms.LinkLabel();
             this.updateLink = new System.Windows.Forms.LinkLabel();
-            this.genderTextBox = new System.Windows.Forms.TextBox();
             this.contactNumTextbox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.countryTextBox = new System.Windows.Forms.TextBox();
@@ -56,6 +56,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.PrintMembers = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.memGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchPic)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -113,9 +114,9 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.DeleteLink);
             this.groupBox1.Controls.Add(this.updateLink);
-            this.groupBox1.Controls.Add(this.genderTextBox);
             this.groupBox1.Controls.Add(this.contactNumTextbox);
             this.groupBox1.Controls.Add(this.emailTextBox);
             this.groupBox1.Controls.Add(this.countryTextBox);
@@ -143,6 +144,15 @@
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Member Information Details";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(640, 68);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(112, 39);
+            this.comboBox1.TabIndex = 92;
             // 
             // DeleteLink
             // 
@@ -151,7 +161,7 @@
             this.DeleteLink.Location = new System.Drawing.Point(896, 64);
             this.DeleteLink.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DeleteLink.Name = "DeleteLink";
-            this.DeleteLink.Size = new System.Drawing.Size(49, 17);
+            this.DeleteLink.Size = new System.Drawing.Size(93, 31);
             this.DeleteLink.TabIndex = 90;
             this.DeleteLink.TabStop = true;
             this.DeleteLink.Text = "Delete";
@@ -163,26 +173,18 @@
             this.updateLink.Location = new System.Drawing.Point(891, 32);
             this.updateLink.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.updateLink.Name = "updateLink";
-            this.updateLink.Size = new System.Drawing.Size(54, 17);
+            this.updateLink.Size = new System.Drawing.Size(102, 31);
             this.updateLink.TabIndex = 89;
             this.updateLink.TabStop = true;
             this.updateLink.Text = "Update";
             this.updateLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.updateLink_LinkClicked);
-            // 
-            // genderTextBox
-            // 
-            this.genderTextBox.Location = new System.Drawing.Point(640, 64);
-            this.genderTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.genderTextBox.Name = "genderTextBox";
-            this.genderTextBox.Size = new System.Drawing.Size(112, 23);
-            this.genderTextBox.TabIndex = 88;
             // 
             // contactNumTextbox
             // 
             this.contactNumTextbox.Location = new System.Drawing.Point(160, 240);
             this.contactNumTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.contactNumTextbox.Name = "contactNumTextbox";
-            this.contactNumTextbox.Size = new System.Drawing.Size(336, 23);
+            this.contactNumTextbox.Size = new System.Drawing.Size(336, 38);
             this.contactNumTextbox.TabIndex = 87;
             // 
             // emailTextBox
@@ -190,7 +192,7 @@
             this.emailTextBox.Location = new System.Drawing.Point(160, 208);
             this.emailTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(336, 23);
+            this.emailTextBox.Size = new System.Drawing.Size(336, 38);
             this.emailTextBox.TabIndex = 86;
             // 
             // countryTextBox
@@ -198,7 +200,7 @@
             this.countryTextBox.Location = new System.Drawing.Point(640, 128);
             this.countryTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.countryTextBox.Name = "countryTextBox";
-            this.countryTextBox.Size = new System.Drawing.Size(193, 23);
+            this.countryTextBox.Size = new System.Drawing.Size(193, 38);
             this.countryTextBox.TabIndex = 85;
             // 
             // addressTextBox
@@ -215,7 +217,7 @@
             this.postalTextBox.Location = new System.Drawing.Point(640, 160);
             this.postalTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.postalTextBox.Name = "postalTextBox";
-            this.postalTextBox.Size = new System.Drawing.Size(193, 23);
+            this.postalTextBox.Size = new System.Drawing.Size(193, 38);
             this.postalTextBox.TabIndex = 83;
             // 
             // memberBDPicker
@@ -225,7 +227,7 @@
             this.memberBDPicker.Location = new System.Drawing.Point(160, 96);
             this.memberBDPicker.Margin = new System.Windows.Forms.Padding(4);
             this.memberBDPicker.Name = "memberBDPicker";
-            this.memberBDPicker.Size = new System.Drawing.Size(259, 23);
+            this.memberBDPicker.Size = new System.Drawing.Size(259, 38);
             this.memberBDPicker.TabIndex = 80;
             // 
             // ICnumberTextBox
@@ -233,7 +235,7 @@
             this.ICnumberTextBox.Location = new System.Drawing.Point(640, 31);
             this.ICnumberTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ICnumberTextBox.Name = "ICnumberTextBox";
-            this.ICnumberTextBox.Size = new System.Drawing.Size(112, 23);
+            this.ICnumberTextBox.Size = new System.Drawing.Size(112, 38);
             this.ICnumberTextBox.TabIndex = 79;
             // 
             // memberIDTextBox
@@ -242,7 +244,7 @@
             this.memberIDTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.memberIDTextBox.Name = "memberIDTextBox";
             this.memberIDTextBox.ReadOnly = true;
-            this.memberIDTextBox.Size = new System.Drawing.Size(136, 23);
+            this.memberIDTextBox.Size = new System.Drawing.Size(136, 38);
             this.memberIDTextBox.TabIndex = 78;
             // 
             // memberNameTextBox
@@ -250,7 +252,7 @@
             this.memberNameTextBox.Location = new System.Drawing.Point(160, 64);
             this.memberNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.memberNameTextBox.Name = "memberNameTextBox";
-            this.memberNameTextBox.Size = new System.Drawing.Size(336, 23);
+            this.memberNameTextBox.Size = new System.Drawing.Size(336, 38);
             this.memberNameTextBox.TabIndex = 77;
             // 
             // label11
@@ -259,7 +261,7 @@
             this.label11.Location = new System.Drawing.Point(572, 64);
             this.label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 17);
+            this.label11.Size = new System.Drawing.Size(104, 31);
             this.label11.TabIndex = 76;
             this.label11.Text = "Gender";
             // 
@@ -269,7 +271,7 @@
             this.label10.Location = new System.Drawing.Point(44, 208);
             this.label10.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(98, 17);
+            this.label10.Size = new System.Drawing.Size(188, 31);
             this.label10.TabIndex = 75;
             this.label10.Text = "Email Address";
             // 
@@ -279,7 +281,7 @@
             this.label9.Location = new System.Drawing.Point(32, 240);
             this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(110, 17);
+            this.label9.Size = new System.Drawing.Size(212, 31);
             this.label9.TabIndex = 74;
             this.label9.Text = "Contact Number";
             // 
@@ -289,7 +291,7 @@
             this.label7.Location = new System.Drawing.Point(544, 160);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 17);
+            this.label7.Size = new System.Drawing.Size(162, 31);
             this.label7.TabIndex = 72;
             this.label7.Text = "Postal Code";
             // 
@@ -299,7 +301,7 @@
             this.label6.Location = new System.Drawing.Point(571, 128);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 17);
+            this.label6.Size = new System.Drawing.Size(110, 31);
             this.label6.TabIndex = 71;
             this.label6.Text = "Country";
             // 
@@ -309,7 +311,7 @@
             this.label5.Location = new System.Drawing.Point(82, 128);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 17);
+            this.label5.Size = new System.Drawing.Size(114, 31);
             this.label5.TabIndex = 70;
             this.label5.Text = "Address";
             // 
@@ -319,7 +321,7 @@
             this.label4.Location = new System.Drawing.Point(55, 96);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 17);
+            this.label4.Size = new System.Drawing.Size(165, 31);
             this.label4.TabIndex = 69;
             this.label4.Text = "Date of Birth";
             // 
@@ -329,7 +331,7 @@
             this.label3.Location = new System.Drawing.Point(554, 32);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 17);
+            this.label3.Size = new System.Drawing.Size(145, 31);
             this.label3.TabIndex = 68;
             this.label3.Text = "IC Number";
             // 
@@ -339,7 +341,7 @@
             this.label2.Location = new System.Drawing.Point(42, 64);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 17);
+            this.label2.Size = new System.Drawing.Size(191, 31);
             this.label2.TabIndex = 67;
             this.label2.Text = "Member Name";
             // 
@@ -349,16 +351,28 @@
             this.label1.Location = new System.Drawing.Point(66, 32);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 17);
+            this.label1.Size = new System.Drawing.Size(147, 31);
             this.label1.TabIndex = 66;
             this.label1.Text = "Member ID";
             // 
+            // PrintMembers
+            // 
+            this.PrintMembers.Location = new System.Drawing.Point(584, 16);
+            this.PrintMembers.Margin = new System.Windows.Forms.Padding(4);
+            this.PrintMembers.Name = "PrintMembers";
+            this.PrintMembers.Size = new System.Drawing.Size(192, 32);
+            this.PrintMembers.TabIndex = 11;
+            this.PrintMembers.Text = "Print Members List";
+            this.PrintMembers.UseVisualStyleBackColor = true;
+            this.PrintMembers.Click += new System.EventHandler(this.PrintMembers_Click);
+            // 
             // MemberInformationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1000, 679);
+            this.Controls.Add(this.PrintMembers);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.memGridView);
             this.Controls.Add(this.addNewMemButton);
@@ -389,7 +403,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.LinkLabel DeleteLink;
         private System.Windows.Forms.LinkLabel updateLink;
-        private System.Windows.Forms.TextBox genderTextBox;
         private System.Windows.Forms.TextBox contactNumTextbox;
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.TextBox countryTextBox;
@@ -409,5 +422,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button PrintMembers;
     }
 }

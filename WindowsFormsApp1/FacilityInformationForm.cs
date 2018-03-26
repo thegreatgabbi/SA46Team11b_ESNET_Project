@@ -106,7 +106,7 @@ namespace WindowsFormsApp1
                 if (FacilityIDTextBox.Text != "" & FacilityNameTextBox.Text != "" & FacilityTypeTextBox.Text != "" & LocationTextBox.Text != ""
                    & AllowedHoursTextBox.Text != "")
                 {
-                    MessageBox.Show(posn.ToString());
+                    
                     int i = Convert.ToInt16(FacilityIDTextBox.Text);
                     int j = Convert.ToInt16(AllowedHoursTextBox.Text);
                     fList[posn].FacilityID = i;
@@ -121,8 +121,8 @@ namespace WindowsFormsApp1
                 {
                     context.SaveChanges();
                     MessageBox.Show("Update Success!");
-                    this.Refresh();
-                    FactGridView.DataSource = context.Facilities.ToList();
+                    this.FunctionRefresh();
+                    FactGridView.DataSource = fList;
                 }
                 if (res == DialogResult.Cancel)
                 {
@@ -165,15 +165,13 @@ namespace WindowsFormsApp1
         {
             fList = context.Facilities.ToList();
             FactGridView.DataSource = fList;
-            Refresh();
-            MaintenanceDateDPicker.CustomFormat = " ";
-            posn = fList.Count;
             FacilityIDTextBox.Text = "";
             FacilityNameTextBox.Text = "";
             FacilityTypeTextBox.Text = "";
             LocationTextBox.Text = "";
             AllowedHoursTextBox.Text = "";
             MaintenanceDateDPicker.Value = DateTimePicker.MinimumDateTime;
+            posn = 0;
         }
 
         private void DeleteLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -189,7 +187,6 @@ namespace WindowsFormsApp1
                 
                 MessageBox.Show("Delete Success!");
                 this.FunctionRefresh();
-                FactGridView.DataSource = context.Facilities.ToList();
             }
             if (res == DialogResult.Cancel)
             {
