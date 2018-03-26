@@ -50,6 +50,7 @@
             this.DeleteBookingbtn = new System.Windows.Forms.Button();
             this.txtNoOfPax = new System.Windows.Forms.TextBox();
             this.NoOfPaxlbl = new System.Windows.Forms.Label();
+            this.printButton = new System.Windows.Forms.Button();
             this.grpMemberDetails.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -279,18 +280,29 @@
             // NoOfPaxlbl
             // 
             this.NoOfPaxlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NoOfPaxlbl.Location = new System.Drawing.Point(414, 131);
+            this.NoOfPaxlbl.Location = new System.Drawing.Point(672, 208);
             this.NoOfPaxlbl.Name = "NoOfPaxlbl";
-            this.NoOfPaxlbl.Size = new System.Drawing.Size(190, 28);
+            this.NoOfPaxlbl.Size = new System.Drawing.Size(190, 32);
             this.NoOfPaxlbl.TabIndex = 38;
             this.NoOfPaxlbl.Text = "# Persons";
             this.NoOfPaxlbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // printButton
+            // 
+            this.printButton.Location = new System.Drawing.Point(944, 16);
+            this.printButton.Name = "printButton";
+            this.printButton.Size = new System.Drawing.Size(240, 64);
+            this.printButton.TabIndex = 40;
+            this.printButton.Text = "Print Receipt";
+            this.printButton.UseVisualStyleBackColor = true;
+            this.printButton.Click += new System.EventHandler(this.printButton_Click);
             // 
             // ModifyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 703);
+            this.Controls.Add(this.printButton);
             this.Controls.Add(this.txtNoOfPax);
             this.Controls.Add(this.NoOfPaxlbl);
             this.Controls.Add(this.DeleteBookingbtn);
@@ -338,5 +350,6 @@
         public System.Windows.Forms.TextBox txtRoomName;
         public System.Windows.Forms.TextBox txtNoOfPax;
         private System.Windows.Forms.Label NoOfPaxlbl;
+        private System.Windows.Forms.Button printButton;
     }
 }

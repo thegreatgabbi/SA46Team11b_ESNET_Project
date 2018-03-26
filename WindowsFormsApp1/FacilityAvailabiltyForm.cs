@@ -20,6 +20,8 @@ namespace WindowsFormsApp1
         List<Booking> listBookings;
         List<FacilitySchedule> listFacilityAvailabiltyByDay;
 
+        public DataGridView dataGrid1;
+
         public FacilityAvailabiltyForm()
         {
             InitializeComponent();
@@ -30,6 +32,9 @@ namespace WindowsFormsApp1
             // put focus on FacilityTypeCombo
             facilityTypeCombo.Select();
             facilityTypeCombo.Text = "- Select Facility Type -";
+
+            // leave a reference for other forms
+            dataGrid1 = dataGridView1;
         }
 
         /// <summary>
@@ -52,7 +57,7 @@ namespace WindowsFormsApp1
         /// <summary>
         /// Renders Data Grid.
         /// </summary>
-        private void RenderDataGrid()
+        public void RenderDataGrid()
         {
             // get selectedDate
             // selectedDate = new DateTime(2018, 1, 4); // REMOVE: for testing
@@ -166,6 +171,7 @@ namespace WindowsFormsApp1
                     // Trigger Modify Booking
                     //bookingType = "Modify Booking";
                     ModifyForm form1 = new ModifyForm(facName, date, hour);
+                    form1.refToAvailabiltyForm = this;
                     form1.ShowDialog();
                 }
                 else
@@ -173,6 +179,7 @@ namespace WindowsFormsApp1
                     // Trigger New Booking
                     //bookingType = "New Booking";
                     MakeBookingForm form2 = new MakeBookingForm(facName, date, hour);
+                    form2.refToAvailabiltyForm = this;
                     form2.ShowDialog();
                 }
 
@@ -306,6 +313,11 @@ namespace WindowsFormsApp1
                 e.Handled = true;
                 e.SuppressKeyPress = true;
             }
+        }
+
+        private void FacilityAvailabiltyForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

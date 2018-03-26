@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataGenerator;
 
 namespace WindowsFormsApp1
 {
     public partial class MakeBookingForm : Form
     {
+        public FacilityAvailabiltyForm refToAvailabiltyForm;
+
         Facility f;
         Booking b;
         Member m;
@@ -129,15 +132,15 @@ namespace WindowsFormsApp1
                 ctx.Bookings.Add(b);
                 ctx.SaveChanges();
                 MessageBox.Show("Booking Successfully Saved");
+
                 DialogResult res = MessageBox.Show("Do you want to print a receipt?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 if (res == DialogResult.OK)
                 {
-                    MessageBox.Show("Printing Receipt");
+                    BookingReceipt br = new BookingReceipt(); // TODO: to provide arguments
+                    br.ShowDialog();
                 }
-                else
-                {
-                    this.Close();
-                }
+                Close();
+                refToAvailabiltyForm.RenderDataGrid();
             }
             else
             {
