@@ -84,7 +84,6 @@
             this.newMemGBox.TabIndex = 0;
             this.newMemGBox.TabStop = false;
             this.newMemGBox.Text = "New Member Information Query";
-            this.newMemGBox.Enter += new System.EventHandler(this.newMemGBox_Enter);
             // 
             // genderComboBox
             // 

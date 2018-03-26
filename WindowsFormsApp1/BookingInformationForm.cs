@@ -31,15 +31,8 @@ namespace WindowsFormsApp1
             bookingGridView.DataSource = bList;
             dateTimePickerFrom.Format = DateTimePickerFormat.Custom;
             dateTimePickerTo.Format = DateTimePickerFormat.Custom;
-            dateTimePickerFrom.CustomFormat = "HH:00";
-            dateTimePickerTo.CustomFormat = "HH:00";
-             //BookingDatePicker.MinDate = DateTime.Today;
-             //BookingDatePicker.MaxDate = DateTime.Today.AddDays(30);
-            //dateTimePickerFrom.MinDate = BookingDatePicker.Value.Date + fromTimespan;
-            //dateTimePickerFrom.MaxDate = BookingDatePicker.Value.Date + toTimespan;
-           
-            //bookingGridView.Columns["Members"].Visible = false;
-            //bookingGridView.Columns["Facilities"].Visible = false;
+            dateTimePickerFrom.CustomFormat = "hh:00 tt";
+            dateTimePickerTo.CustomFormat = "hh:00 tt";
         }
 
         private void searchPic_Click(object sender, EventArgs e)
@@ -89,6 +82,11 @@ namespace WindowsFormsApp1
             else if(numOfPaxTextBox.Text == String.Empty)
             {
                 MessageBox.Show("Please Enter Number of Pax!", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            else if(dateTimePickerTo.Value.Hour-dateTimePickerFrom.Value.Hour> bList[posn].Facility.AllowedHours)
+            {
+                MessageBox.Show("You cannot book more than "+ bList[posn].Facility.AllowedHours + " hours", "Invalid Time slots", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             else
@@ -149,7 +147,7 @@ namespace WindowsFormsApp1
                 context.SaveChanges();
                 MessageBox.Show("Delete Success!");
                 this.Refresh();
-                bookingGridView.DataSource = bList;
+                bookingGridView.DataSource = context.Bookings.ToList();
             }
             if (res == DialogResult.Cancel)
             {
@@ -187,6 +185,14 @@ namespace WindowsFormsApp1
         {
             MakeBookingForm nbi = new MakeBookingForm();
             nbi.Show();
+        }
+
+        private void searchBookingTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (searchBookingTextBox.Text == String.Empty)
+            {
+                bookingGridView.DataSource = context.Bookings.ToList();
+            }
         }
     }
 }

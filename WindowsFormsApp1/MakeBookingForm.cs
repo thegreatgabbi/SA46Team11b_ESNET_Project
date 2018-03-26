@@ -23,7 +23,6 @@ namespace WindowsFormsApp1
         int time, flag = 0, fl = 0;
         List<Booking> bList;
 
-
         TimeSpan fromts = new TimeSpan(7, 0, 0);
         TimeSpan tots = new TimeSpan(21, 0, 0);
 
@@ -32,6 +31,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             fl = 1;
+            time = 0;
             dateofbooking = DateTime.Today;
             bookingDateFrom = dateofbooking;
 
@@ -62,9 +62,6 @@ namespace WindowsFormsApp1
             BookingToTime.Format = DateTimePickerFormat.Custom;
             BookingToTime.ShowUpDown = true;
 
-            TimeSpan ts = new TimeSpan(time, 0, 0);
-            bookingDateFrom = dateofbooking + ts;
-
             int result = DateTime.Compare(dateofbooking, DateTime.Today);
             if (result < 0)
             {
@@ -80,40 +77,71 @@ namespace WindowsFormsApp1
             if (flag == 1)
                 this.Close();
             bList = ctx.Bookings.ToList();
+            TimeSpan ts = new TimeSpan(time, 0, 0);
+            bookingDateFrom = dateofbooking + ts;
             if (fl == 1)
             {
-                txtRoomName.ReadOnly = false;
+                
                 txtLocation.ReadOnly = false;
-            }
+             }
             else
             {
                 //Displays facilities details
                 f = (from x in ctx.Facilities where (x.FacilityName == facilityname) select x).First();
-                txtRoomName.Text = f.FacilityName;
+                facilityList.Text = f.FacilityName;
                 txtLocation.Text = f.Location;
             }
 
             //Displays Bookings details for that Particular booking id
-           
+
             if (flag == 0)
             {
-                BookingDateDtTimePckr.Value = dateofbooking;
+                BookingDateDtTimePckr.Value = DateTime.Today.Date;
             }
-            // MessageBox.Show(bookingDateFrom.ToString()); // For testing
             BookingFromTime.Value = bookingDateFrom;
-            BookingToTime.Value = bookingDateFrom.AddHours(1);
-            
+
             BookingFromTime.MinDate = BookingDateDtTimePckr.Value.Date + fromts;
             BookingToTime.MaxDate = BookingDateDtTimePckr.Value.Date + tots;
+
+
+            BookingToTime.Value = BookingFromTime.Value.AddHours(1);
+
+            //load combobox items
+            List<Facility> flist = ctx.Facilities.ToList();
+            
+            foreach (Facility x in flist)
+            {
+                facilityList.Items.Add(x.FacilityName);
+            }
+        }
+
+        private void FunctionRefresh()
+        {
+            bList = ctx.Bookings.ToList();
+            
         }
 
         private void Okbtn_Click_1(object sender, EventArgs e)
         {
-            BookingFromTime.Value = new DateTime(BookingDateDtTimePckr.Value.Year, BookingDateDtTimePckr.Value.Month, BookingDateDtTimePckr.Value.Day,
-             BookingFromTime.Value.Hour, 00, 00);
+            BookingFromTime.MinDate = BookingDateDtTimePckr.Value.Date + fromts;
+            BookingToTime.MaxDate = BookingDateDtTimePckr.Value.Date + tots;
 
-            BookingToTime.Value = new DateTime(BookingDateDtTimePckr.Value.Year, BookingDateDtTimePckr.Value.Month, BookingDateDtTimePckr.Value.Day,
-            BookingToTime.Value.Hour, 00, 00);
+            // convert booking date from 
+            int BookingTimeFrom = BookingFromTime.Value.Hour;
+            int BookingTimeTo = BookingToTime.Value.Hour;
+            DateTime bkgdt = BookingFromTime.Value.Date;
+            bool value;
+
+            TimeSpan s = new TimeSpan(BookingTimeTo, 0, 0);
+            TimeSpan t = new TimeSpan(BookingTimeFrom, 0, 0);
+            BookingToTime.Value = BookingDateDtTimePckr.Value.Date + s;
+            BookingFromTime.Value = BookingDateDtTimePckr.Value.Date + t;
+
+            MessageBox.Show(BookingFromTime.Value.ToString());
+            MessageBox.Show(BookingToTime.Value.ToString());
+
+            //assign f according to facility booked.
+            f = ctx.Facilities.Where(x => x.FacilityName == facilityList.SelectedItem.ToString()).First();
 
             b = new Booking();
             // table values
@@ -134,11 +162,7 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            // convert booking date from 
-            int BookingTimeFrom = BookingFromTime.Value.Hour;
-            int BookingTimeTo = BookingToTime.Value.Hour;
-            DateTime bkgdt = BookingFromTime.Value.Date;
-            bool value;
+
 
             // check if 
             value = Program.ValidateBooking(bkgdt, f.FacilityName, BookingTimeFrom, BookingTimeTo);
@@ -148,7 +172,7 @@ namespace WindowsFormsApp1
                 ctx.Bookings.Add(b);
                 ctx.SaveChanges();
                 MessageBox.Show("Booking Successfully Saved");
-
+                FunctionRefresh();
                 DialogResult res = MessageBox.Show("Do you want to print a receipt?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 if (res == DialogResult.OK)
                 {
@@ -169,6 +193,13 @@ namespace WindowsFormsApp1
         private void Cancelbtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void facilityList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Facility F;
+            F = ctx.Facilities.Where(x => x.FacilityName == facilityList.SelectedItem.ToString()).First();
+            txtLocation.Text = F.Location;
         }
 
         private void LookUpBtn_Click_1(object sender, EventArgs e)
