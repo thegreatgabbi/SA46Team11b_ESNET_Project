@@ -95,11 +95,25 @@ namespace WindowsFormsApp1
             }
             // change column header names
             dataGridView1.Columns["FacName"].HeaderText = "Facility Name";
-            dataGridView1.Columns[1].HeaderText = "7AM";
-            dataGridView1.Columns[2].HeaderText = "8AM";
-            dataGridView1.Columns[3].HeaderText = "9AM";
-            dataGridView1.Columns[4].HeaderText = "10AM";
-            dataGridView1.Columns[5].HeaderText = "11AM";
+
+            int hour;
+            string am_pm;
+            for (var i = 1; i <= 14; i++)
+            {
+                hour = i + 6;
+                if ( hour >= 7 && hour <= 11 )
+                {
+                    am_pm = "AM";
+                } else if (hour == 12)
+                {
+                    am_pm = "PM";
+                } else
+                {
+                    hour -= 12;
+                    am_pm = "PM";
+                }
+                dataGridView1.Columns[i].HeaderText = hour.ToString() + am_pm;
+            }
         }
 
         /// <summary>
@@ -144,25 +158,30 @@ namespace WindowsFormsApp1
                 // get the correct timing
                 // look at the column, and pass an Hour object
                 // can we create an Enum to help with the mapping?
-                switch (e.ColumnIndex)
+                //switch (e.ColumnIndex)
+                //{
+                //    case 1:
+                //        hour = 7;
+                //        break;
+                //    case 2:
+                //        hour = 8;
+                //        break;
+                //    case 3:
+                //        hour = 9;
+                //        break;
+                //    case 4:
+                //        hour = 10;
+                //        break;
+                //    case 5:
+                //        hour = 11;
+                //        break;
+                //    case 6:
+                //    default:
+                //        break;
+                //}
+                if (e.ColumnIndex >= 1 && e.ColumnIndex <= 14)
                 {
-                    case 1:
-                        hour = 7;
-                        break;
-                    case 2:
-                        hour = 8;
-                        break;
-                    case 3:
-                        hour = 9;
-                        break;
-                    case 4:
-                        hour = 10;
-                        break;
-                    case 5:
-                        hour = 11;
-                        break;
-                    default:
-                        break;
+                    hour = e.ColumnIndex + 6;
                 }
 
                 // trigger correct type of form
@@ -194,36 +213,27 @@ namespace WindowsFormsApp1
         {
             string facName;
             // Not the best class design I know...but it's to match the DataSource structure
-            bool time7_8 = false;
-            bool time8_9 = false;
-            bool time9_10 = false;
-            bool time10_11 = false;
-            bool time11_12 = false;
+            bool[] timeArray = new bool[14];
 
             public string FacName
             {
                 get { return facName; }
             }
-            public string Time14_16
-            {
-                get { return time7_8.ToString(); }
-            }
-            public string Time8_9
-            {
-                get { return time8_9.ToString(); }
-            }
-            public string Time9_10
-            {
-                get { return time9_10.ToString(); }
-            }
-            public string Time10_11
-            {
-                get { return time10_11.ToString(); }
-            }
-            public string Time11_12
-            {
-                get { return time11_12.ToString(); }
-            }
+            public string Time7_8 { get { return timeArray[0].ToString(); } }
+            public string Time8_9 { get { return timeArray[1].ToString(); } }
+            public string Time9_10 { get { return timeArray[2].ToString(); } }
+            public string Time10_11 { get { return timeArray[3].ToString(); } }
+            public string Time11_12 { get { return timeArray[4].ToString(); } }
+            public string Time12_13 { get { return timeArray[5].ToString(); } }
+            public string Time13_14 { get { return timeArray[6].ToString(); } }
+            public string Time14_15 { get { return timeArray[7].ToString(); } }
+            public string Time15_16 { get { return timeArray[8].ToString(); } }
+            public string Time16_17 { get { return timeArray[9].ToString(); } }
+            public string Time17_18 { get { return timeArray[10].ToString(); } }
+            public string Time18_19 { get { return timeArray[11].ToString(); } }
+            public string Time19_20 { get { return timeArray[12].ToString(); } }
+            public string Time20_21 { get { return timeArray[13].ToString(); } }
+
 
             /// <summary>
             /// With a list of Bookings by day and
@@ -232,31 +242,25 @@ namespace WindowsFormsApp1
             /// <param name="facName"></param>
             public FacilitySchedule(List<Booking> dailyBookings, string facName)
             {
+                // initialize timeArray
+                for (var i = 0; i < timeArray.Length; i++)
+                {
+                    timeArray[i] = false;
+                }
+
                 this.facName = facName;
+
                 // for the day, if the slot has been booked, make that slot true
                 foreach (Booking bk in dailyBookings)
                 {
                     if (bk.Facility.FacilityName == facName)
                     {
-                        if (bk.BookingDateFrom.Hour <= 7 && bk.BookingDateTo.Hour >= 8)
+                        for (var i = 0; i < timeArray.Length; i++) // start from 7AM
                         {
-                            time7_8 = true;
-                        }
-                        if (bk.BookingDateFrom.Hour <= 8 && bk.BookingDateTo.Hour >= 9)
-                        {
-                            time8_9 = true;
-                        }
-                        if (bk.BookingDateFrom.Hour <= 9 && bk.BookingDateTo.Hour >= 10)
-                        {
-                            time9_10 = true;
-                        }
-                        if (bk.BookingDateFrom.Hour <= 10 && bk.BookingDateTo.Hour >= 11)
-                        {
-                            time10_11 = true;
-                        }
-                        if (bk.BookingDateFrom.Hour <= 11 && bk.BookingDateTo.Hour >= 12)
-                        {
-                            time11_12 = true;
+                            if (bk.BookingDateFrom.Hour <= i+7 && bk.BookingDateTo.Hour >= i+8)
+                            {
+                                timeArray[i] = true;
+                            }
                         }
                     }
                 }

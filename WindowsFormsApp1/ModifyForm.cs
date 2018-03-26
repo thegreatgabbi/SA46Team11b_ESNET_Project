@@ -58,7 +58,7 @@ namespace WindowsFormsApp1
             txtRoomName.Text = f.FacilityName;
             txtLocation.Text = f.Location;
 
-            // get the booking ID
+            //// get the booking ID
             bookID = Program.GetBookingID(dateofbooking, facilityname, time);
 
             b = (from x in ctx.Bookings where (x.BookingID == bookID) select x).First();

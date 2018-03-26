@@ -99,7 +99,7 @@ namespace WindowsFormsApp1
             {
                 BookingDateDtTimePckr.Value = dateofbooking;
             }
-            MessageBox.Show(bookingDateFrom.ToString());
+            // MessageBox.Show(bookingDateFrom.ToString()); // For testing
             BookingFromTime.Value = bookingDateFrom;
             BookingToTime.Value = bookingDateFrom.AddHours(1);
             
