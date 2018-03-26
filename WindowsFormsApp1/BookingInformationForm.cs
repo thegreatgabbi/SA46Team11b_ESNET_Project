@@ -33,13 +33,6 @@ namespace WindowsFormsApp1
             dateTimePickerTo.Format = DateTimePickerFormat.Custom;
             dateTimePickerFrom.CustomFormat = "HH:00";
             dateTimePickerTo.CustomFormat = "HH:00";
-             //BookingDatePicker.MinDate = DateTime.Today;
-             //BookingDatePicker.MaxDate = DateTime.Today.AddDays(30);
-            //dateTimePickerFrom.MinDate = BookingDatePicker.Value.Date + fromTimespan;
-            //dateTimePickerFrom.MaxDate = BookingDatePicker.Value.Date + toTimespan;
-           
-            //bookingGridView.Columns["Members"].Visible = false;
-            //bookingGridView.Columns["Facilities"].Visible = false;
         }
 
         private void searchPic_Click(object sender, EventArgs e)
@@ -149,7 +142,7 @@ namespace WindowsFormsApp1
                 context.SaveChanges();
                 MessageBox.Show("Delete Success!");
                 this.Refresh();
-                bookingGridView.DataSource = bList;
+                bookingGridView.DataSource = context.Bookings.ToList();
             }
             if (res == DialogResult.Cancel)
             {

@@ -23,7 +23,6 @@ namespace WindowsFormsApp1
         int time, flag = 0, fl = 0;
         List<Booking> bList;
 
-
         TimeSpan fromts = new TimeSpan(7, 0, 0);
         TimeSpan tots = new TimeSpan(21, 0, 0);
 
@@ -97,6 +96,12 @@ namespace WindowsFormsApp1
             BookingToTime.MaxDate = BookingDateDtTimePckr.Value.Date + tots;
         }
 
+        private void FunctionRefresh()
+        {
+            bList = ctx.Bookings.ToList();
+            
+        }
+
         private void Okbtn_Click_1(object sender, EventArgs e)
         {
             BookingFromTime.Value = new DateTime(BookingDateDtTimePckr.Value.Year, BookingDateDtTimePckr.Value.Month, BookingDateDtTimePckr.Value.Day,
@@ -138,7 +143,7 @@ namespace WindowsFormsApp1
                 ctx.Bookings.Add(b);
                 ctx.SaveChanges();
                 MessageBox.Show("Booking Successfully Saved");
-
+                FunctionRefresh();
                 DialogResult res = MessageBox.Show("Do you want to print a receipt?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 if (res == DialogResult.OK)
                 {

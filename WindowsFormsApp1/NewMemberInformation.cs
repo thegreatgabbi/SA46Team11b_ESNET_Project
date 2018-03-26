@@ -110,8 +110,9 @@ namespace WindowsFormsApp1
                     context.Members.Add(newmember);
                     context.SaveChanges();
                     MessageBox.Show("New Member Insertion Success!");
+                    FunctionRefresh();
+                    this.Close();
                 }
-                FunctionRefresh();
             }
         }
 
@@ -136,9 +137,5 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void newMemGBox_Enter(object sender, EventArgs e)
-        {
-
-        }
     }
 }
