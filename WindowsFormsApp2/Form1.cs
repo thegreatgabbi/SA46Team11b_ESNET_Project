@@ -12,27 +12,20 @@ namespace WindowsFormsApp2
 {
     public partial class Form1 : Form
     {
-        Form2 f2 = new Form2();
         public Form1()
         {
             InitializeComponent();
-           
-        }
-
-        public string x { get; set; }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            f2.ShowDialog(this);
-            this.label1.Text = x;
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            f2.f1 = this;
-            this.label1.Text = x;
+            var f2 = new child1();
+            
+            f2.TopLevel = false;
+            f2.Location = new Point(5, 5);
+            f2.FormBorderStyle = FormBorderStyle.None;
+            f2.Visible = true;
+            this.tabPage1.Controls.Add(f2);
         }
     }
 }
