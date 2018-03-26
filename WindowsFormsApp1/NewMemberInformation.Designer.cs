@@ -51,11 +51,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.newMemberCancelButton = new System.Windows.Forms.Button();
             this.NewMemberAddButton = new System.Windows.Forms.Button();
+            this.validateText = new System.Windows.Forms.Label();
             this.newMemGBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // newMemGBox
             // 
+            this.newMemGBox.Controls.Add(this.validateText);
             this.newMemGBox.Controls.Add(this.genderComboBox);
             this.newMemGBox.Controls.Add(this.ContactNumberTextBox);
             this.newMemGBox.Controls.Add(this.EmailTextBox);
@@ -284,6 +286,16 @@
             this.NewMemberAddButton.UseVisualStyleBackColor = true;
             this.NewMemberAddButton.Click += new System.EventHandler(this.NewMemberAddButton_Click);
             // 
+            // validateText
+            // 
+            this.validateText.AutoSize = true;
+            this.validateText.BackColor = System.Drawing.SystemColors.Control;
+            this.validateText.ForeColor = System.Drawing.Color.Red;
+            this.validateText.Location = new System.Drawing.Point(300, 18);
+            this.validateText.Name = "validateText";
+            this.validateText.Size = new System.Drawing.Size(0, 31);
+            this.validateText.TabIndex = 45;
+            // 
             // NewMemberInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -329,5 +341,6 @@
         private System.Windows.Forms.Button newMemberCancelButton;
         private System.Windows.Forms.Button NewMemberAddButton;
         private System.Windows.Forms.ComboBox genderComboBox;
+        private System.Windows.Forms.Label validateText;
     }
 }
