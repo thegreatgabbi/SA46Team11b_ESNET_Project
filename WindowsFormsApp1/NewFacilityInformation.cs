@@ -18,9 +18,7 @@ namespace WindowsFormsApp1
         List<Facility> fList;
         int posn;
         Facility newfact = new Facility();
-
-      //  public FacilityAvailabiltyForm faForm = new FacilityAvailabiltyForm();
-
+        FacilityInformationForm n = new FacilityInformationForm();
         public NewFacilityInformation()
         {
             InitializeComponent();
@@ -40,9 +38,7 @@ namespace WindowsFormsApp1
         private void FunctionRefresh()
         {
             fList = context.Facilities.ToList();
-            FacilityInformationForm n = new FacilityInformationForm();
-            n.FactGridView.DataSource = fList;
-            n.Refresh();
+            n.FunctionRefresh();
         }
         private bool NameCheck(string name)
         {
@@ -59,21 +55,11 @@ namespace WindowsFormsApp1
         private bool GoValidation()
         {
             if (FacilityNameTextBox.Text == String.Empty || FacilityTypeTextBox.Text == String.Empty
-                || LocationTextBox.Text == String.Empty )
+                || LocationTextBox.Text == String.Empty || AllowedHoursTextBox.Text == String.Empty)
             {
                 MessageBox.Show("Please Fill Completely", "Incomplete Form", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
-              }
-            //else if (NameCheck(FacilityNameTextBox.Text) == false)
-            //{
-            //    MessageBox.Show("Digits are not allowed for name!", "Invalid Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return false;
-            //}
-            //else if (NameCheck(FacilityTypeTextBox.Text) == false)
-            //{
-            //    MessageBox.Show("Digits are not allowed for name!", "Invalid Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return false;
-            //}
+            }
             else
             {
                 return true;
@@ -88,21 +74,35 @@ namespace WindowsFormsApp1
             }
             else
             {
-                newfact.FacilityID = fList[fList.Count - 1].FacilityID + 1;
-                newfact.FacilityName = FacilityNameTextBox.Text.ToString();
-                newfact.FacilityType = FacilityTypeTextBox.Text.ToString();
-
-                newfact.Location = LocationTextBox.Text.ToString();
-                newfact.AllowedHours = int.Parse(AllowedHoursTextBox.Text);
- 
+                if (FacilityNameTextBox.Text != "" || FacilityTypeTextBox.Text != ""
+                || LocationTextBox.Text != "")
+                {
+                    newfact.FacilityID = fList[fList.Count - 1].FacilityID + 1;
+                    newfact.FacilityName = FacilityNameTextBox.Text.ToString();
+                    newfact.FacilityType = FacilityTypeTextBox.Text.ToString();
+                    newfact.Location = LocationTextBox.Text.ToString();
+                    newfact.AllowedHours = Convert.ToInt32(AllowedHoursTextBox.Text);
                     context.Facilities.Add(newfact);
-                    context.SaveChanges();
-                    MessageBox.Show("New Facility Insertion Success!");
-                
-                FunctionRefresh();
+                }
+                    DialogResult res = MessageBox.Show("Are you sure you want to Insert?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    if (res == DialogResult.OK)
+                    {
+                        context.SaveChanges();
+                        MessageBox.Show("New Facility Insertion Success!");
+                        FunctionRefresh();                        
+                        this.Close();
+                }
+                    if (res == DialogResult.Cancel)
+                    {
+                        FacilityNameTextBox.Text = "";
+                        FacilityTypeTextBox.Text = "";
+                        LocationTextBox.Text = "";
+                        AllowedHoursTextBox.Text = "";
+                        FunctionRefresh();
+                    
+                }
+                }
             }
-           // faForm.renderFlist();
-        }
 
         private void nomaintananceDateCheckbox_CheckedChanged(object sender, EventArgs e)
         {

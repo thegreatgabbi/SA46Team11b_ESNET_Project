@@ -229,6 +229,7 @@
             this.searchBookingTextBox.Name = "searchBookingTextBox";
             this.searchBookingTextBox.Size = new System.Drawing.Size(223, 45);
             this.searchBookingTextBox.TabIndex = 13;
+            this.searchBookingTextBox.TextChanged += new System.EventHandler(this.searchBookingTextBox_TextChanged);
             // 
             // searchPic
             // 

@@ -23,9 +23,14 @@ namespace WindowsFormsApp1
             
         }
 
+        public MemberInformationForm(int p)
+        {
+            InitializeComponent();
+            this.posn = p;
+        }
+
         private void MemberInformationForm_Load(object sender, EventArgs e)
         {
-            //memberInformationToolStripMenuItem.BackColor = "ActiveCaption";
             mList = context.Members.ToList();
             memGridView.DataSource = mList;
 
@@ -40,6 +45,7 @@ namespace WindowsFormsApp1
         {
             NewMemberInformation nmf = new NewMemberInformation();
             nmf.ShowDialog();
+            memGridView.DataSource = context.Members.ToList();
         }
 
         private void SearchMember()
@@ -63,7 +69,7 @@ namespace WindowsFormsApp1
 
         private void memGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            posn = e.RowIndex;
+           posn = e.RowIndex;
            memberIDTextBox.Text = memGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
            memberNameTextBox.Text = memGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
             ICnumberTextBox.Text = memGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -121,7 +127,6 @@ namespace WindowsFormsApp1
             }
             else
             {
-                //validateText.Visible = false;
                 return true;
             }
         }
@@ -137,7 +142,6 @@ namespace WindowsFormsApp1
                 if (memberIDTextBox.Text != "" & memberNameTextBox.Text != "" & ICnumberTextBox.Text != "" & addressTextBox.Text != ""
                 & countryTextBox.Text != "" & postalTextBox.Text != "" & contactNumTextbox.Text != "" & emailTextBox.Text != "" & genderTextBox.Text != "")
                 {
-                    //MessageBox.Show(posn.ToString());
                     int i = Convert.ToInt16(memberIDTextBox.Text);
                     mList[posn].MemberID = i;
                     mList[posn].MemberName = memberNameTextBox.Text;
@@ -157,7 +161,7 @@ namespace WindowsFormsApp1
                     context.SaveChanges();
                     MessageBox.Show("Update Success!");
                     this.Refresh();
-                    memGridView.DataSource = mList;
+                    memGridView.DataSource = context.Members.ToList();
                 }
                 if (res == DialogResult.Cancel)
                 {
@@ -179,17 +183,19 @@ namespace WindowsFormsApp1
 
         private void Delete_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //MessageBox.Show(posn.ToString());
-            int currentRow = posn;
-            Member m = mList[currentRow];
-            context.Members.Remove(m);
+            this.Refresh();
+           
+            Member c = context.Members.Where(x => x.MemberID.ToString() == (memberIDTextBox.Text)).First();
+
             DialogResult res = MessageBox.Show("Are you sure you want to Delete", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (res == DialogResult.OK)
             {
+                context.Members.Remove(c);
                 context.SaveChanges();
+               
                 MessageBox.Show("Delete Success!");
                 this.Refresh();
-                memGridView.DataSource = mList;
+                memGridView.DataSource = context.Members.ToList();
             }
             if (res == DialogResult.Cancel)
             {
@@ -222,6 +228,14 @@ namespace WindowsFormsApp1
         private void memberInformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.MemberInformationForm_Load(sender,e);
+        }
+
+        private void searchMemberTextBox_TextChanged(object sender, EventArgs e)
+        {
+           if( searchMemberTextBox.Text== String.Empty)
+            {
+                memGridView.DataSource = context.Members.ToList();
+            }
         }
     }
 }

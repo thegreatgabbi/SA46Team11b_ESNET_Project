@@ -23,7 +23,6 @@ namespace WindowsFormsApp1
         int time, flag = 0, fl = 0;
         List<Booking> bList;
 
-
         TimeSpan fromts = new TimeSpan(7, 0, 0);
         TimeSpan tots = new TimeSpan(21, 0, 0);
 
@@ -116,6 +115,12 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void FunctionRefresh()
+        {
+            bList = ctx.Bookings.ToList();
+            
+        }
+
         private void Okbtn_Click_1(object sender, EventArgs e)
         {
             BookingFromTime.MinDate = BookingDateDtTimePckr.Value.Date + fromts;
@@ -167,12 +172,12 @@ namespace WindowsFormsApp1
                 ctx.Bookings.Add(b);
                 ctx.SaveChanges();
                 MessageBox.Show("Booking Successfully Saved");
-
+                FunctionRefresh();
                 DialogResult res = MessageBox.Show("Do you want to print a receipt?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 if (res == DialogResult.OK)
                 {
-                    // BookingReceipt br = new BookingReceipt(); // TODO: to provide arguments
-                    // br.ShowDialog();
+                    BookingReceipt br = new BookingReceipt(b.BookingID); // TODO: to provide arguments
+                    br.ShowDialog();
                 }
                 Close();
                 refToAvailabiltyForm.RenderDataGrid();

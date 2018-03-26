@@ -23,10 +23,17 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
+        public FacilityInformationForm(int k)
+        {
+            InitializeComponent();
+            posn = 0;
+        }
+
         private void addNewFacilityButton_Click(object sender, EventArgs e)
         {
             NewFacilityInformation nfi = new NewFacilityInformation();
             nfi.ShowDialog();
+            FactGridView.DataSource = context.Facilities.ToList();
         }
 
         private void searchPic_Click(object sender, EventArgs e)
@@ -48,8 +55,6 @@ namespace WindowsFormsApp1
             fList = context.Facilities.ToList();
             FactGridView.DataSource = fList;
             MaintenanceDateDPicker.CustomFormat = " ";
-            //FactGridView.Columns["Bookings"].Visible = false;
-            //FactGridView.Columns["Availabilities"].Visible = false;
         }
 
         private void FactGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -115,7 +120,7 @@ namespace WindowsFormsApp1
                     context.SaveChanges();
                     MessageBox.Show("Update Success!");
                     this.Refresh();
-                    FactGridView.DataSource = fList;
+                    FactGridView.DataSource = context.Facilities.ToList();
                 }
                 if (res == DialogResult.Cancel)
                 {
@@ -154,18 +159,34 @@ namespace WindowsFormsApp1
             MaintenanceDateDPicker.CustomFormat = "dd-MM-yyyy";
         }
 
+        public void FunctionRefresh()
+        {
+            fList = context.Facilities.ToList();
+            FactGridView.DataSource = fList;
+            Refresh();
+            MaintenanceDateDPicker.CustomFormat = " ";
+            posn = fList.Count;
+            FacilityIDTextBox.Text = "";
+            FacilityNameTextBox.Text = "";
+            FacilityTypeTextBox.Text = "";
+            LocationTextBox.Text = "";
+            AllowedHoursTextBox.Text = "";
+            MaintenanceDateDPicker.Value = DateTimePicker.MinimumDateTime;
+        }
+
         private void DeleteLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            int currentRow = posn;
-            Facility fact1 = fList[currentRow];
-            context.Facilities.Remove(fact1);
+            
+            Facility c = context.Facilities.Where(x => x.FacilityID.ToString() == (FacilityIDTextBox.Text)).First();
+
             DialogResult res = MessageBox.Show("Are you sure you want to Delete", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (res == DialogResult.OK)
             {
+                context.Facilities.Remove(c);
                 context.SaveChanges();
                 MessageBox.Show("Delete Success!");
-                this.Refresh();
-                FactGridView.DataSource = fList;
+                this.FunctionRefresh();
+                FactGridView.DataSource = context.Facilities.ToList();
             }
             if (res == DialogResult.Cancel)
             {
@@ -194,6 +215,14 @@ namespace WindowsFormsApp1
         private void FacilityInformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FacilityInformationForm_Load(sender, e);
+        }
+
+        private void searchFacilityTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (searchFacilityTextBox.Text == String.Empty)
+            {
+                FactGridView.DataSource = context.Facilities.ToList();
+            }
         }
     }
 }
