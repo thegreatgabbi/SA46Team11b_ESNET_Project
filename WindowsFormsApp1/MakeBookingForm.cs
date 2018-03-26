@@ -13,13 +13,21 @@ namespace WindowsFormsApp1
     public partial class MakeBookingForm : Form
     {
         Facility f;
-        Booking b,b1;
+        Booking b;
         Member m;
-       
-       SembawangSportEntities ctx = new SembawangSportEntities();
-        public MakeBookingForm()
+        string facilityname;
+        DateTime dateofbooking;
+        int time;
+        List<Booking> bList;
+
+        SembawangSportEntities ctx = new SembawangSportEntities();
+        public MakeBookingForm(string facname, DateTime date, int bookingfrom)
         {
             InitializeComponent();
+            facilityname = facname;
+            dateofbooking = date;
+            time = bookingfrom;
+            
             // BookingDateDtTimePckr.MinDate = DateTime.Today; // FOR TESTING: uncomment this later
             BookingDateDtTimePckr.MaxDate = DateTime.Today.AddDays(60);
             BookingFromTime.CustomFormat = "hh:00 tt";
@@ -28,37 +36,24 @@ namespace WindowsFormsApp1
             BookingToTime.CustomFormat = "hh:00 tt";
             BookingToTime.Format = DateTimePickerFormat.Custom;
             BookingToTime.ShowUpDown = true;
+         }
 
-            //Displays facilities details for that booking
-            f = (from x in ctx.Facilities where (x.FacilityName =="Badminton Court 4") select x).First();
+
+        private void MakeBookingForm_Load(object sender, EventArgs e)
+        {
+            bList = ctx.Bookings.ToList();
+            //Displays facilities details
+            f = (from x in ctx.Facilities where (x.FacilityName == facilityname) select x).First();
             txtRoomName.Text = f.FacilityName;
             txtLocation.Text = f.Location;
-            b = (from x in ctx.Bookings select x).First();
-            BookingFromTime.Value = b.BookingDateFrom;
-            BookingToTime.Value = b.BookingDateTo;
-            BookingDateDtTimePckr.Value = b.BookingDateFrom;
-         }
 
-        private void PopulateText()
-        {
-            m = (from x in ctx.Members where x.MemberID.ToString() == txtMemberID.Text select x).First();
-            txtMemberID.Text = m.MemberID.ToString();
-            txtMemberName.Text = m.MemberName;
-         }
+            TimeSpan ts = new TimeSpan(time, 0, 0);
+            DateTime bookingDateFrom = dateofbooking + ts;
 
-        private void LookUpBtn_Click_1(object sender, EventArgs e)
-        {
-            MemberForm mForm = new MemberForm(this,f);
-            mForm.Show();
-        }
-
-        
-        private void txtMemberID_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                PopulateText();
-             }
+            //Displays Bookings details for that Particular booking id
+            BookingFromTime.Value = bookingDateFrom;
+            BookingToTime.Value = bookingDateFrom.AddHours(1);
+            BookingDateDtTimePckr.Value = dateofbooking;
         }
 
         private void Okbtn_Click_1(object sender, EventArgs e)
@@ -69,27 +64,39 @@ namespace WindowsFormsApp1
             BookingToTime.Value = new DateTime(BookingDateDtTimePckr.Value.Year, BookingDateDtTimePckr.Value.Month, BookingDateDtTimePckr.Value.Day,
             BookingToTime.Value.Hour, 00, 00);
 
-            b1 = new Booking();
-            int count = ctx.Bookings.Count();
-            count++;
-            b1.BookingID = count;
-            b1.BookingDateFrom = BookingFromTime.Value;
-            //BookingDateDtTimePckr.Value.Date + BookingFromTime.Value.TimeOfDay;
-            b1.BookingDateTo = BookingToTime.Value;
-            //BookingDateDtTimePckr.Value.Date + BookingToTime.Value.TimeOfDay;
-            f = (from x in ctx.Facilities where (x.FacilityName == "Badminton Court 4") select x).First();
-            b1.FacilitiesID = f.FacilityID;
-            b1.MemberID = Int32.Parse(txtMemberID.Text);
-            b1.IssueDate = DateTime.Today;
-            b1.NumberofPax = Int32.Parse(txtNoOfpax.Text);
-            
-            ctx.Bookings.Add(b1);
+            b = new Booking();
+            // table values
+            b.BookingID = bList[bList.Count-1].BookingID+1;
+            b.BookingDateFrom = BookingFromTime.Value;
+            b.BookingDateTo = BookingToTime.Value;
+            b.FacilitiesID = f.FacilityID;
+            b.MemberID = Int32.Parse(txtMemberID.Text);
+            b.IssueDate = DateTime.Today;
+            b.NumberofPax = Int32.Parse(txtNoOfPax.Text);
 
-            ctx.SaveChanges();
-     
-            MessageBox.Show("Booking Saved");
-            this.Close();
-        }
+            // convert booking date from 
+            int BookingTimeFrom = BookingFromTime.Value.Hour;
+            int BookingTimeTo = BookingToTime.Value.Hour;
+            DateTime bkgdt = BookingFromTime.Value.Date;
+            bool value;
+
+            value=Program.ValidateBooking(bkgdt, f.FacilityName, BookingTimeFrom, BookingTimeTo);
+            if (value)
+            {
+                ctx.Bookings.Add(b);
+                ctx.SaveChanges();
+                MessageBox.Show("Booking Successfully Saved");
+                DialogResult res = MessageBox.Show("Do you want to print a receipt?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (res == DialogResult.OK)
+                {
+                    MessageBox.Show("Printing Receipt");
+                }
+                else
+                    this.Close();
+            }
+            else
+                MessageBox.Show("Slot is not available");
+         }
 
        
 
@@ -97,5 +104,26 @@ namespace WindowsFormsApp1
         {
             this.Close();
         }
-    }
+
+        private void LookUpBtn_Click_1(object sender, EventArgs e)
+        {
+            MemberForm mForm = new MemberForm(this, f);
+            mForm.Show();
+        }
+
+        private void PopulateText()
+        {
+            m = (from x in ctx.Members where x.MemberID.ToString() == txtMemberID.Text select x).First();
+            txtMemberID.Text = m.MemberID.ToString();
+            txtMemberName.Text = m.MemberName;
+        }
+
+        private void txtMemberID_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                PopulateText();
+            }
+        }
+     }
 }
