@@ -18,15 +18,15 @@ namespace WindowsFormsApp1
         }
 
         /// <summary>
-        /// Test getting the BookingID. Should return 10.
+        /// Test getting the BookingID. Should return 11.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            DateTime bookingDate = new DateTime(2018, 1, 14);
-            string facName = "Azelea";
-            int bookingFrom = 8;
+            DateTime bookingDate = new DateTime(2018, 2, 3);
+            string facName = "Badminton Court 2";
+            int bookingFrom = 12;
 
             label1.Text = Program.GetBookingID(bookingDate, facName, bookingFrom).ToString();
         }

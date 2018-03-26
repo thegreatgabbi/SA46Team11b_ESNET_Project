@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TestForm());
+            Application.Run(new FacilityAvailabiltyForm());
         }
         /// <summary>
         /// Get the Booking ID.
@@ -34,9 +34,19 @@ namespace WindowsFormsApp1
             // When to cache and when not to cache?
             SembawangSportEntities context = new SembawangSportEntities();
 
-            var q = context.Bookings.Where(x => x.BookingDateFrom == bookingDateFrom).Where(x => x.Facility.FacilityName == facName).Select(x => x.BookingID);
-
-            bookingID = q.First();
+            var q = context.Bookings
+                .Where(x => x.BookingDateFrom <= bookingDateFrom &&
+                            x.BookingDateTo > bookingDateFrom        
+                )
+                .Where(x => x.Facility.FacilityName == facName).Select(x => x.BookingID);
+            if (q.Count() == 1)
+            {
+                bookingID = q.First();
+            } else
+            {
+                bookingID = -1; // no ID found!
+            }
+            
             // MessageBox.Show(q.First().ToString()); // FOR DEBUG
             return bookingID;
         }
