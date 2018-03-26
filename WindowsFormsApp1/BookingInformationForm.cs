@@ -17,6 +17,8 @@ namespace WindowsFormsApp1
         SembawangSportEntities context = new SembawangSportEntities();
         List<Booking> bList;
         int posn = 0;
+        TimeSpan fromTimespan = new TimeSpan(7, 0, 0);
+        TimeSpan toTimespan = new TimeSpan(21, 0, 0);
         
         public BookingInformationForm()
         {
@@ -31,6 +33,11 @@ namespace WindowsFormsApp1
             dateTimePickerTo.Format = DateTimePickerFormat.Custom;
             dateTimePickerFrom.CustomFormat = "HH:00";
             dateTimePickerTo.CustomFormat = "HH:00";
+             //BookingDatePicker.MinDate = DateTime.Today;
+             //BookingDatePicker.MaxDate = DateTime.Today.AddDays(30);
+            //dateTimePickerFrom.MinDate = BookingDatePicker.Value.Date + fromTimespan;
+            //dateTimePickerFrom.MaxDate = BookingDatePicker.Value.Date + toTimespan;
+           
             //bookingGridView.Columns["Members"].Visible = false;
             //bookingGridView.Columns["Facilities"].Visible = false;
         }
@@ -70,48 +77,69 @@ namespace WindowsFormsApp1
             dateTimePickerTo.Value = (DateTime)bookingGridView.Rows[e.RowIndex].Cells[5].Value;
             numOfPaxTextBox.Text = bookingGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
         }
+        
+
+        private bool GoValidation()
+        {
+            if (dateTimePickerFrom.Value.Hour >= dateTimePickerTo.Value.Hour)
+            {
+                MessageBox.Show("Please Enter A Valid Time Slots", "Invalid Time Slots", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if(numOfPaxTextBox.Text == String.Empty)
+            {
+                MessageBox.Show("Please Enter Number of Pax!", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
         private void updateBooking_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
-            if (numOfPaxTextBox .Text != "")
+            if (GoValidation()==false)
             {
-                MessageBox.Show(posn.ToString());
-                int i = Convert.ToInt16(memberIDTextBox.Text);
-                //bList[posn].BookingID = i;
-                bList[posn].IssueDate = BookingDatePicker.Value;
-                //bList[posn].MemberID = int.Parse(memberIDTextBox.Text);
-               // bList[posn].FacilitiesID = int.Parse(bookingGridView.Rows[posn].Cells[3].Value.ToString());
-                bList[posn].BookingDateFrom = dateTimePickerFrom.Value;
-                bList[posn].BookingDateTo = dateTimePickerTo.Value;
-                bList[posn].NumberofPax = int.Parse(numOfPaxTextBox.Text);
+                return;
             }
-            DialogResult res = MessageBox.Show("Are you sure you want to Update?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            if (res == DialogResult.OK)
+            else
             {
-                context.SaveChanges();
-                MessageBox.Show("Update Success!");
-                this.Refresh();
-                bookingGridView.DataSource = bList;
-            }
-            if (res == DialogResult.Cancel)
-            {
-                BookingIDTextBox.Text = "";
-                memberNameTextBox.Text = "";
-                memberIDTextBox.Text = "";
-                facilityNameTextBox.Text = "";
-                locationTextBox.Text = "";
-                numOfPaxTextBox.Text = "";
-                BookingDatePicker.Value = DateTime.Today;
-                dateTimePickerTo.Value = DateTime.Today;
-                dateTimePickerFrom.Value = DateTime.Today;
-                posn = 0;
-            }
+                if (numOfPaxTextBox.Text != "")
+                {
+                    
+                    int i = Convert.ToInt16(memberIDTextBox.Text);
+                    bList[posn].IssueDate = BookingDatePicker.Value;
+                    bList[posn].BookingDateFrom = dateTimePickerFrom.Value;
+                    bList[posn].BookingDateTo = dateTimePickerTo.Value;
+                    bList[posn].NumberofPax = int.Parse(numOfPaxTextBox.Text);
+                }
+                    DialogResult res = MessageBox.Show("Are you sure you want to Update?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    if (res == DialogResult.OK)
+                    {
+                        context.SaveChanges();
+                        MessageBox.Show("Update Success!");
+                        this.Refresh();
+                        bookingGridView.DataSource = bList;
+                    }
+                    if (res == DialogResult.Cancel)
+                    {
+                        BookingIDTextBox.Text = "";
+                        memberNameTextBox.Text = "";
+                        memberIDTextBox.Text = "";
+                        facilityNameTextBox.Text = "";
+                        locationTextBox.Text = "";
+                        numOfPaxTextBox.Text = "";
+                        BookingDatePicker.Value = DateTime.Today;
+                        dateTimePickerTo.Value = DateTime.Today;
+                        dateTimePickerFrom.Value = DateTime.Today;
+                        posn = 0;
+                    }
+             }
         }
 
         private void DeleteLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //MessageBox.Show(posn.ToString());
             int currentRow = posn;
             Booking b = bList[currentRow];
             context.Bookings.Remove(b);
@@ -157,8 +185,6 @@ namespace WindowsFormsApp1
 
         private void MakeNewBookingButton_Click(object sender, EventArgs e)
         {
-            // this is valli parts
-
             MakeBookingForm nbi = new MakeBookingForm();
             nbi.Show();
         }
