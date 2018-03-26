@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
+    //Written Code By Su Su (e0284029)
+
     public partial class NewFacilityInformation : Form
     {
         SembawangSportEntities context = new SembawangSportEntities();

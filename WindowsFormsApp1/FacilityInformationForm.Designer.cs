@@ -231,14 +231,14 @@
             this.facilityInformationToolStripMenuItem.Name = "facilityInformationToolStripMenuItem";
             this.facilityInformationToolStripMenuItem.Size = new System.Drawing.Size(255, 38);
             this.facilityInformationToolStripMenuItem.Text = "Facility Information";
-            this.facilityInformationToolStripMenuItem.Click += new System.EventHandler(this.facilityInformationToolStripMenuItem_Click);
+            this.facilityInformationToolStripMenuItem.Click += new System.EventHandler(this.FacilityInformationToolStripMenuItem_Click);
             // 
             // memberInformationToolStripMenuItem
             // 
             this.memberInformationToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.memberInformationToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.memberInformationToolStripMenuItem.Name = "memberInformationToolStripMenuItem";
-            this.memberInformationToolStripMenuItem.Size = new System.Drawing.Size(267, 38);
+            this.memberInformationToolStripMenuItem.Size = new System.Drawing.Size(267, 35);
             this.memberInformationToolStripMenuItem.Text = "Member Information";
             this.memberInformationToolStripMenuItem.Click += new System.EventHandler(this.memberInformationToolStripMenuItem_Click);
             // 
@@ -246,7 +246,7 @@
             // 
             this.bookingInformationToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bookingInformationToolStripMenuItem.Name = "bookingInformationToolStripMenuItem";
-            this.bookingInformationToolStripMenuItem.Size = new System.Drawing.Size(267, 38);
+            this.bookingInformationToolStripMenuItem.Size = new System.Drawing.Size(267, 35);
             this.bookingInformationToolStripMenuItem.Text = "Booking Information";
             this.bookingInformationToolStripMenuItem.Click += new System.EventHandler(this.bookingInformationToolStripMenuItem_Click);
             // 
@@ -254,7 +254,7 @@
             // 
             this.bookFacilityToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bookFacilityToolStripMenuItem.Name = "bookFacilityToolStripMenuItem";
-            this.bookFacilityToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
+            this.bookFacilityToolStripMenuItem.Size = new System.Drawing.Size(181, 35);
             this.bookFacilityToolStripMenuItem.Text = "Book Facility";
             // 
             // FactGroupBox
@@ -326,7 +326,7 @@
             this.FacilityMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.FacilityMenuStrip.Name = "FacilityMenuStrip";
             this.FacilityMenuStrip.Padding = new System.Windows.Forms.Padding(11, 2, 0, 2);
-            this.FacilityMenuStrip.Size = new System.Drawing.Size(695, 39);
+            this.FacilityMenuStrip.Size = new System.Drawing.Size(694, 39);
             this.FacilityMenuStrip.TabIndex = 11;
             this.FacilityMenuStrip.Text = "MainMenuStrip";
             // 
@@ -334,7 +334,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(695, 573);
+            this.ClientSize = new System.Drawing.Size(694, 573);
             this.Controls.Add(this.FactGridView);
             this.Controls.Add(this.addNewFacilityButton);
             this.Controls.Add(this.searchFacilityTextBox);

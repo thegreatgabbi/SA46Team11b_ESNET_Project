@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
+    //Written Code By Su Su (e0284029)
+
     public partial class BookingInformationForm : Form
     {
         SembawangSportEntities context = new SembawangSportEntities();
@@ -134,6 +136,23 @@ namespace WindowsFormsApp1
                 dateTimePickerFrom.Value = DateTime.Today;
                 posn = 0;
             }
+        }
+
+        private void memberInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MemberInformationForm mif = new MemberInformationForm();
+            mif.Show();
+        }
+
+        private void facilityInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FacilityInformationForm fif = new FacilityInformationForm();
+            fif.Show();
+        }
+
+        private void bookingInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BookingInformationForm_Load(sender,e);
         }
     }
 }

@@ -52,13 +52,13 @@
             this.bookingInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookFacilityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.numOfPaxTextBox = new System.Windows.Forms.TextBox();
+            this.dateTimePickerTo = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
             this.bookingGridView = new System.Windows.Forms.DataGridView();
             this.BookingMenuStrip = new System.Windows.Forms.MenuStrip();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerTo = new System.Windows.Forms.DateTimePicker();
-            this.numOfPaxTextBox = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.searchPic)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookingGridView)).BeginInit();
@@ -253,29 +253,32 @@
             this.facilityInformationToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.facilityInformationToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.facilityInformationToolStripMenuItem.Name = "facilityInformationToolStripMenuItem";
-            this.facilityInformationToolStripMenuItem.Size = new System.Drawing.Size(255, 35);
+            this.facilityInformationToolStripMenuItem.Size = new System.Drawing.Size(255, 38);
             this.facilityInformationToolStripMenuItem.Text = "Facility Information";
+            this.facilityInformationToolStripMenuItem.Click += new System.EventHandler(this.facilityInformationToolStripMenuItem_Click);
             // 
             // memberInformationToolStripMenuItem
             // 
             this.memberInformationToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.memberInformationToolStripMenuItem.Name = "memberInformationToolStripMenuItem";
-            this.memberInformationToolStripMenuItem.Size = new System.Drawing.Size(267, 35);
+            this.memberInformationToolStripMenuItem.Size = new System.Drawing.Size(267, 38);
             this.memberInformationToolStripMenuItem.Text = "Member Information";
+            this.memberInformationToolStripMenuItem.Click += new System.EventHandler(this.memberInformationToolStripMenuItem_Click);
             // 
             // bookingInformationToolStripMenuItem
             // 
             this.bookingInformationToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.bookingInformationToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bookingInformationToolStripMenuItem.Name = "bookingInformationToolStripMenuItem";
-            this.bookingInformationToolStripMenuItem.Size = new System.Drawing.Size(267, 35);
+            this.bookingInformationToolStripMenuItem.Size = new System.Drawing.Size(267, 38);
             this.bookingInformationToolStripMenuItem.Text = "Booking Information";
+            this.bookingInformationToolStripMenuItem.Click += new System.EventHandler(this.bookingInformationToolStripMenuItem_Click);
             // 
             // bookFacilityToolStripMenuItem
             // 
             this.bookFacilityToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bookFacilityToolStripMenuItem.Name = "bookFacilityToolStripMenuItem";
-            this.bookFacilityToolStripMenuItem.Size = new System.Drawing.Size(181, 35);
+            this.bookFacilityToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
             this.bookFacilityToolStripMenuItem.Text = "Book Facility";
             // 
             // groupBox1
@@ -309,6 +312,55 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Booking Information Details";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(13, 269);
+            this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(231, 31);
+            this.label7.TabIndex = 97;
+            this.label7.Text = "Number of People";
+            // 
+            // numOfPaxTextBox
+            // 
+            this.numOfPaxTextBox.Location = new System.Drawing.Point(193, 262);
+            this.numOfPaxTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.numOfPaxTextBox.Name = "numOfPaxTextBox";
+            this.numOfPaxTextBox.Size = new System.Drawing.Size(216, 38);
+            this.numOfPaxTextBox.TabIndex = 96;
+            // 
+            // dateTimePickerTo
+            // 
+            this.dateTimePickerTo.CustomFormat = "dd-MM-yyyy";
+            this.dateTimePickerTo.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePickerTo.Location = new System.Drawing.Point(601, 263);
+            this.dateTimePickerTo.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePickerTo.Name = "dateTimePickerTo";
+            this.dateTimePickerTo.ShowUpDown = true;
+            this.dateTimePickerTo.Size = new System.Drawing.Size(121, 38);
+            this.dateTimePickerTo.TabIndex = 95;
+            // 
+            // dateTimePickerFrom
+            // 
+            this.dateTimePickerFrom.CustomFormat = "dd-MM-yyyy";
+            this.dateTimePickerFrom.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(601, 213);
+            this.dateTimePickerFrom.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePickerFrom.Name = "dateTimePickerFrom";
+            this.dateTimePickerFrom.ShowUpDown = true;
+            this.dateTimePickerFrom.Size = new System.Drawing.Size(121, 38);
+            this.dateTimePickerFrom.TabIndex = 94;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(468, 269);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(151, 31);
+            this.label5.TabIndex = 93;
+            this.label5.Text = "Booking To";
+            // 
             // bookingGridView
             // 
             this.bookingGridView.AllowUserToOrderColumns = true;
@@ -334,64 +386,15 @@
             this.BookingMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.BookingMenuStrip.Name = "BookingMenuStrip";
             this.BookingMenuStrip.Padding = new System.Windows.Forms.Padding(11, 2, 0, 2);
-            this.BookingMenuStrip.Size = new System.Drawing.Size(887, 39);
+            this.BookingMenuStrip.Size = new System.Drawing.Size(891, 42);
             this.BookingMenuStrip.TabIndex = 11;
             this.BookingMenuStrip.Text = "MainMenuStrip";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(468, 269);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(151, 31);
-            this.label5.TabIndex = 93;
-            this.label5.Text = "Booking To";
-            // 
-            // dateTimePickerFrom
-            // 
-            this.dateTimePickerFrom.CustomFormat = "dd-MM-yyyy";
-            this.dateTimePickerFrom.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickerFrom.Location = new System.Drawing.Point(601, 213);
-            this.dateTimePickerFrom.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePickerFrom.Name = "dateTimePickerFrom";
-            this.dateTimePickerFrom.ShowUpDown = true;
-            this.dateTimePickerFrom.Size = new System.Drawing.Size(121, 38);
-            this.dateTimePickerFrom.TabIndex = 94;
-            // 
-            // dateTimePickerTo
-            // 
-            this.dateTimePickerTo.CustomFormat = "dd-MM-yyyy";
-            this.dateTimePickerTo.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickerTo.Location = new System.Drawing.Point(601, 263);
-            this.dateTimePickerTo.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePickerTo.Name = "dateTimePickerTo";
-            this.dateTimePickerTo.ShowUpDown = true;
-            this.dateTimePickerTo.Size = new System.Drawing.Size(121, 38);
-            this.dateTimePickerTo.TabIndex = 95;
-            // 
-            // numOfPaxTextBox
-            // 
-            this.numOfPaxTextBox.Location = new System.Drawing.Point(193, 262);
-            this.numOfPaxTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.numOfPaxTextBox.Name = "numOfPaxTextBox";
-            this.numOfPaxTextBox.Size = new System.Drawing.Size(216, 38);
-            this.numOfPaxTextBox.TabIndex = 96;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 269);
-            this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(231, 31);
-            this.label7.TabIndex = 97;
-            this.label7.Text = "Number of People";
             // 
             // BookingInformationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(887, 693);
+            this.ClientSize = new System.Drawing.Size(891, 693);
             this.Controls.Add(this.MakeNewBookingButton);
             this.Controls.Add(this.searchBookingTextBox);
             this.Controls.Add(this.searchPic);
@@ -399,7 +402,7 @@
             this.Controls.Add(this.bookingGridView);
             this.Controls.Add(this.BookingMenuStrip);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BookingInformationForm";
             this.Text = "Booking Information Form";
             this.Load += new System.EventHandler(this.BookingInformationForm_Load);

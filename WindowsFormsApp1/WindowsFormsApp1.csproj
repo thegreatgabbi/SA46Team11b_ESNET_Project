@@ -160,6 +160,9 @@
     <EmbeddedResource Include="MemberInformationForm.resx">
       <DependentUpon>MemberInformationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NewBookingInformation.resx">
+      <DependentUpon>NewBookingInformation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NewFacilityInformation.resx">
       <DependentUpon>NewFacilityInformation.cs</DependentUpon>
     </EmbeddedResource>

@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
+    //Written Code By Su Su (e0284029)
+
     public partial class FacilityInformationForm : Form
     {
         SembawangSportEntities context = new SembawangSportEntities();
@@ -167,10 +169,10 @@ namespace WindowsFormsApp1
             MemberInformationForm mif = new MemberInformationForm();
             mif.Show();
         }
-
-        private void facilityInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        
+        private void FacilityInformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FacilityInformationForm_Load(sender,e);
+            FacilityInformationForm_Load(sender, e);
         }
     }
 }
