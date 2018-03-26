@@ -66,7 +66,7 @@
             this.DeleteLink.Location = new System.Drawing.Point(747, 67);
             this.DeleteLink.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DeleteLink.Name = "DeleteLink";
-            this.DeleteLink.Size = new System.Drawing.Size(116, 39);
+            this.DeleteLink.Size = new System.Drawing.Size(93, 31);
             this.DeleteLink.TabIndex = 90;
             this.DeleteLink.TabStop = true;
             this.DeleteLink.Text = "Delete";
@@ -78,7 +78,7 @@
             this.updateBooking.Location = new System.Drawing.Point(747, 35);
             this.updateBooking.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.updateBooking.Name = "updateBooking";
-            this.updateBooking.Size = new System.Drawing.Size(127, 39);
+            this.updateBooking.Size = new System.Drawing.Size(102, 31);
             this.updateBooking.TabIndex = 89;
             this.updateBooking.TabStop = true;
             this.updateBooking.Text = "Update";
@@ -90,7 +90,7 @@
             this.facilityNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.facilityNameTextBox.Name = "facilityNameTextBox";
             this.facilityNameTextBox.ReadOnly = true;
-            this.facilityNameTextBox.Size = new System.Drawing.Size(215, 46);
+            this.facilityNameTextBox.Size = new System.Drawing.Size(215, 38);
             this.facilityNameTextBox.TabIndex = 88;
             // 
             // memberIDTextBox
@@ -99,7 +99,7 @@
             this.memberIDTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.memberIDTextBox.Name = "memberIDTextBox";
             this.memberIDTextBox.ReadOnly = true;
-            this.memberIDTextBox.Size = new System.Drawing.Size(138, 46);
+            this.memberIDTextBox.Size = new System.Drawing.Size(138, 38);
             this.memberIDTextBox.TabIndex = 85;
             // 
             // locationTextBox
@@ -108,7 +108,7 @@
             this.locationTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.locationTextBox.Name = "locationTextBox";
             this.locationTextBox.ReadOnly = true;
-            this.locationTextBox.Size = new System.Drawing.Size(216, 46);
+            this.locationTextBox.Size = new System.Drawing.Size(216, 38);
             this.locationTextBox.TabIndex = 83;
             // 
             // BookingDatePicker
@@ -118,7 +118,7 @@
             this.BookingDatePicker.Location = new System.Drawing.Point(616, 160);
             this.BookingDatePicker.Margin = new System.Windows.Forms.Padding(4);
             this.BookingDatePicker.Name = "BookingDatePicker";
-            this.BookingDatePicker.Size = new System.Drawing.Size(138, 46);
+            this.BookingDatePicker.Size = new System.Drawing.Size(138, 38);
             this.BookingDatePicker.TabIndex = 80;
             // 
             // BookingIDTextBox
@@ -127,7 +127,7 @@
             this.BookingIDTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.BookingIDTextBox.Name = "BookingIDTextBox";
             this.BookingIDTextBox.ReadOnly = true;
-            this.BookingIDTextBox.Size = new System.Drawing.Size(170, 46);
+            this.BookingIDTextBox.Size = new System.Drawing.Size(170, 38);
             this.BookingIDTextBox.TabIndex = 78;
             // 
             // memberNameTextBox
@@ -136,7 +136,7 @@
             this.memberNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.memberNameTextBox.Name = "memberNameTextBox";
             this.memberNameTextBox.ReadOnly = true;
-            this.memberNameTextBox.Size = new System.Drawing.Size(274, 46);
+            this.memberNameTextBox.Size = new System.Drawing.Size(274, 38);
             this.memberNameTextBox.TabIndex = 77;
             // 
             // label11
@@ -145,7 +145,7 @@
             this.label11.Location = new System.Drawing.Point(28, 160);
             this.label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(224, 39);
+            this.label11.Size = new System.Drawing.Size(179, 31);
             this.label11.TabIndex = 76;
             this.label11.Text = "Facility Name";
             // 
@@ -155,7 +155,7 @@
             this.label9.Location = new System.Drawing.Point(483, 213);
             this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(229, 39);
+            this.label9.Size = new System.Drawing.Size(182, 31);
             this.label9.TabIndex = 74;
             this.label9.Text = "Booking From";
             // 
@@ -165,7 +165,7 @@
             this.label6.Location = new System.Drawing.Point(28, 210);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(146, 39);
+            this.label6.Size = new System.Drawing.Size(117, 31);
             this.label6.TabIndex = 71;
             this.label6.Text = "Location";
             // 
@@ -175,7 +175,7 @@
             this.label4.Location = new System.Drawing.Point(483, 160);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(222, 39);
+            this.label4.Size = new System.Drawing.Size(177, 31);
             this.label4.TabIndex = 69;
             this.label4.Text = "Booking Date";
             // 
@@ -185,7 +185,7 @@
             this.label3.Location = new System.Drawing.Point(483, 113);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(185, 39);
+            this.label3.Size = new System.Drawing.Size(147, 31);
             this.label3.TabIndex = 68;
             this.label3.Text = "Member ID";
             // 
@@ -195,7 +195,7 @@
             this.label2.Location = new System.Drawing.Point(28, 111);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(241, 39);
+            this.label2.Size = new System.Drawing.Size(191, 31);
             this.label2.TabIndex = 67;
             this.label2.Text = "Member Name";
             // 
@@ -205,7 +205,7 @@
             this.label1.Location = new System.Drawing.Point(28, 51);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 39);
+            this.label1.Size = new System.Drawing.Size(147, 31);
             this.label1.TabIndex = 66;
             this.label1.Text = "Booking ID";
             // 
@@ -280,7 +280,7 @@
             this.label7.Location = new System.Drawing.Point(28, 269);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(291, 39);
+            this.label7.Size = new System.Drawing.Size(231, 31);
             this.label7.TabIndex = 97;
             this.label7.Text = "Number of People";
             // 
@@ -289,7 +289,7 @@
             this.numOfPaxTextBox.Location = new System.Drawing.Point(208, 262);
             this.numOfPaxTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.numOfPaxTextBox.Name = "numOfPaxTextBox";
-            this.numOfPaxTextBox.Size = new System.Drawing.Size(216, 46);
+            this.numOfPaxTextBox.Size = new System.Drawing.Size(216, 38);
             this.numOfPaxTextBox.TabIndex = 96;
             // 
             // dateTimePickerTo
@@ -300,7 +300,7 @@
             this.dateTimePickerTo.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerTo.Name = "dateTimePickerTo";
             this.dateTimePickerTo.ShowUpDown = true;
-            this.dateTimePickerTo.Size = new System.Drawing.Size(164, 46);
+            this.dateTimePickerTo.Size = new System.Drawing.Size(164, 38);
             this.dateTimePickerTo.TabIndex = 95;
             // 
             // dateTimePickerFrom
@@ -311,7 +311,7 @@
             this.dateTimePickerFrom.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerFrom.Name = "dateTimePickerFrom";
             this.dateTimePickerFrom.ShowUpDown = true;
-            this.dateTimePickerFrom.Size = new System.Drawing.Size(164, 46);
+            this.dateTimePickerFrom.Size = new System.Drawing.Size(164, 38);
             this.dateTimePickerFrom.TabIndex = 94;
             // 
             // label5
@@ -319,7 +319,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(483, 269);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(190, 39);
+            this.label5.Size = new System.Drawing.Size(151, 31);
             this.label5.TabIndex = 93;
             this.label5.Text = "Booking To";
             // 
@@ -333,13 +333,13 @@
             this.bookingGridView.ReadOnly = true;
             this.bookingGridView.RowTemplate.Height = 33;
             this.bookingGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.bookingGridView.Size = new System.Drawing.Size(853, 250);
+            this.bookingGridView.Size = new System.Drawing.Size(890, 250);
             this.bookingGridView.TabIndex = 14;
             this.bookingGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bookingGridView_CellClick);
             // 
             // BookingInformationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 39F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1158, 704);

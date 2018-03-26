@@ -138,16 +138,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SembawangSportDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="SembawangSportDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SembawangSportDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="SembawangSportDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SembawangSportDataSet2.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="BookingInformationForm.resx">
       <DependentUpon>BookingInformationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,28 +195,6 @@
     </None>
     <None Include="SembawangSportDataSet.xss">
       <DependentUpon>SembawangSportDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SembawangSportDataSet1.xsc">
-      <DependentUpon>SembawangSportDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="SembawangSportDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SembawangSportDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SembawangSportDataSet1.xss">
-      <DependentUpon>SembawangSportDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="SembawangSportDataSet2.xsc">
-      <DependentUpon>SembawangSportDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="SembawangSportDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SembawangSportDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SembawangSportDataSet2.xss">
-      <DependentUpon>SembawangSportDataSet2.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
