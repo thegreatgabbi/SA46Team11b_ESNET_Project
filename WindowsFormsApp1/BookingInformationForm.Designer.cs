@@ -211,7 +211,7 @@
             // 
             // MakeNewBookingButton
             // 
-            this.MakeNewBookingButton.Location = new System.Drawing.Point(674, 33);
+            this.MakeNewBookingButton.Location = new System.Drawing.Point(711, 37);
             this.MakeNewBookingButton.Margin = new System.Windows.Forms.Padding(4);
             this.MakeNewBookingButton.Name = "MakeNewBookingButton";
             this.MakeNewBookingButton.Size = new System.Drawing.Size(281, 46);
@@ -343,7 +343,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1158, 704);
+            this.ClientSize = new System.Drawing.Size(1121, 694);
             this.Controls.Add(this.MakeNewBookingButton);
             this.Controls.Add(this.searchBookingTextBox);
             this.Controls.Add(this.searchPic);

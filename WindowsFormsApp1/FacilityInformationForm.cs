@@ -55,6 +55,8 @@ namespace WindowsFormsApp1
             fList = context.Facilities.ToList();
             FactGridView.DataSource = fList;
             MaintenanceDateDPicker.CustomFormat = " ";
+            FactGridView.Columns["Bookings"].Visible = false;
+            FactGridView.Columns["Availabilities"].Visible = false;
         }
 
         private void FactGridView_CellClick(object sender, DataGridViewCellEventArgs e)
