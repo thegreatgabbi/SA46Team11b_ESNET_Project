@@ -12,7 +12,7 @@ namespace WindowsFormsApp1
 {   
     public partial class ModifyForm : Form
     {
-        public FacilityAvailabiltyForm refToAvailabiltyForm;
+        public FacilityAvailabilityForm refToAvailabiltyForm;
 
         Facility f;
         Booking b;
