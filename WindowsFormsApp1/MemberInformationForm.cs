@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataGenerator;
 
 namespace WindowsFormsApp1
 {
@@ -22,33 +23,14 @@ namespace WindowsFormsApp1
             InitializeComponent();
             
         }
-
-        public MemberInformationForm(int p)
-        {
-            InitializeComponent();
-            this.posn = p;
-        }
-
         private void MemberInformationForm_Load(object sender, EventArgs e)
         {
             mList = context.Members.ToList();
             memGridView.DataSource = mList;
-
-        }
+            memGridView.Columns["Bookings"].Visible = false;
+;        }
 
         private void searchPic_Click(object sender, EventArgs e)
-        {
-            SearchMember();
-        }
-
-        private void addNewMemButton_Click(object sender, EventArgs e)
-        {
-            NewMemberInformation nmf = new NewMemberInformation();
-            nmf.ShowDialog();
-            memGridView.DataSource = context.Members.ToList();
-        }
-
-        private void SearchMember()
         {
             int length = searchMemberTextBox.TextLength;
             string membertext = (searchMemberTextBox.Text).Trim();
@@ -56,15 +38,22 @@ namespace WindowsFormsApp1
                     where ((x.MemberName.Substring(0, length) == membertext) ||
                           (x.MemberID.ToString().Substring(0, length) == searchMemberTextBox.Text) ||
                           (x.ICNumber.Substring(0, length) == membertext) ||
-                          (x.Address.Substring(0,length)==membertext)||
+                          (x.Address.Substring(0, length) == membertext) ||
                           (x.EmailAddress.Substring(0, length) == membertext) ||
                           (x.Postcode.Substring(0, length) == membertext) ||
                           (x.ContactNumber.Substring(0, length) == membertext) ||
-                          (x.Country.Substring(0, length) == membertext)||
-                          (x.Gender.Substring(0,length)==membertext))
+                          (x.Country.Substring(0, length) == membertext) ||
+                          (x.Gender.Substring(0, length) == membertext))
 
                     select x;
             memGridView.DataSource = q.ToList();
+        }
+
+        private void addNewMemButton_Click(object sender, EventArgs e)
+        {
+            NewMemberInformation nmf = new NewMemberInformation();
+            nmf.ShowDialog();
+            memGridView.DataSource = context.Members.ToList();
         }
 
         private void memGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -79,7 +68,7 @@ namespace WindowsFormsApp1
             postalTextBox.Text = memGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
             contactNumTextbox.Text = memGridView.Rows[e.RowIndex].Cells[8].Value.ToString();
             emailTextBox.Text = memGridView.Rows[e.RowIndex].Cells[9].Value.ToString();
-            genderTextBox.Text = memGridView.Rows[e.RowIndex].Cells[10].Value.ToString();
+            comboBox1.Text = memGridView.Rows[e.RowIndex].Cells[10].Value.ToString();
         }
 
 
@@ -100,7 +89,7 @@ namespace WindowsFormsApp1
             if (memberNameTextBox.Text == String.Empty || ICnumberTextBox.Text == String.Empty
                 || addressTextBox.Text == String.Empty || countryTextBox.Text == String.Empty
                 || postalTextBox.Text == String.Empty || contactNumTextbox.Text == String.Empty
-                || emailTextBox.Text == String.Empty || genderTextBox.Text == String.Empty)
+                || emailTextBox.Text == String.Empty || comboBox1.Text == String.Empty)
             {
                 MessageBox.Show("Please Fill Completely", "Incomplete Form", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
@@ -140,7 +129,7 @@ namespace WindowsFormsApp1
             else
             {
                 if (memberIDTextBox.Text != "" & memberNameTextBox.Text != "" & ICnumberTextBox.Text != "" & addressTextBox.Text != ""
-                & countryTextBox.Text != "" & postalTextBox.Text != "" & contactNumTextbox.Text != "" & emailTextBox.Text != "" & genderTextBox.Text != "")
+                & countryTextBox.Text != "" & postalTextBox.Text != "" & contactNumTextbox.Text != "" & emailTextBox.Text != "" & comboBox1.Text != "")
                 {
                     int i = Convert.ToInt16(memberIDTextBox.Text);
                     mList[posn].MemberID = i;
@@ -150,9 +139,17 @@ namespace WindowsFormsApp1
                     mList[posn].Country = countryTextBox.Text;
                     mList[posn].Postcode = postalTextBox.Text;
                     mList[posn].ContactNumber = contactNumTextbox.Text;
+                    if (comboBox1.Text == "Female")
+                    {
+                        mList[posn].ContactTitle = "Ms";
+                    }
+                    else if(comboBox1.Text == "Male")
+                    {
+                        mList[posn].ContactTitle = "Mr";
+                    }
                     mList[posn].DateofBirth = memberBDPicker.Value;
                     mList[posn].EmailAddress = emailTextBox.Text;
-                    mList[posn].Gender = genderTextBox.Text;
+                    mList[posn].Gender = comboBox1.Text;
 
                 }
                 DialogResult res = MessageBox.Show("Are you sure you want to Update?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -174,7 +171,7 @@ namespace WindowsFormsApp1
                     postalTextBox.Text = "";
                     contactNumTextbox.Text = "";
                     emailTextBox.Text = "";
-                    genderTextBox.Text = "";
+                    comboBox1.Text = "";
                     posn = 0;
                 }
             }
@@ -194,6 +191,8 @@ namespace WindowsFormsApp1
                 context.SaveChanges();
                
                 MessageBox.Show("Delete Success!");
+                //this.FunctionRefresh();
+                //FactGridView.DataSource = context.Facilities.ToList();
                 this.Refresh();
                 memGridView.DataSource = context.Members.ToList();
             }
@@ -208,7 +207,7 @@ namespace WindowsFormsApp1
                 postalTextBox.Text = "";
                 contactNumTextbox.Text = "";
                 emailTextBox.Text = "";
-                genderTextBox.Text = "";
+                comboBox1.Text = "";
                 posn = 0;
             }
         }
@@ -236,6 +235,28 @@ namespace WindowsFormsApp1
             {
                 memGridView.DataSource = context.Members.ToList();
             }
+        }
+        private void PrintMembersList_Click(object sender, EventArgs e)
+        {
+            MemberList m = new MemberList();
+            m.Show();
+        }
+        private void comboBoxMember_SelectedValueChanged(object sender, EventArgs e)
+        {
+            String gender = comboBox1.Text.ToString();
+            if (gender == "Female")
+            {
+                comboBox1.Text = "Ms";
+            }
+            else if (gender == "Male")
+            {
+                comboBox1.Text = "Mr";
+            }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
