@@ -127,11 +127,15 @@ namespace WindowsFormsApp1
         /// <param name="e"></param>
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int hour = 0;
-            //string bookingType;
-
             if (e.RowIndex > -1 && e.ColumnIndex > 0)
             {
+                string facName;
+                DateTime date;
+                int hour = 0;
+
+                facName = listFacilityAvailabiltyByDay[e.RowIndex].FacName.ToString();
+                date = selectedDate;
+
                 // get the correct timing
                 // look at the column, and pass an Hour object
                 // can we create an Enum to help with the mapping?
@@ -152,6 +156,8 @@ namespace WindowsFormsApp1
                     case 5:
                         hour = 11;
                         break;
+                    default:
+                        break;
                 }
 
                 // trigger correct type of form
@@ -159,14 +165,14 @@ namespace WindowsFormsApp1
                 {
                     // Trigger Modify Booking
                     //bookingType = "Modify Booking";
-                    ModifyForm form1 = new ModifyForm();
+                    ModifyForm form1 = new ModifyForm(facName, date, hour);
                     form1.Show();
                 }
                 else
                 {
                     // Trigger New Booking
                     //bookingType = "New Booking";
-                    MakeBookingForm form2 = new MakeBookingForm();
+                    MakeBookingForm form2 = new MakeBookingForm(facName, date, hour);
                     form2.Show();
                 }
 
