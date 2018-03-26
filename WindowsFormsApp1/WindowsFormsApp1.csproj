@@ -63,14 +63,17 @@
     <Compile Include="Booking.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="BookingForm.cs" />
     <Compile Include="Facility.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="MakeBookingForm.cs">
+    <Compile Include="..\..\..\ESNET\MakeBookingForm.cs">
       <SubType>Form</SubType>
+      <Link>MakeBookingForm.cs</Link>
     </Compile>
-    <Compile Include="MakeBookingForm.Designer.cs">
+    <Compile Include="..\..\..\ESNET\MakeBookingForm.Designer.cs">
       <DependentUpon>MakeBookingForm.cs</DependentUpon>
+      <Link>MakeBookingForm.Designer.cs</Link>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -102,11 +105,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="ModifyForm.cs">
+    <Compile Include="..\..\..\ESNET\ModifyForm.cs">
       <SubType>Form</SubType>
+      <Link>ModifyForm.cs</Link>
     </Compile>
-    <Compile Include="ModifyForm.Designer.cs">
+    <Compile Include="..\..\..\ESNET\ModifyForm.Designer.cs">
       <DependentUpon>ModifyForm.cs</DependentUpon>
+      <Link>ModifyForm.Designer.cs</Link>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,8 +125,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SembawangSportDataSet1.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="MakeBookingForm.resx">
+    <EmbeddedResource Include="..\..\..\ESNET\MakeBookingForm.resx">
       <DependentUpon>MakeBookingForm.cs</DependentUpon>
+      <Link>MakeBookingForm.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -129,8 +135,9 @@
     <EmbeddedResource Include="MemberForm.resx">
       <DependentUpon>MemberForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModifyForm.resx">
+    <EmbeddedResource Include="..\..\..\ESNET\ModifyForm.resx">
       <DependentUpon>ModifyForm.cs</DependentUpon>
+      <Link>ModifyForm.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
