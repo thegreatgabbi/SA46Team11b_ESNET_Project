@@ -18,7 +18,10 @@ namespace WindowsFormsApp1
         Member m;
         string facilityname;
         DateTime dateofbooking;
-        int time,bookID;
+        int time,bookID,flag=0;
+        
+        TimeSpan fromts = new TimeSpan(7, 0, 0);
+        TimeSpan tots = new TimeSpan(21, 0, 0);
 
         SembawangSportEntities ctx = new SembawangSportEntities();
 
@@ -29,18 +32,27 @@ namespace WindowsFormsApp1
             dateofbooking = date;
             time = bookingfrom;
 
-            // BookingDateDtTimePckr.MinDate = DateTime.Today; // FOR TESTING: uncomment this later
-            BookingDateDtTimePckr.MaxDate = DateTime.Today.AddDays(60);
+            BookingDateDtTimePckr.MinDate = DateTime.Today; // FOR TESTING: uncomment this later
+            BookingDateDtTimePckr.MaxDate = DateTime.Today.AddDays(30);
             BookingFromTime.CustomFormat = "hh:00 tt";
             BookingFromTime.Format = DateTimePickerFormat.Custom;
             BookingFromTime.ShowUpDown = true;
             BookingToTime.CustomFormat = "hh:00 tt";
             BookingToTime.Format = DateTimePickerFormat.Custom;
             BookingToTime.ShowUpDown = true;
+
+            int result = DateTime.Compare(dateofbooking, DateTime.Today);
+            if (result < 0)
+            {
+                MessageBox.Show("Booking date cannot be earlier than Today");
+                flag = 1;
+            }
         }
 
         private void ModifyForm_Load(object sender, EventArgs e)
         {
+            if (flag == 1)
+                this.Close();
             f = (from x in ctx.Facilities where (x.FacilityName == facilityname) select x).First();
             txtRoomName.Text = f.FacilityName;
             txtLocation.Text = f.Location;
@@ -55,11 +67,15 @@ namespace WindowsFormsApp1
             txtMemberID.Text = m.MemberID.ToString();
             txtMemberName.Text = m.MemberName;
 
+            txtNoOfPax.Text = b.NumberofPax.ToString();
+
             //Displays Bookings details for that Particular booking id
             BookingFromTime.Value = b.BookingDateFrom;
             BookingToTime.Value = b.BookingDateTo;
-            BookingDateDtTimePckr.Value = dateofbooking;
-            txtNoOfPax.Text = b.NumberofPax.ToString();
+            if(flag!=1)
+                BookingDateDtTimePckr.Value = dateofbooking;
+            BookingFromTime.MinDate = BookingDateDtTimePckr.Value.Date + fromts;
+            BookingToTime.MaxDate = BookingDateDtTimePckr.Value.Date + tots;
         }
         
         private void Modifybtn_Click(object sender, EventArgs e)

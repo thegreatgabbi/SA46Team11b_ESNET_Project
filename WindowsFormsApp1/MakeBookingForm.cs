@@ -17,8 +17,12 @@ namespace WindowsFormsApp1
         Member m;
         string facilityname;
         DateTime dateofbooking;
-        int time;
+        int time,flag=0;
         List<Booking> bList;
+
+        
+        TimeSpan fromts = new TimeSpan(7, 0, 0);
+        TimeSpan tots = new TimeSpan(21, 0, 0);
 
         SembawangSportEntities ctx = new SembawangSportEntities();
         public MakeBookingForm(string facname, DateTime date, int bookingfrom)
@@ -27,20 +31,32 @@ namespace WindowsFormsApp1
             facilityname = facname;
             dateofbooking = date;
             time = bookingfrom;
-            
-            // BookingDateDtTimePckr.MinDate = DateTime.Today; // FOR TESTING: uncomment this later
-            BookingDateDtTimePckr.MaxDate = DateTime.Today.AddDays(60);
+
+            BookingDateDtTimePckr.MinDate = DateTime.Today; // FOR TESTING: uncomment this later
+            BookingDateDtTimePckr.MaxDate = DateTime.Today.AddDays(30);
+
             BookingFromTime.CustomFormat = "hh:00 tt";
             BookingFromTime.Format = DateTimePickerFormat.Custom;
             BookingFromTime.ShowUpDown = true;
+ 
             BookingToTime.CustomFormat = "hh:00 tt";
             BookingToTime.Format = DateTimePickerFormat.Custom;
             BookingToTime.ShowUpDown = true;
-         }
+
+            int result = DateTime.Compare(dateofbooking, DateTime.Today);
+            if (result < 0)
+            {
+                MessageBox.Show("Booking date cannot be earlier than Today");
+                flag = 1;
+            }
+
+        }
 
 
         private void MakeBookingForm_Load(object sender, EventArgs e)
         {
+            if (flag == 1)
+                this.Close();
             bList = ctx.Bookings.ToList();
             //Displays facilities details
             f = (from x in ctx.Facilities where (x.FacilityName == facilityname) select x).First();
@@ -49,11 +65,14 @@ namespace WindowsFormsApp1
 
             TimeSpan ts = new TimeSpan(time, 0, 0);
             DateTime bookingDateFrom = dateofbooking + ts;
-
+            
             //Displays Bookings details for that Particular booking id
             BookingFromTime.Value = bookingDateFrom;
             BookingToTime.Value = bookingDateFrom.AddHours(1);
-            BookingDateDtTimePckr.Value = dateofbooking;
+            if(flag!=1)
+                BookingDateDtTimePckr.Value = dateofbooking;
+            BookingFromTime.MinDate = BookingDateDtTimePckr.Value.Date +fromts;
+            BookingToTime.MaxDate = BookingDateDtTimePckr.Value.Date + tots;
         }
 
         private void Okbtn_Click_1(object sender, EventArgs e)
