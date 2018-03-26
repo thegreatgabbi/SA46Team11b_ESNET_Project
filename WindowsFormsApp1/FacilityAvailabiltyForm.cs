@@ -128,22 +128,10 @@ namespace WindowsFormsApp1
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int hour = 0;
-            string bookingType;
+            //string bookingType;
 
             if (e.RowIndex > -1 && e.ColumnIndex > 0)
             {
-                if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "True")
-                {
-                    bookingType = "Modify Booking";
-                }
-                else
-                {
-                    bookingType = "New Booking";
-                }
-
-                MessageBox.Show("Type of form triggerred: " + bookingType);
-                MessageBox.Show("Date: " + selectedDate.ToShortDateString());
-                MessageBox.Show("Facility Name: " + listFacilityAvailabiltyByDay[e.RowIndex].FacName.ToString());
                 // get the correct timing
                 // look at the column, and pass an Hour object
                 // can we create an Enum to help with the mapping?
@@ -165,7 +153,27 @@ namespace WindowsFormsApp1
                         hour = 11;
                         break;
                 }
-                MessageBox.Show("Time: " + hour.ToString() + "AM");
+
+                // trigger correct type of form
+                if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "True")
+                {
+                    // Trigger Modify Booking
+                    //bookingType = "Modify Booking";
+                    ModifyForm form1 = new ModifyForm();
+                    form1.Show();
+                }
+                else
+                {
+                    // Trigger New Booking
+                    //bookingType = "New Booking";
+                    MakeBookingForm form2 = new MakeBookingForm();
+                    form2.Show();
+                }
+
+                //MessageBox.Show("Type of form triggerred: " + bookingType);
+                //MessageBox.Show("Date: " + selectedDate.ToShortDateString());
+                //MessageBox.Show("Facility Name: " + listFacilityAvailabiltyByDay[e.RowIndex].FacName.ToString());
+                //MessageBox.Show("Time: " + hour.ToString() + "AM");
             }
         }
 
