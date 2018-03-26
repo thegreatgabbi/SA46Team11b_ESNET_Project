@@ -58,13 +58,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Availability.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>SembawangSportsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Booking.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>SembawangSportsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Facility.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>SembawangSportsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MakeBookingForm.cs">
       <SubType>Form</SubType>
@@ -73,7 +73,7 @@
       <DependentUpon>MakeBookingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Member.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>SembawangSportsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MemberForm.cs">
       <SubType>Form</SubType>
@@ -81,20 +81,20 @@
     <Compile Include="MemberForm.Designer.cs">
       <DependentUpon>MemberForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model1.Context.cs">
+    <Compile Include="SembawangSportsModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
+      <DependentUpon>SembawangSportsModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model1.cs">
+    <Compile Include="SembawangSportsModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>SembawangSportsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model1.Designer.cs">
+    <Compile Include="SembawangSportsModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>SembawangSportsModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="ModifyForm.cs">
       <SubType>Form</SubType>
@@ -132,12 +132,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="Model1.edmx">
+    <EntityDeploy Include="SembawangSportsModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>SembawangSportsModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <None Include="SembawangSportsModel.edmx.diagram">
+      <DependentUpon>SembawangSportsModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -176,19 +176,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="SembawangSportsModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SembawangSportsModel.Context.cs</LastGenOutput>
+      <DependentUpon>SembawangSportsModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="SembawangSportsModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SembawangSportsModel.cs</LastGenOutput>
+      <DependentUpon>SembawangSportsModel.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

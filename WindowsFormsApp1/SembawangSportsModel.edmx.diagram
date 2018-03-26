@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2ed223910c824cd3b8ae612223980c51" Name="Diagram1">
+        <EntityTypeShape EntityType="SembawangSportsModel.Member" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SembawangSportsModel.Booking" Width="1.5" PointX="5.625" PointY="1.5" />
+        <EntityTypeShape EntityType="SembawangSportsModel.Facility" Width="1.5" PointX="3.375" PointY="2.5" />
+        <EntityTypeShape EntityType="SembawangSportsModel.Availability" Width="1.5" PointX="5.625" PointY="6.375" />
+        <AssociationConnector Association="SembawangSportsModel.FK_Bookings_Facilities" />
+        <AssociationConnector Association="SembawangSportsModel.FK_Bookings_Members" />
+        <AssociationConnector Association="SembawangSportsModel.FK_Availability_Facilities" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SembawangSportModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SembawangSportsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
 warning 6002: The table/view 'SembawangSport.dbo.Availability' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Availability">
@@ -94,7 +94,7 @@ warning 6002: The table/view 'SembawangSport.dbo.Availability' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SembawangSportModelStoreContainer">
+        <EntityContainer Name="SembawangSportsModelStoreContainer">
           <EntitySet Name="Bookings" EntityType="Self.Bookings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Facilities" EntityType="Self.Facilities" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
@@ -121,7 +121,7 @@ warning 6002: The table/view 'SembawangSport.dbo.Availability' does not have a p
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SembawangSportModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="SembawangSportsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Member">
           <Key>
             <PropertyRef Name="MemberID" />
@@ -137,22 +137,22 @@ warning 6002: The table/view 'SembawangSport.dbo.Availability' does not have a p
           <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Bookings" Relationship="SembawangSportModel.FK_Bookings_Members" FromRole="Member" ToRole="Booking" />
+          <NavigationProperty Name="Bookings" Relationship="SembawangSportsModel.FK_Bookings_Members" FromRole="Member" ToRole="Booking" />
         </EntityType>
         <EntityContainer Name="SembawangSportEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Members" EntityType="Self.Member" />
-          <EntitySet Name="Bookings" EntityType="SembawangSportModel.Booking" />
-          <EntitySet Name="Facilities" EntityType="SembawangSportModel.Facility" />
-          <EntitySet Name="Availabilities" EntityType="SembawangSportModel.Availability" />
-          <AssociationSet Name="FK_Bookings_Facilities" Association="SembawangSportModel.FK_Bookings_Facilities">
+          <EntitySet Name="Bookings" EntityType="SembawangSportsModel.Booking" />
+          <EntitySet Name="Facilities" EntityType="SembawangSportsModel.Facility" />
+          <EntitySet Name="Availabilities" EntityType="SembawangSportsModel.Availability" />
+          <AssociationSet Name="FK_Bookings_Facilities" Association="SembawangSportsModel.FK_Bookings_Facilities">
             <End Role="Facility" EntitySet="Facilities" />
             <End Role="Booking" EntitySet="Bookings" />
           </AssociationSet>
-          <AssociationSet Name="FK_Bookings_Members" Association="SembawangSportModel.FK_Bookings_Members">
+          <AssociationSet Name="FK_Bookings_Members" Association="SembawangSportsModel.FK_Bookings_Members">
             <End Role="Member" EntitySet="Members" />
             <End Role="Booking" EntitySet="Bookings" />
           </AssociationSet>
-          <AssociationSet Name="FK_Availability_Facilities" Association="SembawangSportModel.FK_Availability_Facilities">
+          <AssociationSet Name="FK_Availability_Facilities" Association="SembawangSportsModel.FK_Availability_Facilities">
             <End Role="Facility" EntitySet="Facilities" />
             <End Role="Availability" EntitySet="Availabilities" />
           </AssociationSet>
@@ -168,8 +168,8 @@ warning 6002: The table/view 'SembawangSport.dbo.Availability' does not have a p
           <Property Name="BookingDateFrom" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="BookingDateTo" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="NumberofPax" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Facility" Relationship="SembawangSportModel.FK_Bookings_Facilities" FromRole="Booking" ToRole="Facility" />
-          <NavigationProperty Name="Member" Relationship="SembawangSportModel.FK_Bookings_Members" FromRole="Booking" ToRole="Member" />
+          <NavigationProperty Name="Facility" Relationship="SembawangSportsModel.FK_Bookings_Facilities" FromRole="Booking" ToRole="Facility" />
+          <NavigationProperty Name="Member" Relationship="SembawangSportsModel.FK_Bookings_Members" FromRole="Booking" ToRole="Member" />
         </EntityType>
         <EntityType Name="Facility">
           <Key>
@@ -181,8 +181,8 @@ warning 6002: The table/view 'SembawangSport.dbo.Availability' does not have a p
           <Property Name="Location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MaintenanceDate" Type="DateTime" Precision="7" />
           <Property Name="AllowedHours" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Bookings" Relationship="SembawangSportModel.FK_Bookings_Facilities" FromRole="Facility" ToRole="Booking" />
-          <NavigationProperty Name="Availabilities" Relationship="SembawangSportModel.FK_Availability_Facilities" FromRole="Facility" ToRole="Availability" />
+          <NavigationProperty Name="Bookings" Relationship="SembawangSportsModel.FK_Bookings_Facilities" FromRole="Facility" ToRole="Booking" />
+          <NavigationProperty Name="Availabilities" Relationship="SembawangSportsModel.FK_Availability_Facilities" FromRole="Facility" ToRole="Availability" />
         </EntityType>
         <EntityType Name="Availability">
           <Key>
@@ -193,11 +193,11 @@ warning 6002: The table/view 'SembawangSport.dbo.Availability' does not have a p
           <Property Name="FacilityID" Type="Int32" Nullable="false" />
           <Property Name="BookingDateFrom" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="BookingDateTo" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Facility" Relationship="SembawangSportModel.FK_Availability_Facilities" FromRole="Availability" ToRole="Facility" />
+          <NavigationProperty Name="Facility" Relationship="SembawangSportsModel.FK_Availability_Facilities" FromRole="Availability" ToRole="Facility" />
         </EntityType>
         <Association Name="FK_Bookings_Facilities">
-          <End Type="SembawangSportModel.Facility" Role="Facility" Multiplicity="1" />
-          <End Type="SembawangSportModel.Booking" Role="Booking" Multiplicity="*" />
+          <End Type="SembawangSportsModel.Facility" Role="Facility" Multiplicity="1" />
+          <End Type="SembawangSportsModel.Booking" Role="Booking" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Facility">
               <PropertyRef Name="FacilityID" />
@@ -208,8 +208,8 @@ warning 6002: The table/view 'SembawangSport.dbo.Availability' does not have a p
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Bookings_Members">
-          <End Type="SembawangSportModel.Member" Role="Member" Multiplicity="1" />
-          <End Type="SembawangSportModel.Booking" Role="Booking" Multiplicity="*" />
+          <End Type="SembawangSportsModel.Member" Role="Member" Multiplicity="1" />
+          <End Type="SembawangSportsModel.Booking" Role="Booking" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Member">
               <PropertyRef Name="MemberID" />
@@ -220,10 +220,10 @@ warning 6002: The table/view 'SembawangSport.dbo.Availability' does not have a p
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Availability_Facilities">
-          <End Type="SembawangSportModel.Facility" Role="Facility" Multiplicity="1">
+          <End Type="SembawangSportsModel.Facility" Role="Facility" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="SembawangSportModel.Availability" Role="Availability" Multiplicity="*" />
+          <End Type="SembawangSportsModel.Availability" Role="Availability" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Facility">
               <PropertyRef Name="FacilityID" />
@@ -238,9 +238,9 @@ warning 6002: The table/view 'SembawangSport.dbo.Availability' does not have a p
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SembawangSportModelStoreContainer" CdmEntityContainer="SembawangSportEntities">
+        <EntityContainerMapping StorageEntityContainer="SembawangSportsModelStoreContainer" CdmEntityContainer="SembawangSportEntities">
           <EntitySetMapping Name="Members">
-            <EntityTypeMapping TypeName="SembawangSportModel.Member">
+            <EntityTypeMapping TypeName="SembawangSportsModel.Member">
               <MappingFragment StoreEntitySet="Members">
                 <ScalarProperty Name="MemberID" ColumnName="MemberID" />
                 <ScalarProperty Name="MemberName" ColumnName="MemberName" />
@@ -257,7 +257,7 @@ warning 6002: The table/view 'SembawangSport.dbo.Availability' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Bookings">
-            <EntityTypeMapping TypeName="SembawangSportModel.Booking">
+            <EntityTypeMapping TypeName="SembawangSportsModel.Booking">
               <MappingFragment StoreEntitySet="Bookings">
                 <ScalarProperty Name="NumberofPax" ColumnName="NumberofPax" />
                 <ScalarProperty Name="BookingDateTo" ColumnName="BookingDateTo" />
@@ -270,7 +270,7 @@ warning 6002: The table/view 'SembawangSport.dbo.Availability' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Facilities">
-            <EntityTypeMapping TypeName="SembawangSportModel.Facility">
+            <EntityTypeMapping TypeName="SembawangSportsModel.Facility">
               <MappingFragment StoreEntitySet="Facilities">
                 <ScalarProperty Name="AllowedHours" ColumnName="AllowedHours" />
                 <ScalarProperty Name="MaintenanceDate" ColumnName="MaintenanceDate" />
@@ -282,7 +282,7 @@ warning 6002: The table/view 'SembawangSport.dbo.Availability' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Availabilities">
-            <EntityTypeMapping TypeName="SembawangSportModel.Availability">
+            <EntityTypeMapping TypeName="SembawangSportsModel.Availability">
               <MappingFragment StoreEntitySet="Availability">
                 <ScalarProperty Name="BookingDateTo" ColumnName="BookingDateTo" />
                 <ScalarProperty Name="BookingDateFrom" ColumnName="BookingDateFrom" />
