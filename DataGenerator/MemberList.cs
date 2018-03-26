@@ -20,18 +20,8 @@ namespace DataGenerator
 
         private void MemberList_Load(object sender, EventArgs e)
         {
-            SembawangSportEntities1 context = new SembawangSportEntities1();
-            string conS = "Data source = (local); Initial Catalog = SembawangSport; Integrated Security = SSPI";
-            SqlConnection cn = new SqlConnection(conS);
-            SqlCommand cm = new SqlCommand("select * from Members", cn);
-            SqlDataAdapter da = new SqlDataAdapter(cm);
-            DataSet ds = new DataSet();
-            cn.Open();
-            da.Fill(ds, "Members");
-            cn.Close();
-
+           
             CRMem cr = new CRMem();
-            cr.SetDataSource(ds);
             MemListView.ReportSource = cr;
         }
     }

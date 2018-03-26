@@ -10,7 +10,7 @@ namespace WindowsFormsApp1
     static class Program
     {
         // Global Variables
-        static string SQL_NAME = "NAGAPPAN\\VALLISQL";
+        //static string SQL_NAME = "NAGAPPAN\\VALLISQL";
         
         /// <summary>
         /// The main entry point for the application.
