@@ -82,15 +82,21 @@ namespace WindowsFormsApp1
         {
 
             BookingFromTime.Value= new DateTime(BookingDateDtTimePckr.Value.Year, BookingDateDtTimePckr.Value.Month, BookingDateDtTimePckr.Value.Day,
-             BookingFromTime.Value.Hour, 00, 00);
+            BookingFromTime.Value.Hour, 00, 00);
 
             BookingToTime.Value = new DateTime(BookingDateDtTimePckr.Value.Year, BookingDateDtTimePckr.Value.Month, BookingDateDtTimePckr.Value.Day,
             BookingToTime.Value.Hour, 00, 00);
 
+            try
+            {
             b.BookingDateFrom = BookingDateDtTimePckr.Value.Date + BookingFromTime.Value.TimeOfDay;
             b.BookingDateTo = BookingDateDtTimePckr.Value.Date + BookingToTime.Value.TimeOfDay;
             b.MemberID = Int32.Parse(txtMemberID.Text);
             b.NumberofPax= Int32.Parse(txtNoOfPax.Text);
+            } catch (Exception ex) {
+                MessageBox.Show("Please ensure that all fields are filled.");
+                return;
+            }
 
             // convert booking date from 
             int BookingTimeFrom = BookingFromTime.Value.Hour;
