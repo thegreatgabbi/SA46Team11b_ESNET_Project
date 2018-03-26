@@ -13,17 +13,18 @@ namespace DataGenerator
 {
     public partial class BookingReceipt : Form
     {
-        public BookingReceipt()
+        public int bookingID =16; //dummy initial value for bookingID
+        public BookingReceipt(int a)
         {
             InitializeComponent();
+            bookingID = a;
         }
 
+        
         private void BookingReceipt_Load(object sender, EventArgs e)
         {
             SembawangSportEntities1 context = new SembawangSportEntities1();
             
-
-            int bookingID=16; //dummy value that is to be retrieved from other form
             List<Booking1> list = context.Booking1.Where(x => x.BookingID == bookingID).ToList();
             crReceipt cr = new crReceipt();
             cr.SetDataSource(list);
