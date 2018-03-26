@@ -319,5 +319,16 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void FacilityAvailabiltyForm_Load(object sender, EventArgs e)
+        {
+            List<Facility> flist = context.Facilities.ToList();
+            var list = flist.Select(x => x.FacilityType).Distinct();
+            foreach (var x in list)
+            {
+                facilityTypeCombo.Items.Add(x.ToString());
+            }
+
+        }
     }
 }

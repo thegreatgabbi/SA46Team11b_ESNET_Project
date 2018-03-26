@@ -158,7 +158,7 @@ namespace WindowsFormsApp1
         private void LookUpBtn_Click_1(object sender, EventArgs e)
         {
             MemberForm mForm = new MemberForm(this, f);
-            mForm.Show();
+            mForm.ShowDialog();
         }
 
         private void PopulateText()

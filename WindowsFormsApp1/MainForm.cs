@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataGenerator;
 
 namespace WindowsFormsApp1
 {
-    //Written Code By Su Su (e0284029)
+    
 
     public partial class MainForm : Form
     {
@@ -25,6 +26,7 @@ namespace WindowsFormsApp1
      
         private void MainForm_Load_1(object sender, EventArgs e)
         {
+            //initalizing all forms to tabs
             var f1 = new FacilityAvailabiltyForm();
             f1.TopLevel = false;
             f1.Location = new Point(0, 0);
@@ -53,7 +55,12 @@ namespace WindowsFormsApp1
             f4.Visible = true;
             this.tabPage4.Controls.Add(f4);
 
-
+            var f5 = new MgmtReport();
+            f5.TopLevel = false;
+            f5.Location = new Point(0, 0);
+            f5.FormBorderStyle = FormBorderStyle.None;
+            f5.Visible = true;
+            this.tabPage5.Controls.Add(f5);
 
         }
     }
