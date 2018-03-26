@@ -20,7 +20,7 @@ namespace WindowsFormsApp1
         public MakeBookingForm()
         {
             InitializeComponent();
-            BookingDateDtTimePckr.MinDate = DateTime.Today;
+            // BookingDateDtTimePckr.MinDate = DateTime.Today; // FOR TESTING: uncomment this later
             BookingDateDtTimePckr.MaxDate = DateTime.Today.AddDays(60);
             BookingFromTime.CustomFormat = "hh:00 tt";
             BookingFromTime.Format = DateTimePickerFormat.Custom;
