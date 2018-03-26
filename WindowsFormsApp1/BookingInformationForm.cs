@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace WindowsFormsApp1
 {
     //Written Code By Su Su (e0284029)
@@ -33,7 +34,8 @@ namespace WindowsFormsApp1
             dateTimePickerTo.Format = DateTimePickerFormat.Custom;
             dateTimePickerFrom.CustomFormat = "hh:00 tt";
             dateTimePickerTo.CustomFormat = "hh:00 tt";
-           
+            bookingGridView.Columns["Member"].Visible = false;
+            bookingGridView.Columns["Facility"].Visible = false;
         }
 
         private void searchPic_Click(object sender, EventArgs e)
