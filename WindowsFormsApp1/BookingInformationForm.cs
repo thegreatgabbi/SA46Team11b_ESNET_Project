@@ -31,8 +31,8 @@ namespace WindowsFormsApp1
             bookingGridView.DataSource = bList;
             dateTimePickerFrom.Format = DateTimePickerFormat.Custom;
             dateTimePickerTo.Format = DateTimePickerFormat.Custom;
-            dateTimePickerFrom.CustomFormat = "HH:00";
-            dateTimePickerTo.CustomFormat = "HH:00";
+            dateTimePickerFrom.CustomFormat = "hh:00 tt";
+            dateTimePickerTo.CustomFormat = "hh:00 tt";
         }
 
         private void searchPic_Click(object sender, EventArgs e)
@@ -82,6 +82,11 @@ namespace WindowsFormsApp1
             else if(numOfPaxTextBox.Text == String.Empty)
             {
                 MessageBox.Show("Please Enter Number of Pax!", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            else if(dateTimePickerTo.Value.Hour-dateTimePickerFrom.Value.Hour> bList[posn].Facility.AllowedHours)
+            {
+                MessageBox.Show("You cannot book more than "+ bList[posn].Facility.AllowedHours + " hours", "Invalid Time slots", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             else

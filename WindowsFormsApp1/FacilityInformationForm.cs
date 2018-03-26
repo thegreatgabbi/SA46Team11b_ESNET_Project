@@ -184,6 +184,7 @@ namespace WindowsFormsApp1
             {
                 context.Facilities.Remove(c);
                 context.SaveChanges();
+                
                 MessageBox.Show("Delete Success!");
                 this.FunctionRefresh();
                 FactGridView.DataSource = context.Facilities.ToList();
