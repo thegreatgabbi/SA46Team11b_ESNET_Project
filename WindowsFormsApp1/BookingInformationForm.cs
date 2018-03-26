@@ -33,6 +33,7 @@ namespace WindowsFormsApp1
             dateTimePickerTo.Format = DateTimePickerFormat.Custom;
             dateTimePickerFrom.CustomFormat = "hh:00 tt";
             dateTimePickerTo.CustomFormat = "hh:00 tt";
+           
         }
 
         private void searchPic_Click(object sender, EventArgs e)

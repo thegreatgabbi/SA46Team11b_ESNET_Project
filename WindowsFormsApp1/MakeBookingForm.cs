@@ -137,8 +137,7 @@ namespace WindowsFormsApp1
             BookingToTime.Value = BookingDateDtTimePckr.Value.Date + s;
             BookingFromTime.Value = BookingDateDtTimePckr.Value.Date + t;
 
-            MessageBox.Show(BookingFromTime.Value.ToString());
-            MessageBox.Show(BookingToTime.Value.ToString());
+           
 
             //assign f according to facility booked.
             f = ctx.Facilities.Where(x => x.FacilityName == facilityList.SelectedItem.ToString()).First();
@@ -179,8 +178,14 @@ namespace WindowsFormsApp1
                     BookingReceipt br = new BookingReceipt(b.BookingID); // TODO: to provide arguments
                     br.ShowDialog();
                 }
-                Close();
-                refToAvailabiltyForm.RenderDataGrid();
+                else
+                {
+                    Close();
+                }
+                if (refToAvailabiltyForm != null)
+                {
+                    refToAvailabiltyForm.RenderDataGrid();
+                }
             }
             else
             {
