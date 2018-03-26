@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsFormsApp1
+namespace DataGenerator
 {
     using System;
     using System.Collections.Generic;
@@ -19,6 +19,7 @@ namespace WindowsFormsApp1
         {
             this.Bookings = new HashSet<Booking>();
         }
+    
         public int MemberID { get; set; }
         public string MemberName { get; set; }
         public string ICNumber { get; set; }

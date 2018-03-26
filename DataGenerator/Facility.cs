@@ -7,31 +7,30 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsFormsApp1
+namespace DataGenerator
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Member
+    public partial class Facility
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Member()
+        public Facility()
         {
             this.Bookings = new HashSet<Booking>();
+            this.Availabilities = new HashSet<Availability>();
         }
-        public int MemberID { get; set; }
-        public string MemberName { get; set; }
-        public string ICNumber { get; set; }
-        public System.DateTime DateofBirth { get; set; }
-        public string Address { get; set; }
-        public string Country { get; set; }
-        public string Postcode { get; set; }
-        public string ContactTitle { get; set; }
-        public string ContactNumber { get; set; }
-        public string EmailAddress { get; set; }
-        public string Gender { get; set; }
+    
+        public int FacilityID { get; set; }
+        public string FacilityType { get; set; }
+        public string FacilityName { get; set; }
+        public string Location { get; set; }
+        public Nullable<System.DateTime> MaintenanceDate { get; set; }
+        public int AllowedHours { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booking> Bookings { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Availability> Availabilities { get; set; }
     }
 }
