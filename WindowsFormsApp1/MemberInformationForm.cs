@@ -229,5 +229,13 @@ namespace WindowsFormsApp1
         {
             this.MemberInformationForm_Load(sender,e);
         }
+
+        private void searchMemberTextBox_TextChanged(object sender, EventArgs e)
+        {
+           if( searchMemberTextBox.Text== String.Empty)
+            {
+                memGridView.DataSource = context.Members.ToList();
+            }
+        }
     }
 }

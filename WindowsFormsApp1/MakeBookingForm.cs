@@ -114,9 +114,9 @@ namespace WindowsFormsApp1
 
         private void Okbtn_Click_1(object sender, EventArgs e)
         {
-            BookingFromTime.Value = new DateTime(BookingDateDtTimePckr.Value.Year, BookingDateDtTimePckr.Value.Month, BookingDateDtTimePckr.Value.Day,
-             BookingFromTime.Value.Hour, 00, 00);
-
+           BookingFromTime.Value = new DateTime(BookingDateDtTimePckr.Value.Year, BookingDateDtTimePckr.Value.Month, BookingDateDtTimePckr.Value.Day,
+            BookingFromTime.Value.Hour, 00, 00);
+             
             BookingToTime.Value = new DateTime(BookingDateDtTimePckr.Value.Year, BookingDateDtTimePckr.Value.Month, BookingDateDtTimePckr.Value.Day,
             BookingToTime.Value.Hour, 00, 00);
 

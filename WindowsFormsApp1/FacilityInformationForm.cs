@@ -216,5 +216,13 @@ namespace WindowsFormsApp1
         {
             FacilityInformationForm_Load(sender, e);
         }
+
+        private void searchFacilityTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (searchFacilityTextBox.Text == String.Empty)
+            {
+                FactGridView.DataSource = context.Facilities.ToList();
+            }
+        }
     }
 }

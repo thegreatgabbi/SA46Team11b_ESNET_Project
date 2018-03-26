@@ -95,6 +95,7 @@
             this.searchMemberTextBox.Name = "searchMemberTextBox";
             this.searchMemberTextBox.Size = new System.Drawing.Size(223, 45);
             this.searchMemberTextBox.TabIndex = 7;
+            this.searchMemberTextBox.TextChanged += new System.EventHandler(this.searchMemberTextBox_TextChanged);
             // 
             // searchPic
             // 

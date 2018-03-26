@@ -181,5 +181,13 @@ namespace WindowsFormsApp1
             MakeBookingForm nbi = new MakeBookingForm();
             nbi.Show();
         }
+
+        private void searchBookingTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (searchBookingTextBox.Text == String.Empty)
+            {
+                bookingGridView.DataSource = context.Bookings.ToList();
+            }
+        }
     }
 }

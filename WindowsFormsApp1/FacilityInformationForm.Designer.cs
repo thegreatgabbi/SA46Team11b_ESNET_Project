@@ -61,7 +61,7 @@
             this.DeleteLink.Location = new System.Drawing.Point(608, 73);
             this.DeleteLink.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DeleteLink.Name = "DeleteLink";
-            this.DeleteLink.Size = new System.Drawing.Size(116, 39);
+            this.DeleteLink.Size = new System.Drawing.Size(93, 31);
             this.DeleteLink.TabIndex = 90;
             this.DeleteLink.TabStop = true;
             this.DeleteLink.Text = "Delete";
@@ -73,7 +73,7 @@
             this.updateLink.Location = new System.Drawing.Point(608, 42);
             this.updateLink.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.updateLink.Name = "updateLink";
-            this.updateLink.Size = new System.Drawing.Size(127, 39);
+            this.updateLink.Size = new System.Drawing.Size(102, 31);
             this.updateLink.TabIndex = 89;
             this.updateLink.TabStop = true;
             this.updateLink.Text = "Update";
@@ -84,7 +84,7 @@
             this.LocationTextBox.Location = new System.Drawing.Point(474, 129);
             this.LocationTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.LocationTextBox.Name = "LocationTextBox";
-            this.LocationTextBox.Size = new System.Drawing.Size(123, 46);
+            this.LocationTextBox.Size = new System.Drawing.Size(123, 38);
             this.LocationTextBox.TabIndex = 88;
             // 
             // AllowedHoursTextBox
@@ -92,7 +92,7 @@
             this.AllowedHoursTextBox.Location = new System.Drawing.Point(473, 197);
             this.AllowedHoursTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.AllowedHoursTextBox.Name = "AllowedHoursTextBox";
-            this.AllowedHoursTextBox.Size = new System.Drawing.Size(121, 46);
+            this.AllowedHoursTextBox.Size = new System.Drawing.Size(121, 38);
             this.AllowedHoursTextBox.TabIndex = 83;
             // 
             // FacilityNameTextBox
@@ -100,7 +100,7 @@
             this.FacilityNameTextBox.Location = new System.Drawing.Point(473, 63);
             this.FacilityNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.FacilityNameTextBox.Name = "FacilityNameTextBox";
-            this.FacilityNameTextBox.Size = new System.Drawing.Size(121, 46);
+            this.FacilityNameTextBox.Size = new System.Drawing.Size(121, 38);
             this.FacilityNameTextBox.TabIndex = 79;
             // 
             // FacilityIDTextBox
@@ -109,7 +109,7 @@
             this.FacilityIDTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.FacilityIDTextBox.Name = "FacilityIDTextBox";
             this.FacilityIDTextBox.ReadOnly = true;
-            this.FacilityIDTextBox.Size = new System.Drawing.Size(136, 46);
+            this.FacilityIDTextBox.Size = new System.Drawing.Size(136, 38);
             this.FacilityIDTextBox.TabIndex = 78;
             // 
             // FacilityTypeTextBox
@@ -117,7 +117,7 @@
             this.FacilityTypeTextBox.Location = new System.Drawing.Point(171, 135);
             this.FacilityTypeTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.FacilityTypeTextBox.Name = "FacilityTypeTextBox";
-            this.FacilityTypeTextBox.Size = new System.Drawing.Size(176, 46);
+            this.FacilityTypeTextBox.Size = new System.Drawing.Size(176, 38);
             this.FacilityTypeTextBox.TabIndex = 77;
             // 
             // label11
@@ -126,7 +126,7 @@
             this.label11.Location = new System.Drawing.Point(356, 127);
             this.label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(146, 39);
+            this.label11.Size = new System.Drawing.Size(117, 31);
             this.label11.TabIndex = 76;
             this.label11.Text = "Location";
             // 
@@ -136,7 +136,7 @@
             this.label7.Location = new System.Drawing.Point(353, 197);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(238, 39);
+            this.label7.Size = new System.Drawing.Size(189, 31);
             this.label7.TabIndex = 72;
             this.label7.Text = "Allowed Hours";
             // 
@@ -146,7 +146,7 @@
             this.label3.Location = new System.Drawing.Point(353, 66);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(224, 39);
+            this.label3.Size = new System.Drawing.Size(179, 31);
             this.label3.TabIndex = 68;
             this.label3.Text = "Facility Name";
             // 
@@ -156,7 +156,7 @@
             this.facilityType.Location = new System.Drawing.Point(30, 127);
             this.facilityType.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.facilityType.Name = "facilityType";
-            this.facilityType.Size = new System.Drawing.Size(209, 39);
+            this.facilityType.Size = new System.Drawing.Size(168, 31);
             this.facilityType.TabIndex = 67;
             this.facilityType.Text = "Facility Type";
             // 
@@ -166,7 +166,7 @@
             this.facilityIDlabel.Location = new System.Drawing.Point(30, 66);
             this.facilityIDlabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.facilityIDlabel.Name = "facilityIDlabel";
-            this.facilityIDlabel.Size = new System.Drawing.Size(168, 39);
+            this.facilityIDlabel.Size = new System.Drawing.Size(135, 31);
             this.facilityIDlabel.TabIndex = 66;
             this.facilityIDlabel.Text = "Facility ID";
             // 
@@ -204,6 +204,7 @@
             this.searchFacilityTextBox.Name = "searchFacilityTextBox";
             this.searchFacilityTextBox.Size = new System.Drawing.Size(223, 45);
             this.searchFacilityTextBox.TabIndex = 13;
+            this.searchFacilityTextBox.TextChanged += new System.EventHandler(this.searchFacilityTextBox_TextChanged);
             // 
             // searchPic
             // 
@@ -249,7 +250,7 @@
             this.nodateCheckbox.AutoSize = true;
             this.nodateCheckbox.Location = new System.Drawing.Point(32, 250);
             this.nodateCheckbox.Name = "nodateCheckbox";
-            this.nodateCheckbox.Size = new System.Drawing.Size(384, 43);
+            this.nodateCheckbox.Size = new System.Drawing.Size(308, 35);
             this.nodateCheckbox.TabIndex = 93;
             this.nodateCheckbox.Text = "No Maintenance Date";
             this.nodateCheckbox.UseVisualStyleBackColor = true;
@@ -262,7 +263,7 @@
             this.MaintenanceDateDPicker.Location = new System.Drawing.Point(171, 194);
             this.MaintenanceDateDPicker.Margin = new System.Windows.Forms.Padding(4);
             this.MaintenanceDateDPicker.Name = "MaintenanceDateDPicker";
-            this.MaintenanceDateDPicker.Size = new System.Drawing.Size(176, 46);
+            this.MaintenanceDateDPicker.Size = new System.Drawing.Size(176, 38);
             this.MaintenanceDateDPicker.TabIndex = 92;
             this.MaintenanceDateDPicker.ValueChanged += new System.EventHandler(this.MaintenanceDateDPicker_ValueChanged_1);
             // 
@@ -272,13 +273,13 @@
             this.maintanceLabel.Location = new System.Drawing.Point(26, 191);
             this.maintanceLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.maintanceLabel.Name = "maintanceLabel";
-            this.maintanceLabel.Size = new System.Drawing.Size(293, 39);
+            this.maintanceLabel.Size = new System.Drawing.Size(234, 31);
             this.maintanceLabel.TabIndex = 91;
             this.maintanceLabel.Text = "Maintenance Date";
             // 
             // FacilityInformationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 39F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1207, 704);
