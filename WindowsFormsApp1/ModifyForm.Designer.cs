@@ -252,6 +252,7 @@
             // 
             // BookingDateDtTimePckr
             // 
+            this.BookingDateDtTimePckr.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.BookingDateDtTimePckr.Location = new System.Drawing.Point(435, 25);
             this.BookingDateDtTimePckr.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BookingDateDtTimePckr.Name = "BookingDateDtTimePckr";

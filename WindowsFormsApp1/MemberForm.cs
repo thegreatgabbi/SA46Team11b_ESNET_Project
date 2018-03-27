@@ -120,5 +120,10 @@ namespace WindowsFormsApp1
 
             this.Close();
         }
+
+        private void searchPic_Click(object sender, EventArgs e)
+        {
+            PopulateText();
+        }
     }
 }
