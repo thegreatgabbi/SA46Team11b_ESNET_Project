@@ -68,6 +68,8 @@ namespace WindowsFormsApp1
             // get selectedDate
             selectedDate = bookDTPicker.Value.Date;
 
+            context = new SembawangSportEntities();
+
             // LINQ doesn't support 'Date' type, so we have to use `int` types
             var bookingsByDayQuery = context.Bookings
                 .Where(x => x.BookingDateFrom.Day == selectedDate.Day)

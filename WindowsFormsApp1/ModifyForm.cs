@@ -89,16 +89,10 @@ namespace WindowsFormsApp1
             BookingToTime.Value = new DateTime(BookingDateDtTimePckr.Value.Year, BookingDateDtTimePckr.Value.Month, BookingDateDtTimePckr.Value.Day,
             BookingToTime.Value.Hour, 00, 00);
 
-            try
-            {
             b.BookingDateFrom = BookingDateDtTimePckr.Value.Date + BookingFromTime.Value.TimeOfDay;
             b.BookingDateTo = BookingDateDtTimePckr.Value.Date + BookingToTime.Value.TimeOfDay;
             b.MemberID = Int32.Parse(txtMemberID.Text);
             b.NumberofPax= Int32.Parse(txtNoOfPax.Text);
-            } catch {
-                MessageBox.Show("Please ensure that all fields are filled.");
-                return;
-            }
 
             // convert booking date from 
             int BookingTimeFrom = BookingFromTime.Value.Hour;
@@ -111,6 +105,7 @@ namespace WindowsFormsApp1
             if (value)
             {
                 ctx.SaveChanges();
+                refToAvailabiltyForm.RenderDataGrid();
                 MessageBox.Show("Booking Successfully Modified");
 
                 DialogResult res = MessageBox.Show("Do you want to print a receipt?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -119,8 +114,6 @@ namespace WindowsFormsApp1
                     MessageBox.Show("Printing Receipt");
                 }
                 Close();
-                refToAvailabiltyForm.RenderDataGrid();
-
             } else {
                 MessageBox.Show("Slot is not available");
             }
