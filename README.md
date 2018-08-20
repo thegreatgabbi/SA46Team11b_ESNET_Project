@@ -1,3 +1,2 @@
 # Sports Facility Booking System
-
-- Valli's forms in.
+Winforms application created for GDipSA assignment.
